@@ -115,13 +115,13 @@
                       </ul>
                       <ul class="border-b border-gray-lighter">
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">活動管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -148,13 +148,13 @@
             </ul>
             <ul class="border-b border-gray-lighter">
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">活動管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -168,26 +168,26 @@
       <div class="container flex flex-col items-center justify-center md_pb-23 md_pt-12 pb-18 pt-8" x-data="{}">
         <div class="mb-12 profile-card">
           <div class="font-bold mb-8 md_text-3xl text-center text-xl">個人檔案</div>
-          <div class="border-b border-gray-lighter grid grid-cols-2 mb-8"><a class="profile-tab" href="../../admin/profile/me.html">基本資料</a><a class="active profile-tab" href="../../admin/profile/me-account.html">帳號、密碼</a></div>
+          <div class="border-b border-gray-lighter flex items-center mb-8"><a class="flex-1 profile-tab" href="../../admin/profile/me.html">基本資料</a><a class="active flex-1 profile-tab" href="../../admin/profile/me-account.html">帳號、密碼</a></div>
           <div class="space-y-8">
             <div class="relative">
-              <div class="form-field"><label><span>Email</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" name="email"></div><button class="absolute btn btn-primary right-2 rounded-md text-xs top-9" @click="$store.openedModal = 'EMAIL_MODAL'">修改</button>
+              <div class="form-field"><label class="mb-2"><span>Email</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" name="email"></div><button class="absolute btn btn-primary right-2 rounded-md text-xs top-9" @click="$store.openedModal = 'EMAIL_MODAL'">修改</button>
             </div>
             <div class="relative">
-              <div class="form-field"><label><span>密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" name="password"></div><button class="absolute btn btn-primary right-2 rounded-md text-xs top-9" @click="$store.openedModal = 'PASSWORD_MODAL'">修改</button>
+              <div class="form-field"><label class="mb-2"><span>密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" name="password"></div><button class="absolute btn btn-primary right-2 rounded-md text-xs top-9" @click="$store.openedModal = 'PASSWORD_MODAL'">修改</button>
             </div>
           </div>
         </div>
-        <div x-show="$store.openedModal === 'PASSWORD_MODAL'">
+        <div x-show="$store.openedModal === 'PASSWORD_MODAL'" x-cloak="">
           <div x-data="{}">
             <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
               <div class="container flex items-center justify-center">
                 <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
                   <div class="font-medium mb-8 md_text-2xl text-center text-xl">更改密碼</div>
                   <div class="mb-8 space-y-8">
-                    <div class="form-field"><label><span>舊密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入舊密碼" name="舊密碼"></div>
-                    <div class="form-field"><label><span>新密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入新密碼" name="新密碼"></div>
-                    <div class="form-field"><label><span>確認密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請再次輸入新密碼" name="確認密碼"></div>
+                    <div class="form-field"><label class="mb-2"><span>舊密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入舊密碼" name="舊密碼"></div>
+                    <div class="form-field"><label class="mb-2"><span>新密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入新密碼" name="新密碼"></div>
+                    <div class="form-field"><label class="mb-2"><span>確認密碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請再次輸入新密碼" name="確認密碼"></div>
                   </div>
                   <div class="flex items-center justify-center w-full">
                     <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">更新</button></div>
@@ -197,7 +197,7 @@
             </div>
           </div>
         </div>
-        <div x-show="$store.openedModal === 'EMAIL_MODAL'">
+        <div x-show="$store.openedModal === 'EMAIL_MODAL'" x-cloak="">
           <div x-data='{"stage":"NEW_EMAIL_INPUT","isProcedureCompleted":false,"procedures":[{"label":"輸入新 Email","stage":"NEW_EMAIL_INPUT"},{"label":"輸入驗證碼","stage":"TOKEN_INPUT"},{"label":"完成更改Email","stage":"COMPLETED"}]}'>
             <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
               <div class="container flex items-center justify-center">
@@ -216,11 +216,11 @@
                           </template></div>
                       </div><template x-if="stage === 'NEW_EMAIL_INPUT'">
                         <div class="mb-8">
-                          <div class="form-field"><label><span>輸入新 Email</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入新 Email" name="輸入新 Email"></div><span class="text-gray text-xs">請輸入新的 Email 地址，輸入後將發送確認信件至您的郵箱。</span>
+                          <div class="form-field"><label class="mb-2"><span>輸入新 Email</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入新 Email" name="輸入新 Email"></div><span class="text-gray text-xs">請輸入新的 Email 地址，輸入後將發送確認信件至您的郵箱。</span>
                         </div>
                       </template><template x-if="stage === 'TOKEN_INPUT'">
                         <div class="mb-8">
-                          <div class="form-field"><label><span>輸入驗證碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入驗證碼" name="輸入驗證碼"></div><span class="text-gray text-xs">已將確認碼發送至 mynewemail@gmail.com，請輸入所收到的確認碼。</span>
+                          <div class="form-field"><label class="mb-2"><span>輸入驗證碼</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入驗證碼" name="輸入驗證碼"></div><span class="text-gray text-xs">已將確認碼發送至 mynewemail@gmail.com，請輸入所收到的確認碼。</span>
                         </div>
                       </template>
                       <div class="flex items-center justify-center w-full">
