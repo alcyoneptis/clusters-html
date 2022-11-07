@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
   <title>Clusters</title>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../assets/app.5b6a5908.css">
+  <link rel="stylesheet" href="../assets/app.2a82286b.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="../assets/app.4dad784d.js"></script>
@@ -25,7 +25,7 @@
               <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../static/hamburger.dfaf1370.svg" alt=""></button><a href="../index.html"><img class="w-24 xl_w-40" src="../static/logo.b0a7d86a.svg"></a></div>
               <div class="flex items-center space-x-4 xl_hidden">
                 <div class="relative" x-data="{open: false}">
-                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 w-6" src="../static/search.65aae8c4.svg" alt=""></button>
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../static/search.65aae8c4.svg" alt=""></button>
                     <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
                       <div class="container py-2">
                         <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href="../search/works.html"><img class="mr-2" src="../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
@@ -198,7 +198,7 @@
                   <div class="gap-y-12 grid justify-center">
                     <div class="h1 text-center text-gray-darker">請選擇您的創作領域</div>
                     <div class="gap-4 grid grid-cols-2">
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="插畫">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="插畫" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
@@ -206,7 +206,7 @@
                         </label>
                         <div class="ml-6 mt-2 text-caption text-gray">手繪或電繪的插畫作品</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="Live 2D">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="Live 2D" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
@@ -214,7 +214,7 @@
                         </label>
                         <div class="ml-6 mt-2 text-caption text-gray">使用 Live2D 的創作</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="漫畫">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="漫畫" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
@@ -222,7 +222,7 @@
                         </label>
                         <div class="ml-6 mt-2 text-caption text-gray">手繪或電繪的漫畫作品</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="實物製作">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="實物製作" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
@@ -230,7 +230,7 @@
                         </label>
                         <div class="ml-6 mt-2 text-caption text-gray">實體物品，包含飾品、服装、周邊、人型、模型...適用於個人手作、小型工作室、客製廠商</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="Cosplay">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="Cosplay" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
@@ -238,7 +238,7 @@
                         </label>
                         <div class="ml-6 mt-2 text-caption text-gray">真人照片創作，包含：COSPLAY、模特、攝影...</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="其它">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="其它" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
@@ -246,7 +246,7 @@
                         </label>
                         <div class="ml-6 mt-2 text-caption text-gray">包含：平面設計、影片剪輯、文字創作、3D、遊戲製作...</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="聲音創作">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="聲音創作" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>

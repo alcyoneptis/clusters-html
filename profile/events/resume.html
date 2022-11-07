@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
   <title>Clusters</title>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.5b6a5908.css">
+  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="../../assets/app.4dad784d.js"></script>
@@ -25,7 +25,7 @@
               <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../../static/hamburger.dfaf1370.svg" alt=""></button><a href="../../index.html"><img class="w-24 xl_w-40" src="../../static/logo.b0a7d86a.svg"></a></div>
               <div class="flex items-center space-x-4 xl_hidden">
                 <div class="relative" x-data="{open: false}">
-                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 w-6" src="../../static/search.65aae8c4.svg" alt=""></button>
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../../static/search.65aae8c4.svg" alt=""></button>
                     <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
                       <div class="container py-2">
                         <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href="../../search/works.html"><img class="mr-2" src="../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
@@ -172,15 +172,17 @@
               <div class="bg-white overflow-hidden rounded-2xl"><img class="w-full" src="../../static/event-cover.df207d96.png" alt="">
                 <div class="flex flex-col gap-y-6 p-4 xl_gap-y-8 xl_p-12">
                   <div class="flex flex-col gap-y-6 gap-y-8 xl">
-                    <h1 class="h1 text-center">請填寫應徵資料</h1>
+                    <h1 class="h2 text-center">請填寫應徵資料</h1>
                     <div class="flex flex-col gap-y-3">
                       <div class="text-gray-darker text-subtitle-sm">職務名稱職務名稱職務名稱</div>
                       <div class="text-body-sm text-gray">職務介紹職務介紹出来が気に入らなかったのかそれとも周りの評価を気にして出せなかったのかお蔵入りした一枚イラ出来が気に入らなかったのかそれとも周りの評価を気にして職務介紹職務介紹出来が気に入らなかったのかそれとも周りの評価を気にして出せなかったのかお蔵入りした一枚イラ出来が気に入らなかったのかそれとも周りの評価を気にして</div>
                     </div>
                   </div>
-                  <div class="bg-gray-lightest divider h-1 xl_-mx-6"></div>
+                  <div class="bg-gray-lightest divider h-0-125 xl_-mx-6"></div>
                   <div class="flex flex-col gap-y-6 gap-y-8 xl" x-data="{selectedItems:[], searchText:'', items: [...Array(20).keys()].map((item,  index)=&gt;({ id: index+1, name: '作品名稱作品名稱作品名稱'+(index+1)})), loadMore:false}">
-                    <div class="form-field"><label class="mb-2"><span>請選擇 1 至 5 個代表作品</span><span class="mt-1 text-danger">*</span></label>
+                    <div class="grid"><label class="flex mb-2">
+                        <div class="text-base">請選擇 1 至 5 個代表作品</div><span class="text-danger">*</span>
+                      </label>
                       <div class="text-body-sm text-gray" x-text="`您已選擇了 ${selectedItems.length} 個作品`"></div>
                       <div class="gap-x-10 grid grid-cols-4 mt-5 w-full xl_gap-x-6 xl_grid-cols-10"><template x-for="(item, index) in (items.filter(each=&gt;selectedItems.indexOf(each.id) !== -1))" key="item.id">
                           <div class="col-span-2 flex flex-col gap-y-3 group group-hover_bg-gray-lighter" @click="selectedItems.splice(index, 1)">
@@ -192,7 +194,7 @@
                             <div class="text-caption text-gray-darker truncate" x-text="item.name"></div>
                           </div>
                         </template></div>
-                    </div><label class="bg-primary-lighter h-8 relative rounded-xl"><input class="form-input h-8 pl-8" type="text" placeholder="搜尋作品" name="searchItem" x-model="searchText">
+                    </div><label class="bg-primary-lighter h-8 relative rounded-xl"><input class="form-input h-8 pl-8 placeholder_text-caption" type="text" placeholder="搜尋作品" name="searchItem" x-model="searchText">
                       <div class="absolute flex inset-y-0 items-center justify-center left-2"><img src="../../static/search.65aae8c4.svg" alt="search"></div>
                     </label>
                     <div class="resume-items xl_gap-x-6 xl_gap-y-8 xl_grid-cols-10" :class="loadMore &amp;&amp; 'show-more'" x-cloak=""><template x-for="item in (items.filter(each=&gt; (searchText.length === 0) || each.name.includes(searchText) ))" key="item.id">
@@ -204,7 +206,7 @@
                             </template></div>
                           <div class="text-caption text-gray-darker truncate" x-text="item.name"></div>
                         </div>
-                      </template></div><button class="btn btn-block btn-outline-primary m-auto text-sm xl_h-14 xl_w-50" x-show="!loadMore" x-cloak="" @click="loadMore = true">載入更多</button>
+                      </template></div><button class="btn btn-block btn-outline-primary font-bold m-auto py-2 text-base xl_w-50" x-show="!loadMore" x-cloak="" @click="loadMore = true">載入更多</button>
                     <div class="relative">
                       <div class="form-field"><label class="mb-2"><span>自我介紹</span></label><textarea class="form-input" placeholder="請詳細說明：您具備什麼優勢？為何想加入活動？" name="introSelf"></textarea></div>
                       <div class="absolute bottom-3 right-3 text-caption text-gray-light">500</div>

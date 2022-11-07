@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
   <title>Clusters</title>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../assets/app.5b6a5908.css">
+  <link rel="stylesheet" href="../assets/app.2a82286b.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="../assets/app.4dad784d.js"></script>
@@ -25,7 +25,7 @@
               <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../static/hamburger.dfaf1370.svg" alt=""></button><a href="../index.html"><img class="w-24 xl_w-40" src="../static/logo.b0a7d86a.svg"></a></div>
               <div class="flex items-center space-x-4 xl_hidden">
                 <div class="relative" x-data="{open: false}">
-                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 w-6" src="../static/search.65aae8c4.svg" alt=""></button>
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../static/search.65aae8c4.svg" alt=""></button>
                     <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
                       <div class="container py-2">
                         <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href="../search/works.html"><img class="mr-2" src="../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
@@ -207,40 +207,67 @@
                     </div>
                     <div class="col-span-12">
                       <div class="gap-y-6 grid">
-                        <div class="flex flex-col gap-y-2 release-product-cover">
-                          <div class="form-field"><label class="mb-2"><span>封面</span><span class="mt-1 text-danger">*</span></label></div>
-                          <div class="bg-gray-lightest cover-upload flex h-36 items-center justify-center relative rounded-xl w-73"><img src="../static/plus.693e8099.svg" alt="plus">
-                            <div class="absolute opacity-0">
-                              <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input hidden" type="file" name="cover-upload" id="cover-upload"><label class="btn w-fit" for="cover-upload">Upload</label></div>
-                            </div>
-                          </div>
-                          <div class="bg-gray h-36 hidden overflow-hidden w-73" wrapper-name="cover-upload"><img class="h-full object-cover w-full" src="../static/next-work.9e275f28.png" img-name="cover-upload"></div>
+                        <div class="flex flex-col gap-y-2 release-product-cover" x-data="{}">
+                          <div class="form-field"><label class="mb-2"><span>封面</span><span class="mt-1 text-danger">*</span></label></div><button class="bg-gray-lightest flex h-36 items-center justify-center rounded-xl w-73" type="button" @click="$store.openedModal = 'RELEASE_PRODUCT_UPDATE_COVER_MODAL'"><img src="../static/plus.693e8099.svg" alt="plus"></button>
                           <div class="text-caption">尺寸建議：1200*630px</div>
-                          <script>
-                            const coverUpload = document.querySelector('[name="cover-upload"]');
-                            coverUpload.addEventListener("change", uploadImage);
-                          </script>
+                          <div x-show="$store.openedModal === 'RELEASE_PRODUCT_UPDATE_COVER_MODAL'" x-cloak="x-cloak">
+                            <div x-data="{ zoom: 100, currentTab: '寬封面'}" @set-current-tab.window="currentTab = $event.detail">
+                              <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                                <div class="container flex items-center justify-center">
+                                  <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                                    <div class="font-medium mb-8 md_text-2xl text-center text-xl">設定圖片位置與尺寸</div>
+                                    <div class="col-span-12 release-product-tabs" x-data="{currentTab: '寬封面'}">
+                                      <div class="border-b border-transparent flex mb-0"><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '寬封面' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '寬封面'; $dispatch('set-current-tab', '寬封面')" x-cloak="x-cloak">寬封面</button><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '1:1 方形' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '1:1 方形'; $dispatch('set-current-tab', '1:1 方形')" x-cloak="x-cloak">1:1 方形</button></div>
+                                    </div>
+                                    <div class="flex justify-center mb-10">
+                                      <div class="aspect-update-cover avatar-upload bg-gray-lightest flex items-center justify-center relative w-full"><img src="../static/plus.693e8099.svg" alt="plus">
+                                        <div class="absolute opacity-0">
+                                          <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input hidden" type="file" name="avatar-upload" id="avatar-upload"><label class="btn w-fit" for="avatar-upload">Upload</label></div>
+                                        </div>
+                                      </div>
+                                      <div class="aspect-update-cover bg-gray hidden overflow-hidden relative w-full" wrapper-name="avatar-upload"><img class="h-full w-full" src="../static/next-work.9e275f28.png" img-name="avatar-upload" :style="{ transform: `scale(${zoom/100})`}">
+                                        <div class="update-cover-image" x-show="currentTab == '1:1 方形'" x-cloak="x-cloak">
+                                          <div class="update-cover-image-blur"></div>
+                                          <div class="update-cover-image-square"></div>
+                                          <div class="update-cover-image-blur"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="flex items-center mb-10 object-cover space-x-2"><img src="../static/zoom-out.a60f888b.svg" alt=""><input class="avatar-slider" type="range" min="100" max="200" x-model="zoom"><img src="../static/zoom-in.10c72a9a.svg" alt=""></div>
+                                    <div class="flex items-center justify-center w-full">
+                                      <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">申請認證</button></div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <script>
+                              const avatarUpload = document.querySelector('[name="avatar-upload"]');
+                              avatarUpload.addEventListener("change", uploadImage);
+                            </script>
+                          </div>
                         </div>
                         <div class="flex flex-col gap-y-2 release-product-title">
                           <div class="form-field"><label class="mb-2"><span>標題</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入標題" name="title"></div>
                         </div>
-                        <div class="form-field"><label class="mb-2"><span>內文</span><span class="mt-1 text-danger">*</span></label><textarea class="form-input" placeholder="請輸入內文" name="content"></textarea></div>
+                        <div class="relative">
+                          <div class="form-field"><label class="mb-2"><span>內文</span><span class="mt-1 text-danger">*</span></label><textarea class="form-input" placeholder="請輸入內文" name="content"></textarea></div><button class="-left-6 absolute h-4 hover_bg-gray-lighter hoverable rounded-full top-10 w-4 xl_-left-9 xl_h-7 xl_top-11 xl_w-7" type="button"><img src="../static/primary-plus-btn.900c8335.svg" alt=""></button>
+                        </div>
                         <div class="flex flex-col gap-y-2 release-product-attachment">
                           <div class="form-field"><label class="mb-2"><span>附件</span><span class="mt-1 text-danger">*</span></label><input class="form-input hidden" type="file" name="attachment" id="attachment">
                             <div class="flex flex-col gap-1 mt-2"><label class="btn w-fit" for="attachment"> <img class="h-5 w-5" src="../static/paper-clip.e8b873ed.svg" alt="">
-                                <div class="text-body">上傳附件</div>
+                                <div class="text-body-sm">上傳附件</div>
                               </label></div>
+                            <p class="helper">檔案需小於100MB</p>
                           </div>
                         </div>
-                        <div class="flex flex-col gap-2 release-product-join-event" x-data="{oftenHashtags: [{text: '#聖誕快樂',id: 1}, {text: '#常用標籤', id: 2}, {text: '#聖誕快樂', id: 3}]}">
+                        <div class="flex flex-col gap-2" x-data="{hashtag: ''}">
                           <div class="flex gap-y-2 items-end justify-between">
                             <div class="form-field"><label class="mb-2"><span>主題標籤</span><span class="mt-1 text-danger">*</span></label></div>
-                            <div class="text-caption text-gray-light">0/6</div>
-                          </div><input class="form-input" type="text" placeholder="請輸入標籤名稱" name="hashtag">
+                            <div class="text-caption text-gray-light" x-text="`${hashtag.length}/6`" x-cloak="x-cloak"></div>
+                          </div><input class="form-input" type="text" placeholder="請輸入標籤名稱" name="name" maxlength="6" x-model="hashtag">
                           <div class="flex flex-wrap items-center">
-                            <div class="mr-2 text-caption text-gray">常用：</div><template x-for="oftenHashtag in oftenHashtags" :key="oftenHashtag.id">
-                              <div class="border border-gray-lighter mr-2 my-1 px-1 py-0_5 rounded-sm text-caption text-center text-gray-light" x-text="oftenHashtag.text"></div>
-                            </template>
+                            <div class="mr-2 text-caption text-gray">常用：</div><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='聖誕快樂'">#聖誕快樂</button><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='常用標籤'">#常用標籤</button><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='聖誕快樂'">#聖誕快樂</button>
                           </div>
                         </div>
                         <div class="release-product-set-op"><label class="form-check"><input class="hidden" type="checkbox" name="setTop" value="設置為置頂作品">
@@ -291,41 +318,29 @@
                         <div class="form-field"><label class="mb-2"><span>選擇有瀏覽權限的會員等級</span><span class="mt-1 text-danger">*</span></label></div>
                         <div class="base-plan gap-2 grid">
                           <div class="flex gap-2">
-                            <div class="text-body text-gray-darker">標準方案</div>
-                            <div class="text-body-regular text-gray-light">(單選)</div>
+                            <div class="text-body-sm text-gray-darker">標準方案</div>
+                            <div class="text-body-sm text-gray-light">(單選)</div>
                           </div>
-                          <div class="form-field"><label class="mb-2"><span></span></label>
-                            <div class="cursor-pointer flex form-input items-center relative" x-data="{open: false, selected: []}" @click="open = !open" @click.outside="open = false">
-                              <div class="flex-1 selected">
-                                <ul class="flex"><template x-for="item in selected">
-                                    <li class="border border-primary mr-4 px-3 py-1 rounded text-primary" @click.stop="selected=selected.filter((value)=&gt;value!==item)">
-                                      <div class="flex items-center space-x-2"><span x-text="item"></span><i class="fa fa-xmark"></i></div>
-                                    </li>
-                                  </template></ul>
-                              </div><i class="fa fa-caret-down"></i>
-                              <div class="absolute bg-white border border-gray-lighter left-0 py-3 right-0 rounded-xl top-full translate-y-2 z-10" x-show="open" x-cloak="x-cloak">
-                                <ul>
-                                  <li class="hover_bg-primary-light hoverable px-6 py-1"><label class="form-check"><input class="hidden" type="checkbox" name="basic-plan" value="CWT61 台大場" x-model="selected">
-                                      <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
-                                      <div>CWT61 台大場</div>
-                                    </label></li>
-                                  <li class="hover_bg-primary-light hoverable px-6 py-1"><label class="form-check"><input class="hidden" type="checkbox" name="basic-plan" value="CWT62 台大場" x-model="selected">
-                                      <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
-                                      <div>CWT62 台大場</div>
-                                    </label></li>
-                                  <li class="hover_bg-primary-light hoverable px-6 py-1"><label class="form-check"><input class="hidden" type="checkbox" name="basic-plan" value="CWT60 台大場" x-model="selected">
-                                      <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
-                                      <div>CWT60 台大場</div>
-                                    </label></li>
-                                </ul>
+                          <div class="flex flex-col gap-2 relative" x-data="{open: false, selectedOption: '' }">
+                            <div class="form-field"><label class="mb-2"><span></span></label>
+                              <div class="relative"><button class="bg-gray-lightest flex h-12 hover_border-primary p-3 rounded-lg w-full" type="button" @click="open = !open">
+                                  <div class="flex flex-1 h-full items-center relative">
+                                    <div class="text-body-sm text-gray-light" x-show="!selectedOption" x-text="'下拉選擇或輸入關鍵字'" x-cloak="x-cloak"></div>
+                                  </div><img class="h-6 my-auto w-6" src="../static/arrow-down.ebccd611.svg" alt="arrow-down">
+                                </button>
+                                <div class="absolute bottom-2 left-3"><button class="border border-primary hover_bg-primary-light pl-3 pr-8 py-1 rounded-sm text-body-sm text-primary" x-show="selectedOption" x-text="selectedOption" x-cloak="x-cloak" @click="selectedOption = ''"></button><img class="absolute bottom-2 h-4 right-3 w-4" src="../static/primary-close.6d6ac633.svg" alt="close"></div>
                               </div>
+                              <p class="helper">只能從您有參與的活動中選擇作品有參與的活動</p>
+                            </div>
+                            <div class="absolute bg-white border border-gray-lighter inset-x-0 py-3 rounded-lg top-16 z-10" x-show="open" x-cloak="x-cloak">
+                              <div class="flex flex-col"><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT61 台大場'; open=false">CWT61 台大場</button><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT62 台北場'; open=false">CWT62 台北場</button><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT-T28 台中場'; open=false">CWT-T28 台中場</button></div>
                             </div>
                           </div>
                         </div>
                         <div class="additional-plan gap-2 grid">
                           <div class="flex gap-2">
-                            <div class="text-body text-gray-darker">進階方案</div>
-                            <div class="text-body-regular text-gray-light">(複選)</div>
+                            <div class="text-body-sm text-gray-darker">進階方案</div>
+                            <div class="text-body-sm text-gray-light">(複選)</div>
                           </div>
                           <div class="form-field"><label class="mb-2"><span></span></label>
                             <div class="cursor-pointer flex form-input items-center relative" x-data="{open: false, selected: []}" @click="open = !open" @click.outside="open = false">
@@ -357,8 +372,8 @@
                         </div>
                         <div class="announce-text gap-2 grid">
                           <div class="flex gap-2">
-                            <div class="text-body text-gray-darker">預告文字</div>
-                            <div class="text-body-regular text-gray-light">(無觀看權限的使用者會看到的文字)</div>
+                            <div class="text-body-sm text-gray-darker">預告文字</div>
+                            <div class="text-body-sm text-gray-light">(無觀看權限的使用者會看到的文字)</div>
                           </div><textarea class="form-input" name="announce-text"></textarea>
                         </div>
                       </div>
@@ -389,6 +404,7 @@
                         </div>
                         <script>
                           flatpickr("#date-picker", {
+                            disableMobile: !0,
                             dateFormat: "Y 年 m 月 d 日"
                           });
                         </script>
@@ -399,6 +415,7 @@
                         </div>
                         <script>
                           flatpickr("#time-picker", {
+                            disableMobile: !0,
                             noCalendar: !0,
                             enableTime: !0,
                             dateFormat: "h:i K"

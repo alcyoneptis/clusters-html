@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
   <title>Clusters</title>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="./assets/app.5b6a5908.css">
+  <link rel="stylesheet" href="./assets/app.2a82286b.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="./assets/app.4dad784d.js"></script>
@@ -25,7 +25,7 @@
               <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="./static/hamburger.dfaf1370.svg" alt=""></button><a href="./index.html"><img class="w-24 xl_w-40" src="./static/logo.b0a7d86a.svg"></a></div>
               <div class="flex items-center space-x-4 xl_hidden">
                 <div class="relative" x-data="{open: false}">
-                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 w-6" src="./static/search.65aae8c4.svg" alt=""></button>
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="./static/search.65aae8c4.svg" alt=""></button>
                     <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
                       <div class="container py-2">
                         <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href="./search/works.html"><img class="mr-2" src="./static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
@@ -53,13 +53,15 @@
         </div>
       </div>
       <sidebar class="bg-white border-gray-lighter border-t bottom-0 fixed left-0 py-4 text-sm top-12 w-54 xl_hidden z-30" x-cloak="" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
-        <nav>
-          <ul class="border-b border-gray-lighter">
-            <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="./index.html">首頁</a></li>
-            <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="./navigator/recommendation.html">推薦創作者</a></li>
-            <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
-          </ul><a class="btn btn-block btn-primary mt-3 text-sm" href="">登入</a>
-        </nav>
+        <div class="px-4 py-2">
+          <nav>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="./navigator/recommendation.html">推薦創作者</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="./navigator/events.html">探索活動</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
+            </ul><a class="btn btn-block btn-primary mt-3 text-sm" href="">登入</a>
+          </nav>
+        </div>
       </sidebar>
       <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
     </header>
@@ -102,7 +104,7 @@
       <section class="work-swiper-section">
         <div class="container relative">
           <div class="mb-14 xl_mb-20">
-            <h2 class="h1 mb-6 text-center">推薦作品</h2>
+            <h2 class="font-medium h1 mb-6 text-center">推薦作品</h2>
             <div class="relative">
               <div class="hidden xl_block"><button class="-translate-x-4 -translate-y-half absolute bg-gray-dark bg-opacity-65 flex-center h-12 hover_bg-gray-dark hoverable left-0 prev rounded-full top-half w-12 z-20"><svg width="15" height="25" fill="none">
                     <path d="m.585 14.181 11.053 10.36a1.688 1.688 0 0 0 2.311-2.461l-9.74-9.127 9.736-9.131a1.688 1.688 0 0 0-2.312-2.46L.58 11.72c-.337.314-.53.76-.53 1.229 0 .468.193.918.535 1.232Z" fill="#fff" />
@@ -222,7 +224,7 @@
       <section class="event-swiper-section">
         <div class="container relative">
           <div class="mb-14 xl_mb-20">
-            <h2 class="h1 mb-6 text-center">推薦活動</h2>
+            <h2 class="font-medium h1 mb-6 text-center">推薦活動</h2>
             <div class="relative">
               <div class="hidden xl_block"><button class="-translate-x-4 -translate-y-half absolute bg-gray-dark bg-opacity-65 flex-center h-12 hover_bg-gray-dark hoverable left-0 prev rounded-full top-half w-12 z-20"><svg width="15" height="25" fill="none">
                     <path d="m.585 14.181 11.053 10.36a1.688 1.688 0 0 0 2.311-2.461l-9.74-9.127 9.736-9.131a1.688 1.688 0 0 0-2.312-2.46L.58 11.72c-.337.314-.53.76-.53 1.229 0 .468.193.918.535 1.232Z" fill="#fff" />
@@ -244,8 +246,8 @@
                           </div>
                           <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
                             <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2022-05-10</span></div>
-                            <div class="flex items-center justify-between">
-                              <div class="flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
+                            <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                              <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
                               <div class="flex justify-start">
                                 <div class="flex items-center">
                                   <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/avatar-four.c81cc828.png" alt=""><img class="h-7 translate-x-half w-7" src="./static/avatar-three.c4577f05.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/avatar-two.c6bff101.png" alt=""></div><span class="ml-1">參加</span>
@@ -282,8 +284,8 @@
                           </div>
                           <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
                             <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2022-05-10</span></div>
-                            <div class="flex items-center justify-between">
-                              <div class="flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
+                            <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                              <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
                               <div class="flex justify-start">
                                 <div class="flex items-center">
                                   <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/avatar-four.c81cc828.png" alt=""><img class="h-7 translate-x-half w-7" src="./static/avatar-three.c4577f05.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/avatar-two.c6bff101.png" alt=""></div><span class="ml-1">參加</span>
@@ -320,8 +322,8 @@
                           </div>
                           <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
                             <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2022-05-10</span></div>
-                            <div class="flex items-center justify-between">
-                              <div class="flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
+                            <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                              <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
                               <div class="flex justify-start">
                                 <div class="flex items-center">
                                   <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/avatar-four.c81cc828.png" alt=""><img class="h-7 translate-x-half w-7" src="./static/avatar-three.c4577f05.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/avatar-two.c6bff101.png" alt=""></div><span class="ml-1">參加</span>
@@ -358,8 +360,8 @@
                           </div>
                           <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
                             <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2022-05-10</span></div>
-                            <div class="flex items-center justify-between">
-                              <div class="flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
+                            <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                              <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
                               <div class="flex justify-start">
                                 <div class="flex items-center">
                                   <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/avatar-four.c81cc828.png" alt=""><img class="h-7 translate-x-half w-7" src="./static/avatar-three.c4577f05.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/avatar-two.c6bff101.png" alt=""></div><span class="ml-1">參加</span>
@@ -396,8 +398,8 @@
                           </div>
                           <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
                             <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2022-05-10</span></div>
-                            <div class="flex items-center justify-between">
-                              <div class="flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
+                            <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                              <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
                               <div class="flex justify-start">
                                 <div class="flex items-center">
                                   <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/avatar-four.c81cc828.png" alt=""><img class="h-7 translate-x-half w-7" src="./static/avatar-three.c4577f05.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/avatar-two.c6bff101.png" alt=""></div><span class="ml-1">參加</span>
@@ -434,8 +436,8 @@
                           </div>
                           <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
                             <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2022-05-10</span></div>
-                            <div class="flex items-center justify-between">
-                              <div class="flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
+                            <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                              <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>999人關注此活動</span></div>
                               <div class="flex justify-start">
                                 <div class="flex items-center">
                                   <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/avatar-four.c81cc828.png" alt=""><img class="h-7 translate-x-half w-7" src="./static/avatar-three.c4577f05.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/avatar-two.c6bff101.png" alt=""></div><span class="ml-1">參加</span>
@@ -468,7 +470,7 @@
       <section class="recommended-swiper-section">
         <div class="container relative">
           <div class="mb-14 xl_mb-20">
-            <h2 class="h1 mb-6 text-center">推薦創作者</h2>
+            <h2 class="font-medium h1 mb-6 text-center">推薦創作者</h2>
             <div class="relative">
               <div class="hidden xl_block"><button class="-translate-x-4 -translate-y-half absolute bg-gray-dark bg-opacity-65 flex-center h-12 hover_bg-gray-dark hoverable left-0 prev rounded-full top-half w-12 z-20"><svg width="15" height="25" fill="none">
                     <path d="m.585 14.181 11.053 10.36a1.688 1.688 0 0 0 2.311-2.461l-9.74-9.127 9.736-9.131a1.688 1.688 0 0 0-2.312-2.46L.58 11.72c-.337.314-.53.76-.53 1.229 0 .468.193.918.535 1.232Z" fill="#fff" />
