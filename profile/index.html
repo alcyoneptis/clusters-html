@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
   <title>Clusters</title>
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../assets/app.221858b8.css">
+  <link rel="stylesheet" href="../assets/app.5b6a5908.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../assets/app.385ec17f.js"></script>
+  <script src="../assets/app.4dad784d.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
@@ -115,13 +115,13 @@
                       </ul>
                       <ul class="border-b border-gray-lighter">
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">帳號設定</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/subscription/subscription-management.html">訂閱管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/event/event-management.html">活動管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/order/order-management.html">訂單管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../static/creation.ee5307e1.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -148,13 +148,13 @@
             </ul>
             <ul class="border-b border-gray-lighter">
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">帳號設定</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/subscription/subscription-management.html">訂閱管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/event/event-management.html">活動管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/order/order-management.html">訂單管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../static/creation.ee5307e1.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -198,17 +198,17 @@
             </div>
           </div>
         </div>
-        <div x-data="{menuOpened: false, modalOpened: false}">
+        <div x-data="{menuOpened: false, modalOpened: false, defaultModalOpened: false}">
           <div class="container flex items-center py-8">
             <div class="flex flex-1 overflow-x-scroll">
-              <ul class="categories">
-                <li class="shrink-0"><button class="active category" type="button">
+              <ul class="categories" x-data="{ active: '[object Object]' }">
+                <li class="shrink-0"><button class="category" type="button" :class="{ active: active === '插畫' }" @click="active = '插畫'">
                     <div class="title">插畫 20</div>
                   </button></li>
-                <li class="shrink-0"><button class="category" type="button">
+                <li class="shrink-0"><button class="category" type="button" :class="{ active: active === '漫畫' }" @click="active = '漫畫'">
                     <div class="title">漫畫 12</div>
                   </button></li>
-                <li class="shrink-0"><button class="category" type="button">
+                <li class="shrink-0"><button class="category" type="button" :class="{ active: active === 'Cosplay' }" @click="active = 'Cosplay'">
                     <div class="title">Cosplay 12</div>
                   </button></li>
               </ul>
@@ -304,7 +304,7 @@
               </ul>
             </div>
           </div>
-          <div class="bg-gray-lightest bottom-0 fixed left-0 pt-4 right-0 top-12 xl_hidden z-20" x-show="menuOpened" x-data="{menu: '篩選方案'}" x-cloak="x-cloak">
+          <div class="bg-gray-lightest bottom-0 fixed left-0 pt-4 right-0 top-12 xl_hidden z-20" x-show="menuOpened" x-data="{menu: '篩選方案', sort: '由新到舊'}" x-cloak="x-cloak">
             <div class="bg-white container relative rounded-xl">
               <ul class="page-tabs"><template x-for="tab in ['篩選方案', '排序方式']">
                   <li class="cursor-pointer flex-1 flex-center px-7 py-3 tab" :class="tab  === menu ? 'active': ''" @click="menu = tab" x-text="tab"></li>
@@ -368,6 +368,26 @@
               </ul>
             </div>
           </div>
+          <div class="bg-gray-darker bg-opacity-50 fixed h-full inset-0 overflow-y-auto w-full z-60" x-show="defaultModalOpened" x-cloak="x-cloak">
+            <div class="flex h-full items-center justify-center p-4 w-full">
+              <div class="bg-white container flex flex-col h-72 justify-between p-4 relative rounded-xl w-full xl_h-84 xl_p-8 xl_w-116">
+                <div class="h2 text-center">排序創作領域</div>
+                <div class="absolute right-3 top-3"><button @click="defaultModalOpened = false"><img src="../static/close.6e7f3b4b.svg" alt=""></button></div>
+                <ul class="flex flex-col gap-y-3 overflow-y-auto">
+                  <li class="bg-primary-lighter flex p-2"><img class="mr-3" src="../static/move.cd4165cc.svg" alt="">
+                    <div class="flex-1">插畫</div>
+                  </li>
+                  <li class="bg-primary-lighter flex p-2"><img class="mr-3" src="../static/move.cd4165cc.svg" alt="">
+                    <div class="flex-1">漫畫</div>
+                  </li>
+                  <li class="bg-primary-lighter flex p-2"><img class="mr-3" src="../static/move.cd4165cc.svg" alt="">
+                    <div class="flex-1">Cosplay</div>
+                  </li>
+                </ul>
+                <div class="flex gap-x-4 justify-center xl_gap-x-6"><a class="btn btn-block btn-outline-primary text-sm xl_h-14 xl_w-50" href="../register-creator/terms.html">取消</a><a class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" href="../register-creator/release.html">確定排序</a></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="container pb-12 xl_pb-24">
           <div class="xl_gap-x-6 xl_grid xl_grid-cols-12">
@@ -389,7 +409,7 @@
               </div>
               <script>
                 function goToWork(o) {
-                  o && window.open("/profile/work/article.html", "_self")
+                  o && window.open("../profile/work/article.html", "_self")
                 }
               </script>
               <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(false)">
@@ -409,7 +429,7 @@
               </div>
               <script>
                 function goToWork(o) {
-                  o && window.open("/profile/work/article.html", "_self")
+                  o && window.open("../profile/work/article.html", "_self")
                 }
               </script>
               <div class="bg-white creator-work-card cursor-pointer lock rounded-xl" onclick="goToWork(false)">
@@ -440,7 +460,7 @@
               </div>
               <script>
                 function goToWork(o) {
-                  o && window.open("/profile/work/article.html", "_self")
+                  o && window.open("../profile/work/article.html", "_self")
                 }
               </script>
               <div class="bg-white creator-work-card cursor-pointer lock rounded-xl" onclick="goToWork(false)">
@@ -471,7 +491,7 @@
               </div>
               <script>
                 function goToWork(o) {
-                  o && window.open("/profile/work/article.html", "_self")
+                  o && window.open("../profile/work/article.html", "_self")
                 }
               </script>
             </div>
