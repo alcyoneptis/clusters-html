@@ -25,7 +25,7 @@
               <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../../../static/hamburger.dfaf1370.svg" alt=""></button><a href="../../../index.html"><img class="w-24 xl_w-40" src="../../../static/logo.b0a7d86a.svg"></a></div>
               <div class="flex items-center space-x-4 xl_hidden">
                 <div class="relative" x-data="{open: false}">
-                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 w-6" src="../../../static/search.65aae8c4.svg" alt=""></button>
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../../../static/search.65aae8c4.svg" alt=""></button>
                     <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
                       <div class="container py-2">
                         <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href="../../../search/works.html"><img class="mr-2" src="../../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
@@ -176,7 +176,7 @@
                   <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
                     <div class="col-span-12 release-product-tabs" x-data="{currentTab: '標準方案'}">
                       <div class="font-bold mb-8 md_text-3xl text-center text-xl">發布方案</div>
-                      <div class="border-b border-gray-lighter flex mb-8"><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '標準方案' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '標準方案'" x-cloak="x-cloak">標準方案</button><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '進階方案' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '進階方案'" x-cloak="x-cloak">進階方案</button></div>
+                      <div class="border-b border-gray-lighter flex mb-8"><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '標準方案' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '標準方案'; $dispatch('set-current-tab', '標準方案')" x-cloak="x-cloak">標準方案</button><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '進階方案' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '進階方案'; $dispatch('set-current-tab', '進階方案')" x-cloak="x-cloak">進階方案</button></div>
                     </div>
                     <div class="flex flex-col gap-y-2 release-product-cover">
                       <div class="form-field"><label class="mb-2"><span>封面</span><span class="mt-1 text-danger">*</span></label></div>
@@ -199,8 +199,10 @@
                       <div class="absolute bottom-3 right-3 text-caption text-gray-light">500</div>
                     </div>
                     <div class="flex flex-col gap-y-1">
-                      <div class="form-field"><label class="mb-2"><span>訂閱人數限制</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入訂閱人數限制" name="subscriberLimit"></div>
-                      <div class="text-caption text-gary whitespace-pre-wrap">補訂說明：有訂閱人數限制的方案，訂閱者無法回頭補訂閱觀看過去的內容 例：訂閱者 A 在五月訂閱了有人數限制的方案，他無法透過補訂閱費用觀看四月以前的發文</div>
+                      <div class="form-field"><label class="mb-2"><span>訂閱人數限制</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="number" placeholder="請輸入訂閱人數限制" name="subscriberLimit">
+                        <p class="helper">補訂說明：有訂閱人數限制的方案，訂閱者無法回頭補訂閱觀看過去的內容</p>
+                      </div>
+                      <p class="text-gray text-xs whitespace-pre-wrap">例：訂閱者 A 在五月訂閱了有人數限制的方案，他無法透過補訂閱費用觀看四月以前的發文</p>
                     </div>
                     <div class="form-field"><label class="mb-2"><span>方案狀態</span><span class="mt-1 text-danger">*</span></label>
                       <div class="flex flex-col space-y-3 xl_flex-row xl_space-x-12 xl_space-y-0"><label class="form-check"><input class="hidden" type="radio" name="planStatus" value="上架">
@@ -226,11 +228,11 @@
               <div class="bg-white container flex flex-col gap-y-4 h-auto justify-between p-4 relative rounded-xl w-full xl_h-83 xl_p-8 xl_w-92">
                 <h2 class="h1 text-center text-gray-darker" x-text="modalTitle" x-cloak="x-cloak"></h2>
                 <div class="absolute right-3 top-3"><button @click="defaultModalOpened = false"><img src="../../../static/close.6e7f3b4b.svg" alt=""></button></div><template x-if="modalTitle === '刪除方案'">
-                  <div class="text-body text-gray-dark whitespace-pre-wrap">商除方案警告內容（說明刪除文案帶來的影響） 刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案</div>
+                  <div class="text-body-sm text-gray-dark whitespace-pre-wrap">商除方案警告內容（說明刪除文案帶來的影響） 刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案</div>
                 </template><template x-if="modalTitle === '修改方案內容'">
-                  <div class="text-body text-gray-dark whitespace-pre-wrap">注意！若您修改方案內容，系統會通知訂閱會員此方案已被修改</div>
+                  <div class="text-body-sm text-gray-dark whitespace-pre-wrap">注意！若您修改方案內容，系統會通知訂閱會員此方案已被修改</div>
                 </template><template x-if="modalTitle === '修改方案金額'">
-                  <div class="text-body text-gray-dark whitespace-pre-wrap">警告！若您修改方案金額，系統會通知訂閱會員此方案已被修改，並將此方案會員自動解除訂閱，想繼續訂閱的會員需手動加入您修改後的新方案</div>
+                  <div class="text-body-sm text-gray-dark whitespace-pre-wrap">警告！若您修改方案金額，系統會通知訂閱會員此方案已被修改，並將此方案會員自動解除訂閱，想繼續訂閱的會員需手動加入您修改後的新方案</div>
                 </template>
                 <div class="flex flex-col-reverse gap-y-6 justify-center xl_flex-row xl_gap-x-6"><a class="btn btn-block btn-outline-primary text-sm xl_h-14 xl_w-50" href="../../../register-creator/terms.html">取消</a><a class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" href="../../../register-creator/release.html" x-text="modalButtonText" x-cloak="x-cloak"></a></div>
               </div>

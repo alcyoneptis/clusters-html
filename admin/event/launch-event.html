@@ -25,7 +25,7 @@
               <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../../static/hamburger.dfaf1370.svg" alt=""></button><a href="../../index.html"><img class="w-24 xl_w-40" src="../../static/logo.b0a7d86a.svg"></a></div>
               <div class="flex items-center space-x-4 xl_hidden">
                 <div class="relative" x-data="{open: false}">
-                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 w-6" src="../../static/search.65aae8c4.svg" alt=""></button>
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../../static/search.65aae8c4.svg" alt=""></button>
                     <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
                       <div class="container py-2">
                         <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href="../../search/works.html"><img class="mr-2" src="../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
@@ -211,6 +211,7 @@
             </div>
             <script>
               flatpickr("#date-picker", {
+                disableMobile: !0,
                 dateFormat: "Y 年 m 月 d 日"
               });
             </script>
@@ -221,6 +222,7 @@
                 </div>
                 <script>
                   flatpickr("#date-picker", {
+                    disableMobile: !0,
                     dateFormat: "Y 年 m 月 d 日"
                   });
                 </script>
@@ -234,24 +236,22 @@
             </div>
             <div class="form-field"><label class="mb-2"><span>活動地點</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入活動地點" name="活動地點"></div>
             <div class="form-field"><label class="mb-2"><span>活動介紹</span><span class="mt-1 text-danger">*</span></label><textarea class="form-input md_h-27" placeholder="請輸入活動介紹" name="活動介紹"></textarea></div>
-            <div class="space-y-3">
-              <div class="form-field"><label class="mb-2"><span>主題標籤</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入標籤名稱" name="主題標籤"></div>
-              <div class="flex items-center space-x-3">
-                <div class="font-medium text-gray text-xs">常用：</div>
-                <ul class="flex space-x-2">
-                  <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
-                  <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
-                  <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
-                </ul>
+            <div class="flex flex-col gap-2" x-data="{hashtag: ''}">
+              <div class="flex gap-y-2 items-end justify-between">
+                <div class="form-field"><label class="mb-2"><span>主題標籤</span><span class="mt-1 text-danger">*</span></label></div>
+                <div class="text-caption text-gray-light" x-text="`${hashtag.length}/6`" x-cloak="x-cloak"></div>
+              </div><input class="form-input" type="text" placeholder="請輸入標籤名稱" name="name" maxlength="6" x-model="hashtag">
+              <div class="flex flex-wrap items-center">
+                <div class="mr-2 text-caption text-gray">常用：</div><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='聖誕快樂'">#聖誕快樂</button><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='常用標籤'">#常用標籤</button><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='聖誕快樂'">#聖誕快樂</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="admin-form-card" x-data="{ positions: 1 }">
-          <section class="mb-6"><template x-for="position in positions" key="n">
+        <div class="admin-form-card" x-data="{ positions: [{id: 1}] }">
+          <section class="mb-6"><template x-for="position in positions" key="position.id">
               <div class="add-accompany-card">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="font-medium md_text-lg">職務<span class="pl-1" x-text="position"> </span></div><button @click="positions--"> <img src="../../static/trash.7ec7c140.svg"></button>
+                  <div class="font-medium md_text-lg">職務<span class="pl-1" x-text="position.id"> </span></div><button @click="positions = positions.filter(each=&gt;each.id !== position.id)"> <img src="../../static/trash.7ec7c140.svg"></button>
                 </div>
                 <div class="md_pl-8 space-y-8">
                   <div class="form-field"><label class="mb-2"><span>職務名稱</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入職務名稱" name="職務名稱"></div>
@@ -274,14 +274,13 @@
                     </div>
                   </div>
                   <div class="form-field"><label class="mb-2"><span>活動介紹</span><span class="mt-1 text-danger">*</span></label><textarea class="form-input md_h-27" placeholder="請輸入活動介紹" name="活動介紹"></textarea></div>
-                  <div>
-                    <div class="input-label">招募狀態<span>*</span></div>
-                    <div class="flex items-center space-x-12"><label class="form-check"><input class="hidden" type="radio" name="opened" value="開啟" x-model="opened">
+                  <div class="form-field"><label class="mb-2"><span>招募狀態</span><span class="mt-1 text-danger">*</span></label>
+                    <div class="flex flex-col space-y-3 xl_flex-row xl_space-x-12 xl_space-y-0"><label class="form-check"><input class="hidden" type="radio" name="position-status" value="開啟">
                         <div class="form-check-input">
                           <div class="dot"></div>
                         </div>
                         <div class="shrink-0">開啟</div>
-                      </label><label class="form-check"><input class="hidden" type="radio" name="closed" value="關閉" x-model="closed">
+                      </label><label class="form-check"><input class="hidden" type="radio" name="position-status" value="關閉">
                         <div class="form-check-input">
                           <div class="dot"></div>
                         </div>
@@ -290,23 +289,24 @@
                   </div>
                 </div>
               </div>
-            </template></section><button class="flex items-center space-x-1" @click="positions = positions + 1"><img src="../../static/plus-btn.74afcf8c.svg" alt="">
+            </template></section><button class="flex items-center space-x-1" @click="const nextId = Math.max(...positions.map(each =&gt; each.id + 1)); (isFinite(nextId)) ? positions.push({ id: nextId }) : positions = [{id: 1}] "><img src="../../static/plus-btn.74afcf8c.svg" alt="">
             <div>招募夥伴</div>
           </button>
         </div>
         <div class="admin-form-card">
-          <div class="input-label">公開設定<span>* </span></div>
-          <div class="flex items-center space-x-12"><label class="form-check"><input class="hidden" type="radio" name="published" value="對所有人公開" x-model="isPublished">
-              <div class="form-check-input">
-                <div class="dot"></div>
-              </div>
-              <div class="shrink-0">對所有人公開</div>
-            </label><label class="form-check"><input class="hidden" type="radio" name="unPublished" value="私人" x-model="isPublished">
-              <div class="form-check-input">
-                <div class="dot"></div>
-              </div>
-              <div class="shrink-0">私人</div>
-            </label></div>
+          <div class="form-field"><label class="mb-2"><span>公開設定</span><span class="mt-1 text-danger">*</span></label>
+            <div class="flex flex-col space-y-3 xl_flex-row xl_space-x-12 xl_space-y-0"><label class="form-check"><input class="hidden" type="radio" name="published-status" value="對所有人公開">
+                <div class="form-check-input">
+                  <div class="dot"></div>
+                </div>
+                <div class="shrink-0">對所有人公開</div>
+              </label><label class="form-check"><input class="hidden" type="radio" name="published-status" value="私人">
+                <div class="form-check-input">
+                  <div class="dot"></div>
+                </div>
+                <div class="shrink-0">私人</div>
+              </label></div>
+          </div>
         </div>
         <div class="event-btn-layout"><button class="btn btn-outline-primary" type="button">取消</button><button class="btn btn-primary md_row-auto row-start-1" type="button">發布活動</button></div>
       </div>
