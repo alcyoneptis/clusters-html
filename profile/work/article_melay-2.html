@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+  <title>Clusters</title>
+  <meta name="description" content="">
+  <meta name="robots" content="NOINDEX,NOFOLLOW">
+  <meta name="application-name" content="Clusters"/>
+  <link rel="apple-touch-icon" href="../../favicon_360x360.png">
+  <link rel="icon" sizes="16x16" href="../../favicon_16x16.ico">
+  <link rel="icon" sizes="32x32" href="../../favicon_32x32.ico">
+  <link rel="icon" sizes="360x360" href="../../favicon_360x360.png">
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+</head>
+
+<body>
+  <div class="flex flex-col min-h-screen">
+    <header class="fixed left-0 right-0 top-0 z-50" x-data="{ open: false }">
+      <div class="bg-white relative z-50">
+        <div class="container py-3">
+          <nav class="flex items-center justify-between">
+            <div class="flex justify-between w-full xl_w-auto">
+              <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../../static/hamburger.dfaf1370.svg" alt=""></button><a href=""><img class="w-24 xl_w-40" src="../../static/logo.b0a7d86a.svg"></a></div>
+              <div class="flex items-center space-x-4 xl_hidden">
+                <div class="relative" x-data="{open: false}">
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../../static/search.65aae8c4.svg" alt=""></button>
+                    <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
+                      <div class="container py-2">
+                        <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href=""><img class="mr-2" src="../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <script>
+                  function search() {
+                    window.open("", "_self")
+                  }
+                </script>
+                <div class="flex-center relative" x-data="{open: false}" @click.outside="open = false"><button class="hover_bg-gray-lighter hoverable rounded-full" type="button" @click="open = !open"><img class="h-8 w-8" src="../../static/alarm.d5cb279e.svg" alt=""></button>
+                  <div class="bg-white bottom-0 fixed left-0 right-0 text-sm top-12 xl_absolute xl_left-auto xl_right-0 xl_top-full xl_translate-y-2 xl_w-80" x-show="open" x-cloak="">
+                    <div class="bg-white container xl_border xl_border-gray-lighter xl_mx-0 xl_px-0 xl_rounded-xl">
+                      <div class="flex justify-between">
+                        <div class="font-medium py-2 text-left xl_px-4">通知</div><button><img class="xl_hidden" src="../../static/close-btn.87393ab7.svg" alt="" @click="open = false"></button>
+                      </div>
+                      <ul>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/melay/melay_avatar.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">裏方</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/melay/melay_avatar.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">裏方</span><span>已關注您的</span><span class="font-medium">活動</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/melay/melay_avatar.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">夏天的午後雷陣雨</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="hidden items-center ml-6 xl_flex">
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">首頁</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">推薦創作者</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">探索活動</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">關於 Clusters</a></li>
+              </ul>
+            </div>
+            <div class="hidden items-center xl_flex">
+              <div class="bg-primary-lighter flex mr-5 px-3 py-2 w-38"><a href=""><img class="mr-2" src="../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
+              <div class="flex-center relative" x-data="{open: false}" @click.outside="open = false"><button class="hover_bg-gray-lighter hoverable rounded-full" type="button" @click="open = !open"><img class="h-8 w-8" src="../../static/alarm.d5cb279e.svg" alt=""></button>
+                <div class="bg-white bottom-0 fixed left-0 right-0 text-sm top-12 xl_absolute xl_left-auto xl_right-0 xl_top-full xl_translate-y-2 xl_w-80" x-show="open" x-cloak="">
+                  <div class="bg-white container xl_border xl_border-gray-lighter xl_mx-0 xl_px-0 xl_rounded-xl">
+                    <div class="flex justify-between">
+                      <div class="font-medium py-2 text-left xl_px-4">通知</div><button><img class="xl_hidden" src="../../static/close-btn.87393ab7.svg" alt="" @click="open = false"></button>
+                    </div>
+                    <ul>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/melay/melay_avatar.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">裏方</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/melay/melay_avatar.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">裏方</span><span>已關注您的</span><span class="font-medium">活動</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/melay/melay_avatar.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">夏天的午後雷陣雨</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="relative" x-data="{open: false}"><button class="avatar ml-5" type="button" @click="open = !open"><img class="h-10 w-10" src="../../static/melay/melay_avatar.png" alt=""></button>
+                <div class="absolute bg-white right-0 rounded-xl top-full w-54" x-show="open" x-cloak="">
+                  <div class="flex items-center px-3 py-2 space-x-1"><img class="h-10" src="../../static/melay/melay_avatar.png" alt=""><span class="font-bold">米雷</span></div>
+                  <div class="px-4 py-2">
+                    <nav>
+                      <ul class="border-b border-gray-lighter">
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">我訂閱的創作者</a></li>
+                      </ul>
+                      <ul class="border-b border-gray-lighter">
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">首頁</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">推薦創作者</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
+                      </ul>
+                      <ul class="border-b border-gray-lighter">
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+                      </ul>
+                      <ul class="border-b border-gray-lighter">
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="../../static/clustee/clustee_logo.png" alt=""></li>
+                      </ul>
+                      <ul>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <sidebar class="bg-white border-gray-lighter border-t bottom-0 fixed left-0 py-4 text-sm top-12 w-54 xl_hidden z-30" x-cloak="" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
+        <div class="flex items-center px-3 py-2 space-x-1"><img class="h-10" src="../../static/melay/melay_avatar.png" alt=""><span class="font-bold">米雷</span></div>
+        <div class="px-4 py-2">
+          <nav>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">我訂閱的創作者</a></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">首頁</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">推薦創作者</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">帳號設定</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="../../static/clustee/clustee_logo.png" alt=""></li>
+            </ul>
+            <ul>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
+            </ul>
+          </nav>
+        </div>
+      </sidebar>
+      <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
+    </header>
+    <main class="mb-auto mt-12 xl_mt-16">
+      <div class="py-20 xl_py-14">
+        <div class="container pb-12 xl_pb-24">
+          <div class="xl_gap-x-6 xl_grid xl_grid-cols-12">
+            <div class="bg-white rounded-2xl xl_col-span-8"><img src="../../static/melay/melay_plan_comic_content.jpg" alt="">
+              <article class="p-4 xl_p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <div>
+                    <div class="font-bold mb-4 text-xl">聖子祭</div>
+                    <div class="flex items-center space-x-3">
+                      <div class="bg-yellow inline-block px-3 py-1 rounded text-sm">參加的活動名稱</div><time class="text-gray-light text-xs">2022-05-10</time>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-8 space-y-5 text-gray">
+                  <p>
+                    <img src="../../static/melay/melay_plan_comic_p000.jpg" alt=""><br>
+                    <img src="../../static/melay/melay_plan_comic_p001.jpg" alt=""><br>
+                    <img src="../../static/melay/melay_plan_comic_p002.jpg" alt=""><br>
+                    <img src="../../static/melay/melay_plan_comic_p003.jpg" alt=""><br>
+                    <img src="../../static/melay/melay_plan_comic_p004.jpg" alt=""><br>
+                    <img src="../../static/melay/melay_plan_comic_p005.jpg" alt=""><br>
+                  </p>
+                </div><button class="bg-primary-lighter flex items-center mb-8 px-5 py-2 rounded-full space-x-1"><img src="../../static/paper-clip.e8b873ed.svg" alt=""><span>檔案名稱.zip</span></button>
+                <ul class="flex space-x-2">
+                  <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#原創BL</a></li>
+                  <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#民族</a></li>
+                  <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#無差</a></li>
+                  <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#互攻</a></li>
+                </ul>
+              </article>
+            </div>
+            <div class="xl_col-span-4">
+              <div class="bg-white fixed left-0 right-0 top-12 xl_rounded-2xl xl_static z-10">
+                <div class="container flex items-center py-2 xl_flex-col xl_items-start xl_m-0 xl_p-4">
+                  <div class="flex flex-1 items-center space-x-2 xl_mb-6">
+                    <a href="../../profile/creator/melay.html">
+                      <img class="h-8 w-8 xl_h-13 xl_w-13" src="../../static/melay/melay_avatar.png" alt="">
+                    </a>
+                    <div class="flex flex-col space-y-3">
+                      <a href="../../profile/creator/melay.html">
+                        <span class="font-medium">米雷</span>
+                      </a>
+                      <div class="hidden xl_block">
+                        <ul class="flex space-x-2">
+                          <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                          <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div><button class="btn btn-primary py-px text-sm w-20 xl_py-2 xl_text-base xl_w-full">訂閱</button>
+                </div>
+              </div>
+              <div class="pt-8 xl_pt-12">
+                <div class="flex font-medium justify-between mb-4"><span class="text-gray">其他作品</span><a class="text-primary" href="">查看所有作品 </a></div>
+                <div class="gap-4 grid grid-cols-3">
+                  <a href="./article_melay-1.html"> <img src="../../static/melay/melay_plan_cg_bg_dark.jpg" alt=""></a>
+                  <a href="./article_melay-1.html"> <img src="../../static/melay/melay_plan_cg_bg.jpg" alt=""></a>
+                  <a href="./article_melay-1.html"> <img src="../../static/melay/melay_plan_cg_bg_dark.jpg" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-white">
+      <div class="container py-12 text-sm">
+        <div class="flex flex-col items-center xl_flex-row xl_justify-between">
+          <nav class="mb-10 space-y-6 xl_mb-0"><img class="h-5 mx-auto xl_h-7 xl_m-0" src="../../static/logo.b0a7d86a.svg" alt="">
+            <ul class="gap-x-8 gap-y-3 grid grid-cols-3 xl_grid-cols-5">
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">常見問題</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">聯繫我們</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">使用條款</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">隱私政策</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
+            </ul>
+          </nav>
+          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
+            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
+            <p>Copyright © 2022 Clusters Inc.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
