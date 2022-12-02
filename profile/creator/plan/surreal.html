@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+  <title>Clusters</title>
+  <meta name="description" content="">
+  <meta name="robots" content="NOINDEX,NOFOLLOW">
+  <meta name="application-name" content="Clusters"/>
+  <link rel="apple-touch-icon" href="../../../favicon_360x360.png">
+  <link rel="icon" sizes="16x16" href="../../../favicon_16x16.ico">
+  <link rel="icon" sizes="32x32" href="../../../favicon_32x32.ico">
+  <link rel="icon" sizes="360x360" href="../../../favicon_360x360.png">
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link rel="stylesheet" href="../../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="../../../assets/app.4dad784d.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+</head>
+
+<body>
+  <div class="flex flex-col min-h-screen">
+    <header class="fixed left-0 right-0 top-0 z-50" x-data="{ open: false }">
+      <div class="bg-white relative z-50">
+        <div class="container py-3">
+          <nav class="flex items-center justify-between">
+            <div class="flex justify-between w-full xl_w-auto">
+              <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../../../static/hamburger.dfaf1370.svg" alt=""></button><a href=""><img class="w-24 xl_w-40" src="../../../static/logo.b0a7d86a.svg"></a></div>
+              <div class="flex items-center space-x-4 xl_hidden">
+                <div class="relative" x-data="{open: false}">
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../../../static/search.65aae8c4.svg" alt=""></button>
+                    <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
+                      <div class="container py-2">
+                        <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href=""><img class="mr-2" src="../../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <script>
+                  function search() {
+                    window.open("", "_self")
+                  }
+                </script>
+                <div class="flex-center relative" x-data="{open: false}" @click.outside="open = false"><button class="hover_bg-gray-lighter hoverable rounded-full" type="button" @click="open = !open"><img class="h-8 w-8" src="../../../static/alarm.d5cb279e.svg" alt=""></button>
+                  <div class="bg-white bottom-0 fixed left-0 right-0 text-sm top-12 xl_absolute xl_left-auto xl_right-0 xl_top-full xl_translate-y-2 xl_w-80" x-show="open" x-cloak="">
+                    <div class="bg-white container xl_border xl_border-gray-lighter xl_mx-0 xl_px-0 xl_rounded-xl">
+                      <div class="flex justify-between">
+                        <div class="font-medium py-2 text-left xl_px-4">通知</div><button><img class="xl_hidden" src="../../../static/close-btn.87393ab7.svg" alt="" @click="open = false"></button>
+                      </div>
+                      <ul>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../../static/surreal/surreal_avatar.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">裏方</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../../static/surreal/surreal_avatar.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">裏方</span><span>已關注您的</span><span class="font-medium">活動</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../../static/surreal/surreal_avatar.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">夏天的午後雷陣雨</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="hidden items-center ml-6 xl_flex">
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">首頁</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">推薦創作者</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">探索活動</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">關於 Clusters</a></li>
+              </ul>
+            </div>
+            <div class="hidden items-center xl_flex">
+              <div class="bg-primary-lighter flex mr-5 px-3 py-2 w-38"><a href=""><img class="mr-2" src="../../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
+              <div class="flex-center relative" x-data="{open: false}" @click.outside="open = false"><button class="hover_bg-gray-lighter hoverable rounded-full" type="button" @click="open = !open"><img class="h-8 w-8" src="../../../static/alarm.d5cb279e.svg" alt=""></button>
+                <div class="bg-white bottom-0 fixed left-0 right-0 text-sm top-12 xl_absolute xl_left-auto xl_right-0 xl_top-full xl_translate-y-2 xl_w-80" x-show="open" x-cloak="">
+                  <div class="bg-white container xl_border xl_border-gray-lighter xl_mx-0 xl_px-0 xl_rounded-xl">
+                    <div class="flex justify-between">
+                      <div class="font-medium py-2 text-left xl_px-4">通知</div><button><img class="xl_hidden" src="../../../static/close-btn.87393ab7.svg" alt="" @click="open = false"></button>
+                    </div>
+                    <ul>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../../static/surreal/surreal_avatar.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">裏方</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../../static/surreal/surreal_avatar.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">裏方</span><span>已關注您的</span><span class="font-medium">活動</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../../static/surreal/surreal_avatar.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">夏天的午後雷陣雨</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div><a class="btn btn-primary ml-5 mr-4 text-sm" href="">發布作品</a>
+              <div class="relative" x-data="{open: false}"><button class="avatar ml-5" type="button" @click="open = !open"><img class="h-10 w-10" src="../../../static/surreal/surreal_avatar.png" alt=""></button>
+                <div class="absolute bg-white right-0 rounded-xl top-full w-54" x-show="open" x-cloak="">
+                  <div class="flex items-center px-3 py-2 space-x-1"><img class="h-10" src="../../../static/surreal/surreal_avatar.png" alt=""><span class="font-bold">すりお</span></div>
+                  <div class="px-4 py-2">
+                    <nav><a class="btn btn-block btn-primary text-sm" href="">發布作品</a>
+                      <nav>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/clustee/clustee_logo.png" alt=""></li>
+                        </ul>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">我訂閱的創作者</a></li>
+                        </ul>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">首頁</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">推薦創作者</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
+                        </ul>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">帳號設定</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+                        </ul>
+                        <ul>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
+                        </ul>
+                      </nav>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <sidebar class="bg-white border-gray-lighter border-t bottom-0 fixed left-0 py-4 text-sm top-12 w-54 xl_hidden z-30" x-cloak="" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
+        <div class="flex items-center px-2 py-3 space-x-1"><img class="h-10" src="../../../static/surreal/surreal_avatar.png" alt=""><span class="font-bold">すりお</span></div>
+        <div class="px-4 py-2"> <a class="btn btn-block btn-primary text-sm" href="">發布作品</a>
+          <nav>
+            <ul class="border-b border-gray-lighter">
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/clustee/clustee_logo.png" alt=""></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">我訂閱的創作者</a></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">首頁</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">推薦創作者</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">帳號設定</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂閱管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">活動管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">訂單管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
+            </ul>
+            <ul>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
+            </ul>
+          </nav>
+        </div>
+      </sidebar>
+      <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
+    </header>
+    <main class="mb-auto mt-12 xl_mt-16">
+      <div class="profile">
+        <div class="profile-info">
+          <div class="relative">
+            <div class="relative">
+              <div class="absolute container flex inset-0 items-end justify-end"><button class="btn btn-black h-8 mb-3 p-0 space-x-1 text-white w-8 xl_h-auto xl_mb-12 xl_px-4 xl_py-2 xl_w-auto"><img src="../../../static/edit.db949f41.svg" alt=""><span class="hidden xl_block">編輯封面</span></button></div><img src="../../../static/surreal/surreal_profile_banner.jpg" alt="">
+            </div>
+            <div class="-mt-9 bg-white info xl_absolute xl_bg-transparent xl_bottom-0 xl_flex-center xl_flex-col xl_left-0 xl_mt-0 xl_top-0">
+              <div class="pb-8 xl_pb-0">
+                <div class="flex flex-col items-center mb-4 space-y-2 xl_flex-row xl_items-start xl_mb-5 xl_space-x-2 xl_space-y-0">
+                  <a class="z-10" href="../../../profile/creator/surreal.html">
+                    <img class="h-18 xl_h-22 z-10" src="../../../static/surreal/surreal_avatar.png" alt="">
+                  </a>
+                  <div class="flex flex-col items-center space-y-4 xl_items-start xl_space-y-3">
+                    <div class="flex items-center space-x-2">
+                      <a href="../../../profile/creator/surreal.html"><div class="font-bold text-2xl">すりお</div></a>
+                      <img class="h-7 w-7" src="../../../static/badge.60ff26e9.png" alt="">
+                    </div>
+                    <ul class="flex space-x-2">
+                      <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="flex-center mb-8 space-x-3 xl_justify-start xl_mb-6"><a href="" target="_blank"> <img src="../../../static/instagram.36294068.svg" alt=""></a><a href="" target="_blank"> <img src="../../../static/twitter-gray.7b6def60.svg" alt=""></a></div>
+                <div class="flex-center xl_justify-start"><button class="btn btn-black text-white"> <img class="mr-1" src="../../../static/edit.db949f41.svg" alt=""><span>編輯檔案</span></button></div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white">
+            <div class="container flex-center xl_justify-start">
+              <ul class="page-tabs">
+                <li class="tab"><a class="block" href="../../../profile/creator/surreal.html">創作</a></li>
+                <li class="active tab"><a class="block" href="../../../profile/creator/plan/surreal.html">方案</a></li>
+                <li class="tab"><a class="block" href="">活動</a></li>
+                <li class="tab"><a class="block" href="">商店</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container py-8 xl_pb-10">
+          <div class="flex justify-end"><a class="btn btn-black mb-8 space-x-1 xl_mb-6" href=""> <svg width="20" height="20" fill="none">
+                <path d="M10 4.166v11.667M4.164 10h11.667" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg><span>新增方案</span></a></div>
+          <div class="mb-6">
+            <ul class="filter-tabs flex flex-nowrap overflow-x-scroll space-x-6">
+              <li class="bg-primary cursor-pointer font-bold rounded-lg shrink-0 text-lg text-white"><a class="block px-11 py-3" href="">全部 10</a></li>
+              <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">標準方案 4</a></li>
+              <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">進階方案 0</a></li>
+            </ul>
+          </div>
+          <p class="text-gray text-lg">您的訂閱，是創作者的最大的動力來源唷！</p>
+        </div>
+        <div class="container pb-12 xl_pb-9">
+          <section class="mb-14 xl_mb-20">
+            <div class="flex items-center mb-12 space-x-3 xl_mb-8">
+              <h2 class="h1">標準方案</h2>
+              <div class="bg-black flex-center px-3 py-1 rounded-full text-sm text-white w-10">4</div>
+            </div>
+            <div class="gap-8 grid mb-8 xl_gap-x-6 xl_gap-y-12 xl_grid-cols-3 xl_mb-12">
+              <div class="bg-white default overflow-hidden plan-card rounded-lg"><img class="mb-4" src="../../../static/surreal/surreal_plan0.jpg" alt="">
+                <div class="p-4">
+                  <div class="border-b border-gray-lighter flex-center flex-col pb-4">
+                    <div class="plan-tag">標準方案</div>
+                    <p class="font-bold mb-2">小女生</p>
+                    <p class="line-clamp text-body-sm">草稿與日記等，偶爾會有工口圖。</p>
+                  </div>
+                </div>
+                <div class="flex-center flex-col pb-6 pt-4 text-xs">
+                  <div class="mb-4 overflow-hidden rounded"><span class="bg-gray-lightest px-2 py-1">已被訂閱 15 / 無上限</span></div>
+                  <div class="flex items-center mb-3 space-x-1"><span class="font-bold text-2xl">$0 </span><span class="text-gray text-xs">/月</span></div><a class="btn btn-black w-30" href="">編輯 </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-white">
+      <div class="container py-12 text-sm">
+        <div class="flex flex-col items-center xl_flex-row xl_justify-between">
+          <nav class="mb-10 space-y-6 xl_mb-0"><img class="h-5 mx-auto xl_h-7 xl_m-0" src="../../../static/logo.b0a7d86a.svg" alt="">
+            <ul class="gap-x-8 gap-y-3 grid grid-cols-3 xl_grid-cols-5">
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">常見問題</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">聯繫我們</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">使用條款</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">隱私政策</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
+            </ul>
+          </nav>
+          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
+            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../../static/fontech.2736f7e4.svg" alt=""></div>
+            <p>Copyright © 2022 Clusters Inc.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
