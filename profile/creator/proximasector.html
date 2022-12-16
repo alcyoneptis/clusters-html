@@ -192,8 +192,7 @@
                       <img class="h-7 w-7" src="../../static/badge.60ff26e9.png" alt="">
                     </div>
                     <ul class="flex space-x-2">
-                      <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
-                      <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                      <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">聲音創作</li>
                     </ul>
                   </div>
                 </div>
@@ -217,11 +216,8 @@
           <div class="container flex items-center py-8">
             <div class="flex flex-1 overflow-x-scroll"><a class="bg-gray-lighter flex-center mr-6 px-2 rounded-lg shrink-0 xl_px-8" href=""><img src="../../static/plus.693e8099.svg" alt=""><span>創作領域</span></a>
               <ul class="categories" x-data="{ active: '[object Object]' }">
-                <li class="shrink-0"><button class="category" style="background-image: url(../../static/chiyami/chiyami_plan_cg_bg.png);" type="button" :class="{ active: active === '插畫' }" @click="active = '插畫'">
-                    <div class="title">插畫 20</div>
-                  </button></li>
-                <li class="shrink-0"><button class="category" style="background-image: url(../../static/chiyami/chiyami_plan_comic_bg.png);" type="button" :class="{ active: active === '漫畫' }" @click="active = '漫畫'">
-                    <div class="title">漫畫 12</div>
+                <li class="shrink-0"><button class="category" style="background-image: url(../../static/proximasector/proximasector_plan_audio_bg.png);" type="button" :class="{ active: active === '聲音創作' }" @click="active = '聲音創作'">
+                    <div class="title">聲音創作 20</div>
                   </button></li>
               </ul><button class="mx-6 shrink-0 text-gray text-lg underline" @click="defaultModalOpened = true">排序</button>
             </div><button class="ml-1 xl_hidden" @click="menuOpened = true"><img src="../../static/more.61f075be.svg" alt=""></button>
@@ -384,10 +380,7 @@
                 <div class="absolute right-4 top-4 xl_right-8 xl_top-9"><button @click="defaultModalOpened = false"><img src="../../static/close.6e7f3b4b.svg" alt=""></button></div>
                 <ul class="flex flex-col gap-y-3 overflow-y-auto">
                   <li class="bg-primary-lighter flex p-2"><img class="mr-3" src="../../static/move.cd4165cc.svg" alt="">
-                    <div class="flex-1">插畫</div>
-                  </li>
-                  <li class="bg-primary-lighter flex p-2"><img class="mr-3" src="../../static/move.cd4165cc.svg" alt="">
-                    <div class="flex-1">漫畫</div>
+                    <div class="flex-1">聲音創作</div>
                   </li>
                 </ul>
                 <div class="flex gap-x-4 justify-center xl_gap-x-6"><button class="btn btn-block btn-outline-primary text-sm xl_h-14 xl_w-50" @click="defaultModalOpened = false">取消</button><button class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" @click="defaultModalOpened = false">確定排序</button></div>
