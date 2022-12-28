@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -121,14 +122,14 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -161,7 +162,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -221,6 +222,52 @@
               <div class="flex items-center space-x-3">
                 <h2 class="h1">標準方案</h2>
                 <div class="bg-black flex-center px-3 py-1 rounded-full text-sm text-white w-10">12</div>
+                <div class="tooltip" x-data="tooltipData({text:`訂閱後即擁有當月的方案文章閱覽權！
+您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案
+請注意您一次只能訂閱其中一種標準方案。
+成功訂閱後，下個月起將自動扣款續訂(可取消)。`, tooltipKey:'TOOLTIP-BASIC-PROFILE'})" key="BASIC-PROFILE"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../../static/question.9467dc6e.svg" alt="question"></button>
+                  <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../../static/question.9467dc6e.svg" alt="question"></div>
+                  <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                    <div class="xl_hidden">
+                      <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                        <div class="container flex items-center justify-center">
+                          <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                            <div class="pr-6">
+                              <div class="text-caption text-gray-darker">訂閱後即擁有當月的方案文章閱覽權！ 您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案 請注意您一次只能訂閱其中一種標準方案。 成功訂閱後，下個月起將自動扣款續訂(可取消)。</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="absolute hidden left-0 top-0 xl_block z-40">
+                      <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                        <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function tooltipData(t = {
+                    text: text,
+                    tooltipKey: tooltipKey
+                  }) {
+                    const o = whitespacePreWrapText(t.text),
+                      e = t.tooltipKey;
+                    return {
+                      text: o,
+                      tooltipKey: e,
+                      isShowModal() {
+                        return this.$store.openedModal === e
+                      },
+                      setShowModalWithTooltipKey() {
+                        this.$store.openedModal = e
+                      },
+                      setHiddenModal() {
+                        this.$store.openedModal = void 0
+                      }
+                    }
+                  }
+                </script>
               </div>
             </div>
             <div class="gap-8 grid mb-8 xl_gap-x-6 xl_gap-y-12 xl_grid-cols-3 xl_mb-12">
@@ -310,6 +357,52 @@
               <div class="flex items-center space-x-3">
                 <h2 class="h1">進階方案</h2>
                 <div class="bg-black flex-center px-3 py-1 rounded-full text-sm text-white w-10">8</div>
+                <div class="tooltip" x-data="tooltipData({text:`訂閱後即擁有當月的方案文章閱覽權！
+您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案
+無論是否有訂閱標準方案，您都可以自由選擇訂閱單或多個不同的進階方案。
+成功訂閱後，下個月起將自動扣款續訂(可取消)。`, tooltipKey:'TOOLTIP-ADVANCED-PROFILE'})" key="ADVANCED-PROFILE"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../../static/question.9467dc6e.svg" alt="question"></button>
+                  <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../../static/question.9467dc6e.svg" alt="question"></div>
+                  <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                    <div class="xl_hidden">
+                      <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                        <div class="container flex items-center justify-center">
+                          <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                            <div class="pr-6">
+                              <div class="text-caption text-gray-darker">訂閱後即擁有當月的方案文章閱覽權！ 您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案 無論是否有訂閱標準方案，您都可以自由選擇訂閱單或多個不同的進階方案。 成功訂閱後，下個月起將自動扣款續訂(可取消)。</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="absolute hidden left-0 top-0 xl_block z-40">
+                      <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                        <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function tooltipData(t = {
+                    text: text,
+                    tooltipKey: tooltipKey
+                  }) {
+                    const o = whitespacePreWrapText(t.text),
+                      e = t.tooltipKey;
+                    return {
+                      text: o,
+                      tooltipKey: e,
+                      isShowModal() {
+                        return this.$store.openedModal === e
+                      },
+                      setShowModalWithTooltipKey() {
+                        this.$store.openedModal = e
+                      },
+                      setHiddenModal() {
+                        this.$store.openedModal = void 0
+                      }
+                    }
+                  }
+                </script>
               </div>
             </div>
             <div class="gap-8 grid mb-8 xl_gap-x-6 xl_gap-y-12 xl_grid-cols-3 xl_mb-12">
@@ -431,9 +524,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -73,10 +74,10 @@
       <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
     </header>
     <main class="mb-auto mt-12 xl_mt-16">
-      <div class="container flex flex-col items-center justify-center md_pb-23 md_pt-12 pb-18 pt-8" x-data="{}">
+      <div class="container flex flex-col gap-y-40 gap-y-50 items-center justify-center md_pb-23 md_pt-12 pb-18 pt-8 xl_" x-data="{}">
         <div class="bg-white md_p-12 p-4 rounded-xl w-full">
           <div class="font-bold mb-8 md_text-3xl text-center text-xl">訂單管理</div>
-          <div class="flex flex-col mb-8 md_flex-row md_items-center md_justify-between w-full">
+          <div class="flex flex-col gap-y-8 mb-8 md_flex-row md_items-center md_justify-between w-full">
             <div class="md_order-1 order-2">
               <div class="md_flex md_items-center md_space-x-8 md_space-y-0 space-y-8">
                 <div class="bg-primary-lighter flex h-10 items-center md_w-45 pl-3 rounded-md space-x-2 text-sm w-full"><img class="h-3 w-3" src="../../static/search.65aae8c4.svg" alt=""><input class="bg-primary-lighter md_w-30" type="text" placeholder="搜尋關鍵字"></div>
@@ -97,15 +98,15 @@
                       <div class="text-gray text-sm">訂單狀態</div><img src="../../static/arrow-down-gray.9bc0c88e.svg" alt="">
                     </div>
                     <ul class="absolute bg-white border border-gray-lighter py-2 rounded-md top-10 w-27" x-show="isOpened" x-cloak="x-cloak">
-                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">成功</li>
-                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">失敗</li>
+                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">付款成功</li>
+                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">付款失敗</li>
                       <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">等待付款</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="mb-8 md_mb-0 md_order-2 order-1">
+            <div class="md_mb-0 md_order-2 order-1">
               <div class="btn btn-black btn-primary px-7 py-2" disabled>匯出報表</div>
             </div>
           </div>
@@ -117,6 +118,172 @@
             <div class="md_w-fit w-full"><button class="btn btn-primary md_w-50 py-3 w-full">探索創作者</button></div>
           </div>
         </div>
+        <section class="recommended-swiper-section">
+          <div class="container relative">
+            <div class="mb-14 xl_mb-20">
+              <h2 class="font-medium h1 mb-6 text-center">推薦創作者</h2>
+              <div class="relative">
+                <div class="hidden xl_block"><button class="-translate-x-4 -translate-y-half absolute bg-gray-dark bg-opacity-65 flex-center h-12 hover_bg-gray-dark hoverable left-0 prev rounded-full top-half w-12 z-20"><svg width="15" height="25" fill="none">
+                      <path d="m.585 14.181 11.053 10.36a1.688 1.688 0 0 0 2.311-2.461l-9.74-9.127 9.736-9.131a1.688 1.688 0 0 0-2.312-2.46L.58 11.72c-.337.314-.53.76-.53 1.229 0 .468.193.918.535 1.232Z" fill="#fff" />
+                    </svg></button><button class="-translate-y-half absolute bg-gray-dark bg-opacity-65 flex-center h-12 hover_bg-gray-dark hoverable next right-0 rounded-full top-half translate-x-4 w-12 z-20"><svg width="15" height="25" fill="none">
+                      <path d="M13.947 14.181 2.894 24.541a1.688 1.688 0 0 1-2.31-2.461l9.74-9.127L.588 3.822a1.688 1.688 0 0 1 2.31-2.46L13.953 11.72c.337.314.53.76.53 1.229 0 .468-.193.918-.535 1.232Z" fill="#fff" />
+                    </svg></button></div>
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="swiper-slide">
+                        <div class="bg-white block cursor-pointer overflow-hidden recommended-creator-card rounded-xl shadow-md" onclick="goTo('/profile/index.html')">
+                          <div class="flex">
+                            <div class="flex-1"><img src="../../static/work-one.35ab7df2.png" alt=""></div>
+                            <div class="flex-1"><img src="../../static/work-two.624a7c64.png" alt=""></div>
+                            <div class="flex-1 hidden xl_block"><img src="../../static/work-three.5c685ff7.png" alt=""></div>
+                          </div>
+                          <div class="p-3"><a class="flex items-center mb-2 space-x-2" href="../../profile/index.html"><img class="h-10 rounded-full w-10" src="../../static/avatar-two.c6bff101.png" alt=""><span class="text-lg">tenca 天華</span></a>
+                            <ul class="flex mb-3 space-x-2">
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                            </ul>
+                            <ul class="flex space-x-2">
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="swiper-slide">
+                        <div class="bg-white block cursor-pointer overflow-hidden recommended-creator-card rounded-xl shadow-md" onclick="goTo('/profile/index.html')">
+                          <div class="flex">
+                            <div class="flex-1"><img src="../../static/work-one.35ab7df2.png" alt=""></div>
+                            <div class="flex-1"><img src="../../static/work-two.624a7c64.png" alt=""></div>
+                            <div class="flex-1 hidden xl_block"><img src="../../static/work-three.5c685ff7.png" alt=""></div>
+                          </div>
+                          <div class="p-3"><a class="flex items-center mb-2 space-x-2" href="../../profile/index.html"><img class="h-10 rounded-full w-10" src="../../static/avatar-two.c6bff101.png" alt=""><span class="text-lg">tenca 天華</span></a>
+                            <ul class="flex mb-3 space-x-2">
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                            </ul>
+                            <ul class="flex space-x-2">
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="swiper-slide">
+                        <div class="bg-white block cursor-pointer overflow-hidden recommended-creator-card rounded-xl shadow-md" onclick="goTo('/profile/index.html')">
+                          <div class="flex">
+                            <div class="flex-1"><img src="../../static/work-one.35ab7df2.png" alt=""></div>
+                            <div class="flex-1"><img src="../../static/work-two.624a7c64.png" alt=""></div>
+                            <div class="flex-1 hidden xl_block"><img src="../../static/work-three.5c685ff7.png" alt=""></div>
+                          </div>
+                          <div class="p-3"><a class="flex items-center mb-2 space-x-2" href="../../profile/index.html"><img class="h-10 rounded-full w-10" src="../../static/avatar-two.c6bff101.png" alt=""><span class="text-lg">tenca 天華</span></a>
+                            <ul class="flex mb-3 space-x-2">
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                            </ul>
+                            <ul class="flex space-x-2">
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="swiper-slide">
+                        <div class="bg-white block cursor-pointer overflow-hidden recommended-creator-card rounded-xl shadow-md" onclick="goTo('/profile/index.html')">
+                          <div class="flex">
+                            <div class="flex-1"><img src="../../static/work-one.35ab7df2.png" alt=""></div>
+                            <div class="flex-1"><img src="../../static/work-two.624a7c64.png" alt=""></div>
+                            <div class="flex-1 hidden xl_block"><img src="../../static/work-three.5c685ff7.png" alt=""></div>
+                          </div>
+                          <div class="p-3"><a class="flex items-center mb-2 space-x-2" href="../../profile/index.html"><img class="h-10 rounded-full w-10" src="../../static/avatar-two.c6bff101.png" alt=""><span class="text-lg">tenca 天華</span></a>
+                            <ul class="flex mb-3 space-x-2">
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                            </ul>
+                            <ul class="flex space-x-2">
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="swiper-slide">
+                        <div class="bg-white block cursor-pointer overflow-hidden recommended-creator-card rounded-xl shadow-md" onclick="goTo('/profile/index.html')">
+                          <div class="flex">
+                            <div class="flex-1"><img src="../../static/work-one.35ab7df2.png" alt=""></div>
+                            <div class="flex-1"><img src="../../static/work-two.624a7c64.png" alt=""></div>
+                            <div class="flex-1 hidden xl_block"><img src="../../static/work-three.5c685ff7.png" alt=""></div>
+                          </div>
+                          <div class="p-3"><a class="flex items-center mb-2 space-x-2" href="../../profile/index.html"><img class="h-10 rounded-full w-10" src="../../static/avatar-two.c6bff101.png" alt=""><span class="text-lg">tenca 天華</span></a>
+                            <ul class="flex mb-3 space-x-2">
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                            </ul>
+                            <ul class="flex space-x-2">
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="swiper-slide">
+                        <div class="bg-white block cursor-pointer overflow-hidden recommended-creator-card rounded-xl shadow-md" onclick="goTo('/profile/index.html')">
+                          <div class="flex">
+                            <div class="flex-1"><img src="../../static/work-one.35ab7df2.png" alt=""></div>
+                            <div class="flex-1"><img src="../../static/work-two.624a7c64.png" alt=""></div>
+                            <div class="flex-1 hidden xl_block"><img src="../../static/work-three.5c685ff7.png" alt=""></div>
+                          </div>
+                          <div class="p-3"><a class="flex items-center mb-2 space-x-2" href="../../profile/index.html"><img class="h-10 rounded-full w-10" src="../../static/avatar-two.c6bff101.png" alt=""><span class="text-lg">tenca 天華</span></a>
+                            <ul class="flex mb-3 space-x-2">
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                              <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                            </ul>
+                            <ul class="flex space-x-2">
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                              <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="../../profile/index.html">#聖誕快樂</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <script>
+          new Swiper(".recommended-swiper-section .swiper", {
+            slidesPerView: 1.5,
+            spaceBetween: 16,
+            breakpoints: {
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 24
+              }
+            },
+            navigation: {
+              nextEl: ".recommended-swiper-section .next",
+              prevEl: ".recommended-swiper-section .prev"
+            }
+          });
+        </script>
       </div>
     </main>
     <footer class="bg-white">
@@ -131,9 +298,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -121,14 +122,14 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -161,7 +162,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -191,7 +192,7 @@
                         <div class="text-base">請選擇 1 至 5 個代表作品</div><span class="text-danger">*</span>
                       </label>
                       <div class="text-body-sm text-gray" x-text="`您已選擇了 ${selectedItems.length} 個作品`"></div>
-                      <div class="gap-x-10 grid grid-cols-4 mt-5 w-full xl_gap-x-6 xl_grid-cols-10"><template x-for="(item, index) in (items.filter(each=&gt;selectedItems.indexOf(each.id) !== -1))" key="item.id">
+                      <div class="gap-x-10 grid grid-cols-4 mt-5 w-full xl_gap-x-6 xl_grid-cols-10"><template x-for="(item, index) in (items.filter(each=&gt;selectedItems.indexOf(each.id) !== -1))" :key="`resume-item-${item.id}`">
                           <div class="col-span-2 flex flex-col gap-y-3 group group-hover_bg-gray-lighter" @click="selectedItems.splice(index, 1)">
                             <div class="aspect-square relative"><img class="h-full object-cover w-full" src="../../static/plan-cover.faed3b03.png" alt="plan-cover">
                               <div class="absolute border border-gray-darker group-hover_flex hidden inset-0 items-end">
@@ -204,7 +205,7 @@
                     </div><label class="bg-primary-lighter h-8 relative rounded-xl"><input class="form-input h-8 pl-8 placeholder_text-caption" type="text" placeholder="搜尋作品" name="searchItem" x-model="searchText">
                       <div class="absolute flex inset-y-0 items-center justify-center left-2"><img src="../../static/search.65aae8c4.svg" alt="search"></div>
                     </label>
-                    <div class="resume-items xl_gap-x-6 xl_gap-y-8 xl_grid-cols-10" :class="loadMore &amp;&amp; 'show-more'" x-cloak=""><template x-for="item in (items.filter(each=&gt; (searchText.length === 0) || each.name.includes(searchText) ))" key="item.id">
+                    <div class="resume-items xl_gap-x-6 xl_gap-y-8 xl_grid-cols-10" :class="loadMore &amp;&amp; 'show-more'" x-cloak=""><template x-for="item in (items.filter(each=&gt; (searchText.length === 0) || each.name.includes(searchText) ))" :key="`resume-search-item-${item.id}`">
                         <div class="hover_bg-gray-lighter resume-item" @click="const findIndex = selectedItems.indexOf(item.id); (findIndex === -1) ? ((selectedItems.length &lt; 5) &amp;&amp; selectedItems.push(item.id)) : (selectedItems.splice(findIndex, 1))">
                           <div class="aspect-square relative"><img class="h-full object-cover w-full" src="../../static/plan-cover.faed3b03.png" alt="plan-cover"><template x-if="(selectedItems.indexOf(item.id) !== -1)" x-cloak="">
                               <div class="absolute border border-success flex inset-0 items-end">
@@ -239,9 +240,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

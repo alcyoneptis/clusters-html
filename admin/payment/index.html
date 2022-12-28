@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -121,14 +122,14 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -161,7 +162,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -172,7 +173,7 @@
       <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
     </header>
     <main class="mb-auto mt-12 xl_mt-16">
-      <div class="container flex flex-col items-center justify-center md_pb-23 md_pt-12 pb-18 pt-8" x-data="{defaultModalOpened: false, sendedModalOpened: false}">
+      <div class="container flex flex-col items-center justify-center md_pb-23 md_pt-12 pb-18 pt-8" x-data="{defaultModalOpened: false, secondModalOpened: false, isVerified: false}">
         <div class="bg-white md_p-12 p-4 rounded-xl w-full">
           <div class="font-bold mb-8 md_text-3xl text-center text-xl">金流管理</div>
           <div class="font-medium mb-6 text-2xl text-gray-darker">我的餘額</div>
@@ -209,18 +210,105 @@
               <div class="font-medium text-2xl text-gray-darker">身份驗證</div><img class="text-2xl text-success" src="../../static/green-check.e4751f50.svg">
             </div>
             <div class="flex flex-col gap-y-3">
-              <div class="text-caption text-gray">經過身份驗證後即可將收到的贊助金轉入您的銀行帳戶</div><button class="btn btn-primary font-medium text-base w-32" disabled>已驗證完成</button>
+              <div class="text-caption text-gray">經過身份驗證後即可將收到的贊助金轉入您的銀行帳戶</div><button class="btn btn-primary font-medium text-base w-32" x-show="!isVerified" @click="$store.openedModal = 'IDENTITY_MODAL'" x-cloak="">去驗證</button><button class="btn btn-primary font-medium text-base w-32" disabled x-show="isVerified" x-cloak="">已驗證完成</button>
+              <div x-show="$store.openedModal === 'IDENTITY_MODAL'">
+                <div x-data="identityModalData()">
+                  <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                    <div class="container flex items-center justify-center">
+                      <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                        <div class="font-medium mb-8 md_text-2xl text-center text-xl">身份認證</div>
+                        <div class="mb-8 space-y-8">
+                          <div class="form-field"><label class="mb-2"><span>真實姓名</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入真實姓名" name="真實姓名"></div>
+                          <div class="form-field"><label class="mb-2"><span>身分證字號</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入身分證字號" name="身分證字號"></div>
+                          <div class="form-field"><label class="mb-2"><span>銀行名稱</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入銀行名稱" name="銀行名稱"></div>
+                          <div class="form-field"><label class="mb-2"><span>分行名稱</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入分行名稱" name="分行名稱"></div>
+                          <div class="form-field"><label class="mb-2"><span>銀行帳號</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入銀行帳號" name="銀行帳號"></div>
+                          <div>
+                            <div class="font-medium mb-2">身分證雙面圖檔<span class="text-danger">*</span></div>
+                            <div class="gap-y-6 grid grid-cols-1 md_gap-x-6 md_gap-y-0 md_grid-cols-2">
+                              <div>
+                                <div class="mb-2">正面</div>
+                                <div class="bg-gray-lighter relative w-full" x-show="getUrl('front')" x-cloak="x-cloak"><img class="h-36 m-auto md_h-44" :src="getUrl('front')" img-name="front"><button class="absolute bg-gray-darker bottom-3 h-6 p-1 right-3 rounded-full w-6" x-on:click="removeUrlPair('front')"><img src="../../static/edit.db949f41.svg" alt="icon-edit"></button></div>
+                                <div class="bg-primary-lighter front h-36 md_h-44" x-show="!getUrl('front')" x-cloak="x-cloak">
+                                  <div class="flex h-full items-center justify-center relative w-full">
+                                    <div class="absolute inset-0 opacity-0">
+                                      <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input hidden" type="file" name="front" id="front" x-on:change="uploadUrlPair('front')"><label class="absolute btn inset-0" for="front">Upload</label></div>
+                                    </div><img src="../../static/plus.693e8099.svg" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                <div class="mb-2">反面</div>
+                                <div class="bg-gray-lighter relative w-full" x-show="getUrl('back')" x-cloak="x-cloak"><img class="h-36 m-auto md_h-44" :src="getUrl('back')" img-name="back"><button class="absolute bg-gray-darker bottom-3 h-6 p-1 right-3 rounded-full w-6" x-on:click="removeUrlPair('back')"><img src="../../static/edit.db949f41.svg" alt="icon-edit"></button></div>
+                                <div class="back bg-primary-lighter h-36 md_h-44" x-show="!getUrl('back')" x-cloak="x-cloak">
+                                  <div class="flex h-full items-center justify-center relative w-full">
+                                    <div class="absolute inset-0 opacity-0">
+                                      <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input hidden" type="file" name="back" id="back" x-on:change="uploadUrlPair('back')"><label class="absolute btn inset-0" for="back">Upload</label></div>
+                                    </div><img src="../../static/plus.693e8099.svg" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                <div class="mb-2">本人存摺封面</div>
+                                <div class="bg-gray-lighter relative w-full" x-show="getUrl('bankbook-cover')" x-cloak="x-cloak"><img class="h-36 m-auto md_h-44" :src="getUrl('bankbook-cover')" img-name="bankbook-cover"><button class="absolute bg-gray-darker bottom-3 h-6 p-1 right-3 rounded-full w-6" x-on:click="removeUrlPair('bankbook-cover')"><img src="../../static/edit.db949f41.svg" alt="icon-edit"></button></div>
+                                <div class="bankbook-cover bg-primary-lighter h-36 md_h-44" x-show="!getUrl('bankbook-cover')" x-cloak="x-cloak">
+                                  <div class="flex h-full items-center justify-center relative w-full">
+                                    <div class="absolute inset-0 opacity-0">
+                                      <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input hidden" type="file" name="bankbook-cover" id="bankbook-cover" x-on:change="uploadUrlPair('bankbook-cover')"><label class="absolute btn inset-0" for="bankbook-cover">Upload</label></div>
+                                    </div><img src="../../static/plus.693e8099.svg" alt="">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="flex items-center justify-center w-full">
+                          <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button" x-on:click="isVerified = true; $store.openedModal = undefined">申請認證</button></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function identityModalData() {
+                    return {
+                      urlPairs: {},
+                      getUrl(t) {
+                        return this.urlPairs[t]
+                      },
+                      uploadUrlPair(t) {
+                        const e = document.getElementById(t);
+                        if (!e) return;
+                        const r = e.files[0];
+                        r && (this.urlPairs[t] = URL.createObjectURL(r))
+                      },
+                      removeUrlPair(t) {
+                        const e = document.getElementById(t);
+                        e && (e.value = "", this.urlPairs[t] = void 0)
+                      },
+                      removeUrlPairs() {
+                        for (const t of Object.keys(this.urls)) {
+                          const t = document.getElementById(findId);
+                          if (!t) return;
+                          t.value = ""
+                        }
+                        this.urlPairs = {}
+                      }
+                    }
+                  }
+                </script>
+              </div>
             </div>
           </div>
           <div class="font-medium mb-6 text-2xl text-gray-darker">金流紀錄</div>
-          <div class="flex flex-col mb-8 md_flex-row md_items-center md_justify-between w-full">
+          <div class="flex flex-col gap-y-8 mb-8 md_flex-row md_items-center md_justify-between w-full">
             <div class="md_order-1 order-2">
               <div class="md_flex md_items-center md_space-x-8 md_space-y-0 space-y-8">
                 <div class="bg-primary-lighter flex h-10 items-center md_w-45 pl-3 rounded-md space-x-2 text-sm w-full"><img class="h-3 w-3" src="../../static/search.65aae8c4.svg" alt=""><input class="bg-primary-lighter md_w-30" type="text" placeholder="搜尋關鍵字"></div>
                 <div class="flex justify-start md_space-x-8 space-x-6">
                   <div class="relative" x-data="{ isOpened: false }" @click.outside="isOpened = false">
                     <div class="bg-white border border-gray-lighter flex h-9 items-center justify-between pl-3 pr-4 rounded-md w-27" @click="isOpened = !isOpened">
-                      <div class="text-gray text-sm">下單時間</div><img src="../../static/arrow-down-gray.9bc0c88e.svg" alt="">
+                      <div class="text-gray text-sm">時間</div><img src="../../static/arrow-down-gray.9bc0c88e.svg" alt="">
                     </div>
                     <ul class="absolute bg-white border border-gray-lighter py-2 rounded-md top-10 w-27" x-show="isOpened" x-cloak="x-cloak">
                       <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">過去一週</li>
@@ -231,18 +319,18 @@
                   </div>
                   <div class="relative" x-data="{ isOpened: false }" @click.outside="isOpened = false">
                     <div class="bg-white border border-gray-lighter flex h-9 items-center justify-between pl-3 pr-4 rounded-md w-27" @click="isOpened = !isOpened">
-                      <div class="text-gray text-sm">訂單狀態</div><img src="../../static/arrow-down-gray.9bc0c88e.svg" alt="">
+                      <div class="text-gray text-sm">類別</div><img src="../../static/arrow-down-gray.9bc0c88e.svg" alt="">
                     </div>
                     <ul class="absolute bg-white border border-gray-lighter py-2 rounded-md top-10 w-27" x-show="isOpened" x-cloak="x-cloak">
-                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">成功</li>
-                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">失敗</li>
-                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">等待付款</li>
+                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">贊助收入</li>
+                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">退款</li>
+                      <li class="flex h-7 hover_bg-primary-light items-center justify-center py-4 text-sm w-full">取款</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="mb-8 md_mb-0 md_order-2 order-1">
+            <div class="md_mb-0 md_order-2 order-1">
               <div class="btn btn-black btn-primary px-7 py-2">匯出報表</div>
             </div>
           </div>
@@ -395,22 +483,23 @@
           <div class="flex h-full items-center justify-center p-4 w-full">
             <div class="bg-white container flex flex-col gap-y-8 h-80 justify-between p-8 relative rounded-xl w-150">
               <h2 class="font-medium text-2xl text-center text-gray-darker">申請提領</h2>
-              <div class="absolute h-6 right-8 top-9 w-6"><button @click="sendedModalOpened = false; defaultModalOpened = false;"><img src="../../static/close.6e7f3b4b.svg" alt=""></button></div>
+              <div class="absolute h-6 right-8 top-9 w-6"><button @click="secondModalOpened = false; defaultModalOpened = false;"><img src="../../static/close.6e7f3b4b.svg" alt=""></button></div>
               <div class="flex flex-col gap-y-4">
                 <div class="form-field"><label class="mb-2"><span>提領金額</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入欲提領的金額" name="withdrawal-amount">
                   <p class="helper">餘額 NT$ 999</p>
                 </div>
               </div>
-              <div class="flex flex-row gap-x-6 justify-center"><button class="btn btn-block btn-outline-primary text-sm xl_h-14 xl_w-50" @click="sendedModalOpened = false; defaultModalOpened = false;">取消</button><button class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" @click="sendedModalOpened = true;">申請提領</button></div>
-            </div><template x-if="sendedModalOpened">
+              <div class="flex flex-row gap-x-6 justify-center"><button class="btn btn-block btn-outline-primary text-sm xl_h-14 xl_w-50" @click="secondModalOpened = false; defaultModalOpened = false;">取消</button><button class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" @click="secondModalOpened = true;">申請提領</button></div>
+            </div><template x-if="secondModalOpened">
               <div class="fixed flex h-full items-center justify-center w-full">
                 <div class="bg-white container flex flex-col gap-y-8 h-auto justify-between p-4 relative rounded-xl w-full xl_h-120 xl_p-8 xl_w-150">
                   <h2 class="font-medium text-2xl text-center text-gray-darker">已送出申請</h2>
-                  <div class="absolute h-6 right-8 top-9 w-6"><button @click="sendedModalOpened = false; defaultModalOpened = false;"><img src="../../static/close.6e7f3b4b.svg" alt=""></button></div>
-                  <div class="flex flex-col gap-y-4 items-center justify-center"><img class="w-45" src="../../static/cost.c5628add.png" alt="">
-                    <div class="text-gray-darker text-subtitle whitespace-pre-wrap">如申請成功，將於五個工作日內匯款 您的收款帳號：0041-567-0204-531</div>
+                  <div class="absolute h-6 right-8 top-9 w-6"><button @click="secondModalOpened = false; defaultModalOpened = false;"><img src="../../static/close.6e7f3b4b.svg" alt=""></button></div>
+                  <div class="flex flex-col gap-y-4 items-center justify-center"><img class="w-45" src="../../static/cost.b9a54770.png" alt="">
+                    <div class="text-center text-gray-darker text-subtitle" x-html="whitespacePreWrapText(`如申請成功，將於五個工作日內匯款
+您的收款帳號：0041-567-0204-531`)" x-cloak=""></div>
                   </div>
-                  <div class="flex flex-col-reverse gap-y-6 justify-center xl_flex-row xl_gap-x-6"><button class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" @click="sendedModalOpened = false; defaultModalOpened = false;">關閉</button></div>
+                  <div class="flex flex-col-reverse gap-y-6 justify-center xl_flex-row xl_gap-x-6"><button class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" @click="secondModalOpened = false; defaultModalOpened = false;">關閉</button></div>
                 </div>
               </div>
             </template>
@@ -430,9 +519,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

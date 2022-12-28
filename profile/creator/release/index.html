@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../../assets/app.4dad784d.js"></script>
+  <script src="../../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -114,7 +115,7 @@
                     <nav><a class="btn btn-block btn-primary text-sm" href="../../../release-product/article.html">發布作品</a>
                       <nav>
                         <ul class="border-b border-gray-lighter">
-                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.901ea634.png" alt=""></li>
+                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.9364b6b6.png" alt=""></li>
                         </ul>
                         <ul class="border-b border-gray-lighter">
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../navigator/subscription.html">我訂閱的創作者</a></li>
@@ -125,7 +126,7 @@
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                         </ul>
                         <ul class="border-b border-gray-lighter">
-                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">帳號設定</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">個人檔案</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/event/event-management.html">企劃管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/order/order-management-creator.html">訂單管理</a></li>
@@ -148,7 +149,7 @@
         <div class="px-4 py-2"> <a class="btn btn-block btn-primary text-sm" href="../../../release-product/article.html">發布作品</a>
           <nav>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.901ea634.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.9364b6b6.png" alt=""></li>
             </ul>
             <ul class="border-b border-gray-lighter">
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../navigator/subscription.html">我訂閱的創作者</a></li>
@@ -159,7 +160,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">帳號設定</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">個人檔案</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/subscription/subscription-management.html">訂閱管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/event/event-management.html">企劃管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/order/order-management.html">訂單管理</a></li>
@@ -181,10 +182,171 @@
               <div class="xl_col-end-11 xl_col-span-8 xl_col-start-3 xl_grid">
                 <div class="flex flex-col gap-8 xl_gap-12">
                   <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
-                    <div class="col-span-12 release-product-tabs" x-data="{currentTab: '標準方案'}">
-                      <div class="font-bold mb-8 md_text-3xl text-center text-xl">發布方案</div>
-                      <div class="border-b border-gray-lighter flex mb-8"><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '標準方案' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '標準方案'; $dispatch('set-current-tab', '標準方案')" x-cloak="x-cloak">標準方案</button><button class="flex flex-1 items-center justify-center py-3 rounded-t-2xl" :class="currentTab == '進階方案' ? 'bg-black text-white' : 'bg-white'" @click="currentTab = '進階方案'; $dispatch('set-current-tab', '進階方案')" x-cloak="x-cloak">進階方案</button></div>
+                    <div class="col-span-12 release-product-tabs" x-data="buttonTabsData({key: 'PROFILE_RELEASE_CONTAINER', curentTab: '標準方案'})" key="PROFILE_RELEASE_CONTAINER">
+                      <div class="gap-x-1 inline-flex-center mb-8">
+                        <div class="font-bold md_text-3xl text-center text-xl">發布方案</div>
+                        <div class="tooltip" x-data="tooltipData({text:`創作者可以依作品內容種類、豐富程度...等來開設要提供訂閱的方案，
+並在此設定訂閱方案的每月扣款金額以及名稱、圖片、人數限制等，
+記得填寫方案介紹，讓想付費訂閱的粉絲瞭解方案內容唷！
+※請注意訂閱方案有分成『標準方案』『進階方案』兩個種類。`, tooltipKey:'TOOLTIP-PROFILE_RELEASE_CONTENT'})" key="PROFILE_RELEASE_CONTENT"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../../../static/question.9467dc6e.svg" alt="question"></button>
+                          <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../../../static/question.9467dc6e.svg" alt="question"></div>
+                          <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                            <div class="xl_hidden">
+                              <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                                <div class="container flex items-center justify-center">
+                                  <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                                    <div class="pr-6">
+                                      <div class="text-caption text-gray-darker">創作者可以依作品內容種類、豐富程度...等來開設要提供訂閱的方案， 並在此設定訂閱方案的每月扣款金額以及名稱、圖片、人數限制等， 記得填寫方案介紹，讓想付費訂閱的粉絲瞭解方案內容唷！ ※請注意訂閱方案有分成『標準方案』『進階方案』兩個種類。</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="absolute hidden left-0 top-0 xl_block z-40">
+                              <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                                <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <script>
+                          function tooltipData(t = {
+                            text: text,
+                            tooltipKey: tooltipKey
+                          }) {
+                            const o = whitespacePreWrapText(t.text),
+                              e = t.tooltipKey;
+                            return {
+                              text: o,
+                              tooltipKey: e,
+                              isShowModal() {
+                                return this.$store.openedModal === e
+                              },
+                              setShowModalWithTooltipKey() {
+                                this.$store.openedModal = e
+                              },
+                              setHiddenModal() {
+                                this.$store.openedModal = void 0
+                              }
+                            }
+                          }
+                        </script>
+                      </div>
+                      <div class="border-b border-gray-lighter flex mb-8">
+                        <div class="flex-1 gap-x-1 inline-flex-center py-3 rounded-t-2xl" :class="tabClass('標準方案')" @click="tabClick('標準方案')" x-cloak="x-cloak"><span>標準方案</span>
+                          <div class="tooltip" x-data="tooltipData({text:`標準方案是最直覺式的訂閱方案，建議初次到來的創作者使用這個類別！
+您可以依照由低至高的不同方案金額、來為訂閱者提供不同價值的創作內容，新開設的方案金額不能與其他的標準方案重複。
+另外，每一個訂閱者只能訂閱一種標準方案。`, tooltipKey:'TOOLTIP-PROFILE_RELEASE_CONTENT_TAB_BASIC'})" key="PROFILE_RELEASE_CONTENT_TAB_BASIC"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../../../static/question.9467dc6e.svg" alt="question"></button>
+                            <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../../../static/question.9467dc6e.svg" alt="question"></div>
+                            <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                              <div class="xl_hidden">
+                                <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                                  <div class="container flex items-center justify-center">
+                                    <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                                      <div class="pr-6">
+                                        <div class="text-caption text-gray-darker">標準方案是最直覺式的訂閱方案，建議初次到來的創作者使用這個類別！ 您可以依照由低至高的不同方案金額、來為訂閱者提供不同價值的創作內容，新開設的方案金額不能與其他的標準方案重複。 另外，每一個訂閱者只能訂閱一種標準方案。</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="absolute hidden left-0 top-0 xl_block z-40">
+                                <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                                  <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <script>
+                            function tooltipData(t = {
+                              text: text,
+                              tooltipKey: tooltipKey
+                            }) {
+                              const o = whitespacePreWrapText(t.text),
+                                e = t.tooltipKey;
+                              return {
+                                text: o,
+                                tooltipKey: e,
+                                isShowModal() {
+                                  return this.$store.openedModal === e
+                                },
+                                setShowModalWithTooltipKey() {
+                                  this.$store.openedModal = e
+                                },
+                                setHiddenModal() {
+                                  this.$store.openedModal = void 0
+                                }
+                              }
+                            }
+                          </script>
+                        </div>
+                        <div class="flex-1 gap-x-1 inline-flex-center py-3 rounded-t-2xl" :class="tabClass('進階方案')" @click="tabClick('進階方案')" x-cloak="x-cloak"><span>進階方案</span>
+                          <div class="tooltip" x-data="tooltipData({text:`進階方案是使用上最靈活的訂閱方案，推薦對訂閱制很熟悉的創作者使用這個類別！
+您可以自由的開設方案並為訂閱者提供不同的創作內容，方案金額也允許重複。
+並且，每一個訂閱者可以自由選擇訂閱單或多個不同的進階方案。
+(例如：將不同領域、主題的創作設定為不同的進階方案，讓粉絲自由選擇訂閱)`, tooltipKey:'TOOLTIP-PROFILE_RELEASE_CONTENT_TAB_ADVANCED'})" key="PROFILE_RELEASE_CONTENT_TAB_ADVANCED"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../../../static/question.9467dc6e.svg" alt="question"></button>
+                            <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../../../static/question.9467dc6e.svg" alt="question"></div>
+                            <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                              <div class="xl_hidden">
+                                <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                                  <div class="container flex items-center justify-center">
+                                    <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                                      <div class="pr-6">
+                                        <div class="text-caption text-gray-darker">進階方案是使用上最靈活的訂閱方案，推薦對訂閱制很熟悉的創作者使用這個類別！ 您可以自由的開設方案並為訂閱者提供不同的創作內容，方案金額也允許重複。 並且，每一個訂閱者可以自由選擇訂閱單或多個不同的進階方案。 (例如：將不同領域、主題的創作設定為不同的進階方案，讓粉絲自由選擇訂閱)</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="absolute hidden left-0 top-0 xl_block z-40">
+                                <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                                  <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <script>
+                            function tooltipData(t = {
+                              text: text,
+                              tooltipKey: tooltipKey
+                            }) {
+                              const o = whitespacePreWrapText(t.text),
+                                e = t.tooltipKey;
+                              return {
+                                text: o,
+                                tooltipKey: e,
+                                isShowModal() {
+                                  return this.$store.openedModal === e
+                                },
+                                setShowModalWithTooltipKey() {
+                                  this.$store.openedModal = e
+                                },
+                                setHiddenModal() {
+                                  this.$store.openedModal = void 0
+                                }
+                              }
+                            }
+                          </script>
+                        </div>
+                      </div>
                     </div>
+                    <script>
+                      function buttonTabsData(t = {
+                        key: "default",
+                        curentTab: ""
+                      }) {
+                        return {
+                          key: t.key,
+                          curentTab: t.curentTab,
+                          tabClass(t) {
+                            return this.curentTab === t ? "bg-black text-white" : "bg-white"
+                          },
+                          tabClick(t) {
+                            this.curentTab = t, this.$dispatch("set-current-tab", t)
+                          }
+                        }
+                      }
+                    </script>
                     <div class="flex flex-col gap-y-2 release-product-cover">
                       <div class="form-field"><label class="mb-2"><span>封面</span><span class="mt-1 text-danger">*</span></label></div>
                       <div class="bg-gray-lightest cover-upload flex h-36 items-center justify-center relative rounded-xl w-73"><img src="../../../static/plus.693e8099.svg" alt="plus">
@@ -209,7 +371,7 @@
                       <div class="form-field"><label class="mb-2"><span>訂閱人數限制</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="number" placeholder="請輸入訂閱人數限制" name="subscriberLimit">
                         <p class="helper">補訂說明：有訂閱人數限制的方案，訂閱者無法回頭補訂閱觀看過去的內容</p>
                       </div>
-                      <p class="text-gray text-xs whitespace-pre-wrap">例：訂閱者 A 在五月訂閱了有人數限制的方案，他無法透過補訂閱費用觀看四月以前的發文</p>
+                      <p class="text-gray text-xs">例：訂閱者 A 在五月訂閱了有人數限制的方案，他無法透過補訂閱費用觀看四月以前的發文</p>
                     </div>
                     <div class="form-field"><label class="mb-2"><span>方案狀態</span><span class="mt-1 text-danger">*</span></label>
                       <div class="flex flex-col space-y-3 xl_flex-row xl_space-x-12 xl_space-y-0"><label class="form-check"><input class="hidden" type="radio" name="planStatus" value="上架">
@@ -235,11 +397,12 @@
               <div class="bg-white container flex flex-col gap-y-4 h-auto justify-between p-4 relative rounded-xl w-full xl_h-83 xl_p-8 xl_w-92">
                 <h2 class="h1 text-center text-gray-darker" x-text="modalTitle" x-cloak="x-cloak"></h2>
                 <div class="absolute right-3 top-3"><button @click="defaultModalOpened = false"><img src="../../../static/close.6e7f3b4b.svg" alt=""></button></div><template x-if="modalTitle === '刪除方案'">
-                  <div class="text-body-sm text-gray-dark whitespace-pre-wrap">商除方案警告內容（說明刪除文案帶來的影響） 刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案</div>
+                  <div class="text-body-sm text-gray-dark" x-html="whitespacePreWrapText(`刪除方案警告內容（說明刪除文案帶來的影響）
+刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案影響說明刪除方案`)" x-cloak="x-cloak"></div>
                 </template><template x-if="modalTitle === '修改方案內容'">
-                  <div class="text-body-sm text-gray-dark whitespace-pre-wrap">注意！若您修改方案內容，系統會通知訂閱會員此方案已被修改</div>
+                  <div class="text-body-sm text-gray-dark">注意！若您修改方案內容，系統會通知訂閱會員此方案已被修改</div>
                 </template><template x-if="modalTitle === '修改方案金額'">
-                  <div class="text-body-sm text-gray-dark whitespace-pre-wrap">警告！若您修改方案金額，系統會通知訂閱會員此方案已被修改，並將此方案會員自動解除訂閱，想繼續訂閱的會員需手動加入您修改後的新方案</div>
+                  <div class="text-body-sm text-gray-dark">警告！若您修改方案金額，系統會通知訂閱會員此方案已被修改，並將此方案會員自動解除訂閱，想繼續訂閱的會員需手動加入您修改後的新方案</div>
                 </template>
                 <div class="flex flex-col-reverse gap-y-6 justify-center xl_flex-row xl_gap-x-6"><a class="btn btn-block btn-outline-primary text-sm xl_h-14 xl_w-50" href="../../../register-creator/terms.html">取消</a><a class="btn btn-block btn-primary text-sm xl_h-14 xl_w-50" href="../../../register-creator/release.html" x-text="modalButtonText" x-cloak="x-cloak"></a></div>
               </div>
@@ -260,9 +423,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

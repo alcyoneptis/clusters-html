@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../../assets/app.4dad784d.js"></script>
+  <script src="../../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -114,7 +115,7 @@
                     <nav><a class="btn btn-block btn-primary text-sm" href="../../../release-product/article.html">發布作品</a>
                       <nav>
                         <ul class="border-b border-gray-lighter">
-                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.901ea634.png" alt=""></li>
+                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.9364b6b6.png" alt=""></li>
                         </ul>
                         <ul class="border-b border-gray-lighter">
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../navigator/subscription.html">我訂閱的創作者</a></li>
@@ -125,7 +126,7 @@
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                         </ul>
                         <ul class="border-b border-gray-lighter">
-                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">帳號設定</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">個人檔案</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/event/event-management.html">企劃管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/order/order-management-creator.html">訂單管理</a></li>
@@ -148,7 +149,7 @@
         <div class="px-4 py-2"> <a class="btn btn-block btn-primary text-sm" href="../../../release-product/article.html">發布作品</a>
           <nav>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.901ea634.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../../static/octopus.9364b6b6.png" alt=""></li>
             </ul>
             <ul class="border-b border-gray-lighter">
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../navigator/subscription.html">我訂閱的創作者</a></li>
@@ -159,7 +160,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">帳號設定</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/profile/creator-me.html">個人檔案</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/subscription/subscription-management.html">訂閱管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/event/event-management.html">企劃管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../../admin/order/order-management.html">訂單管理</a></li>
@@ -178,7 +179,155 @@
         <div class="profile-info">
           <div class="relative">
             <div class="relative">
-              <div class="absolute container flex inset-0 items-end justify-end"><button class="btn btn-black h-8 mb-3 p-0 space-x-1 text-white w-8 xl_h-auto xl_mb-12 xl_px-4 xl_py-2 xl_w-auto"><img src="../../../static/edit.db949f41.svg" alt=""><span class="hidden xl_block">編輯封面</span></button></div><img src="../../../static/profile-cover.8aa7fa78.png" alt="">
+              <div class="flex flex-col gap-y-2" x-data="uploadCoverModalData({ findId: 'upload-profile-info-cover', updateCoverImgContainerId: 'upload-profile-info-cover-img-container', currentTab: '寬封面'})" x-cloak="x-cloak">
+                <div class="absolute container flex inset-0 items-end justify-end"><input class="form-input hidden" type="file" accept="image/png, image/jpeg" name="upload-profile-info-cover" id="upload-profile-info-cover" x-on:change="uploadCoverInputChange"><label class="btn btn-black h-8 mb-3 p-0 space-x-1 text-white w-8 xl_h-auto xl_mb-12 xl_px-4 xl_py-2 xl_w-auto" for="upload-profile-info-cover"><img src="../../../static/edit.db949f41.svg" alt=""><span class="hidden xl_block">編輯封面</span></label></div><template x-if="!croppedCoverImageURL"><img src="../../../static/profile-cover.8aa7fa78.png" alt="profile-cover"></template><template x-if="croppedCoverImageURL"><img class="m-auto min-h-85" :src="croppedCoverImageURL" alt="profile-cropped-cover"></template>
+                <div x-show="modelShow()" @set-current-tab.window="setCurrentTab">
+                  <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                    <div class="container flex items-center justify-center">
+                      <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../../static/close.6e7f3b4b.svg" alt="close" @click="cancelButtonClick">
+                        <div class="font-medium mb-8 md_text-2xl text-center text-xl">設定圖片位置與尺寸</div>
+                        <div class="flex flex-col gap-y-10">
+                          <div class="flex flex-col">
+                            <div class="col-span-12 release-product-tabs" x-data="buttonTabsData({key: 'PROFILE-INFO-COVER_WITH_EDIT-BUTTON', curentTab: '寬封面'})" key="PROFILE-INFO-COVER_WITH_EDIT-BUTTON">
+                              <div class="border-b border-transparent flex mb-0">
+                                <div class="flex-1 gap-x-1 inline-flex-center py-3 rounded-t-2xl" :class="tabClass('寬封面')" @click="tabClick('寬封面')" x-cloak="x-cloak"><span>寬封面</span></div>
+                              </div>
+                            </div>
+                            <script>
+                              function buttonTabsData(t = {
+                                key: "default",
+                                curentTab: ""
+                              }) {
+                                return {
+                                  key: t.key,
+                                  curentTab: t.curentTab,
+                                  tabClass(t) {
+                                    return this.curentTab === t ? "bg-black text-white" : "bg-white"
+                                  },
+                                  tabClick(t) {
+                                    this.curentTab = t, this.$dispatch("set-current-tab", t)
+                                  }
+                                }
+                              }
+                            </script>
+                            <div class="bg-gray-lightest w-full">
+                              <div class="aspect-update-wide-cover overflow-hidden relative w-full" id="upload-profile-info-cover-img-container">
+                                <div class="h-full w-full" :style="{transform: `scale(${zoom * 0.01})`}" x-cloak="x-cloak">
+                                  <div class="h-full w-full" :style="{backgroundImage: `url(${coverImageURL()})`, backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
+                                </div>
+                                <div class="update-cover-image" x-show="currentTabIsSquare()" x-cloak="x-cloak">
+                                  <div class="update-cover-image-blur"></div>
+                                  <div class="update-cover-image-square"></div>
+                                  <div class="update-cover-image-blur"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="helper mt-2">尺寸建議：1280*338px</p>
+                          </div>
+                          <div class="flex items-center space-x-2"><img src="../../../static/zoom-out.a60f888b.svg" alt="zoom-out"><input class="avatar-slider" type="range" min="50" max="150" x-model="zoom"><img src="../../../static/zoom-in.10c72a9a.svg" alt="zoom-in"></div>
+                          <div class="flex items-center justify-center w-full">
+                            <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="cancelButtonClick">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button" x-on:click="checkButtonClick">確認</button></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <script>
+                function uploadCoverModalData(e = {
+                  findId: findId,
+                  updateCoverImgContainerId: updateCoverImgContainerId,
+                  currentTab: currentTab
+                }) {
+                  const t = ["寬封面", "1:1 方形"];
+                  return {
+                    findId: e.findId || "",
+                    updateCoverImgContainerId: e.updateCoverImgContainerId || "",
+                    currentTab: e.currentTab || "",
+                    coverImageFile: void 0,
+                    croppedCoverImageURL: void 0,
+                    zoom: 100,
+                    setCurrentTab() {
+                      t.includes(this.$event.detail) && (this.currentTab = this.$event.detail)
+                    },
+                    modelShow() {
+                      return "UPLOAD_COVER" === this.$store.openedModal && !!this.coverImageFile
+                    },
+                    currentTabIsSquare() {
+                      return "1:1 方形" === this.currentTab
+                    },
+                    coverImageURL() {
+                      if (this.coverImageFile) return URL.createObjectURL(this.coverImageFile)
+                    },
+                    uploadCoverImageFile() {
+                      if (!this.findId) return;
+                      const e = document.getElementById(this.findId);
+                      if (!e) return;
+                      const t = e.files[0];
+                      t && (this.coverImageFile = t)
+                    },
+                    uploadCoverInputChange() {
+                      this.uploadCoverImageFile(), this.zoom = 100, this.$store.openedModal = "UPLOAD_COVER"
+                    },
+                    async updateCroppedCoverImageFilebyDefault() {
+                      const e = document.getElementById(this.updateCoverImgContainerId);
+                      if (e) try {
+                        const t = await html2canvas(e),
+                          o = t.width,
+                          r = t.height;
+                        if (this.zoom < 100) {
+                          const e = .01 * this.zoom,
+                            a = o * e,
+                            i = r * e,
+                            d = o * (1 - e) * .5,
+                            n = r * (1 - e) * .5,
+                            m = document.createElement("canvas");
+                          m.width = a, m.height = i;
+                          return m.getContext("2d").drawImage(t, d, n, a, i, 0, 0, a, i), void(this.croppedCoverImageURL = m.toDataURL())
+                        }
+                        this.croppedCoverImageURL = t.toDataURL()
+                      } catch {
+                        alert("[Crop Image] Something went wrong.")
+                      }
+                    },
+                    async updateCroppedCoverImageFilebySquare() {
+                      const e = document.getElementById(this.updateCoverImgContainerId);
+                      if (e) try {
+                        const t = await html2canvas(e),
+                          o = t.height,
+                          r = t.width,
+                          a = this.zoom < 100 ? .01 * this.zoom : 1,
+                          i = o * a,
+                          d = .5 * (r - o),
+                          n = o * (1 - a) * .5,
+                          m = document.createElement("canvas");
+                        m.width = o, m.height = i;
+                        m.getContext("2d").drawImage(t, d, n, o, i, 0, 0, o, i), this.croppedCoverImageURL = m.toDataURL()
+                      } catch {
+                        alert("[Crop Image] Something went wrong.")
+                      }
+                    },
+                    updateCroppedCoverImageFile() {
+                      this.currentTabIsSquare() ? this.updateCroppedCoverImageFilebySquare() : this.updateCroppedCoverImageFilebyDefault()
+                    },
+                    removeCoverImageFileButKeepCroppedCoverImageURL() {
+                      if (!this.findId) return;
+                      const e = document.getElementById(this.findId);
+                      e && (e.value = "", this.coverImageFile = void 0)
+                    },
+                    removeCoverImageFile() {
+                      this.removeCoverImageFileButKeepCroppedCoverImageURL(), this.croppedCoverImageURL = void 0
+                    },
+                    checkButtonClick() {
+                      this.updateCroppedCoverImageFile(), this.removeCoverImageFileButKeepCroppedCoverImageURL(), this.$store.openedModal = null
+                    },
+                    cancelButtonClick() {
+                      this.removeCoverImageFile(), this.$store.openedModal = null
+                    }
+                  }
+                }
+              </script>
             </div>
             <div class="-mt-9 bg-white info xl_absolute xl_bg-transparent xl_bottom-0 xl_flex-center xl_flex-col xl_left-0 xl_mt-0 xl_top-0">
               <div class="pb-8 xl_pb-0">
@@ -412,9 +561,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

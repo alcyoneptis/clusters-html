@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+  <title>Clusters</title>
+  <meta name="description" content="">
+  <meta name="robots" content="NOINDEX,NOFOLLOW">
+  <meta name="application-name" content="Clusters"/>
+  <link rel="apple-touch-icon" href="./favicon_360x360.png">
+  <link rel="icon" sizes="16x16" href="./favicon_16x16.ico">
+  <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
+  <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="../../assets/app.9bc02328.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+  <div class="flex flex-col min-h-screen">
+    <header class="fixed left-0 right-0 top-0 z-50" x-data="{ open: false }">
+      <div class="bg-white relative z-50">
+        <div class="container py-3">
+          <nav class="flex items-center justify-between">
+            <div class="flex justify-between w-full xl_w-auto">
+              <div class="flex items-center"><button type="button" @click="open = ! open"><img class="mr-3 xl_hidden" src="../../static/hamburger.dfaf1370.svg" alt=""></button><a href="../../index.html"><img class="w-24 xl_w-40" src="../../static/logo.b0a7d86a.svg"></a></div>
+              <div class="flex items-center space-x-4 xl_hidden">
+                <div class="relative" x-data="{open: false}">
+                  <form class="flex-center" @submit.prevent="search"><button type="button" @click="open = !open"><img class="h-6 p-0-5 w-6" src="../../static/search.65aae8c4.svg" alt=""></button>
+                    <div class="bg-white fixed left-0 right-0 top-12" x-show="open" x-cloak="">
+                      <div class="container py-2">
+                        <div class="bg-primary-lighter flex px-3 py-2 rounded"><a href="../../search/works.html"><img class="mr-2" src="../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <script>
+                  function search() {
+                    window.open("../../search/works.html", "_self")
+                  }
+                </script>
+                <div class="flex-center relative" x-data="{open: false}" @click.outside="open = false"><button class="hover_bg-gray-lighter hoverable rounded-full" type="button" @click="open = !open"><img class="h-8 w-8" src="../../static/alarm.d5cb279e.svg" alt=""></button>
+                  <div class="bg-white bottom-0 fixed left-0 right-0 text-sm top-12 xl_absolute xl_left-auto xl_right-0 xl_top-full xl_translate-y-2 xl_w-80" x-show="open" x-cloak="">
+                    <div class="bg-white container xl_border xl_border-gray-lighter xl_mx-0 xl_px-0 xl_rounded-xl">
+                      <div class="flex justify-between">
+                        <div class="font-medium py-2 text-left xl_px-4">通知</div><button><img class="xl_hidden" src="../../static/close-btn.87393ab7.svg" alt="" @click="open = false"></button>
+                      </div>
+                      <ul>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/avatar.6de90399.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">裏方</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/avatar.6de90399.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">裏方</span><span>已關注您的</span><span class="font-medium">企劃</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                        <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/avatar.6de90399.png" alt="">
+                          <div class="flex flex-col items-start">
+                            <div class="space-x-1"><span class="font-medium">夏天的午後雷陣雨</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="hidden items-center ml-6 xl_flex">
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="../../index.html">首頁</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="../../navigator/recommendation.html">推薦創作者</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="../../navigator/events.html">探索企劃</a></li>
+                <li class="hover_text-black hoverable px-3 py-2 text-gray"><a href="">關於 Clusters</a></li>
+              </ul>
+            </div>
+            <div class="hidden items-center xl_flex">
+              <div class="bg-primary-lighter flex mr-5 px-3 py-2 w-38"><a href="../../search/works.html"><img class="mr-2" src="../../static/search.65aae8c4.svg" alt=""></a><input class="bg-primary-lighter text-xs w-full" type="text" placeholder="請輸入關鍵字"></div>
+              <div class="flex-center relative" x-data="{open: false}" @click.outside="open = false"><button class="hover_bg-gray-lighter hoverable rounded-full" type="button" @click="open = !open"><img class="h-8 w-8" src="../../static/alarm.d5cb279e.svg" alt=""></button>
+                <div class="bg-white bottom-0 fixed left-0 right-0 text-sm top-12 xl_absolute xl_left-auto xl_right-0 xl_top-full xl_translate-y-2 xl_w-80" x-show="open" x-cloak="">
+                  <div class="bg-white container xl_border xl_border-gray-lighter xl_mx-0 xl_px-0 xl_rounded-xl">
+                    <div class="flex justify-between">
+                      <div class="font-medium py-2 text-left xl_px-4">通知</div><button><img class="xl_hidden" src="../../static/close-btn.87393ab7.svg" alt="" @click="open = false"></button>
+                    </div>
+                    <ul>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/avatar.6de90399.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">裏方</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/avatar.6de90399.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">裏方</span><span>已關注您的</span><span class="font-medium">企劃</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                      <li class="flex py-3 space-x-1 xl_px-2"><img class="h-6 w-6" src="../../static/avatar.6de90399.png" alt="">
+                        <div class="flex flex-col items-start">
+                          <div class="space-x-1"><span class="font-medium">夏天的午後雷陣雨</span><span>已訂閱您的</span><span class="font-medium">標準方案</span></div><time>2022-05-12 </time>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div><a class="btn btn-primary ml-5 mr-4 text-sm" href="../../release-product/article.html">發布作品</a>
+              <div class="relative" x-data="{open: false}"><button class="avatar ml-5" type="button" @click="open = !open"><img class="h-10 w-10" src="../../static/avatar.6de90399.png" alt=""></button>
+                <div class="absolute bg-white right-0 rounded-xl top-full w-54" x-show="open" x-cloak="">
+                  <div class="flex items-center px-3 py-2 space-x-1"><img class="h-10" src="../../static/avatar.6de90399.png" alt=""><span class="font-bold">Looney</span></div>
+                  <div class="px-4 py-2">
+                    <nav><a class="btn btn-block btn-primary text-sm" href="../../release-product/article.html">發布作品</a>
+                      <nav>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../static/octopus.9364b6b6.png" alt=""></li>
+                        </ul>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../navigator/subscription.html">我訂閱的創作者</a></li>
+                        </ul>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../index.html">首頁</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../navigator/recommendation.html">推薦創作者</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
+                        </ul>
+                        <ul class="border-b border-gray-lighter">
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">個人檔案</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management-creator.html">訂單管理</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
+                        </ul>
+                        <ul>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
+                        </ul>
+                      </nav>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <sidebar class="bg-white border-gray-lighter border-t bottom-0 fixed left-0 py-4 text-sm top-12 w-54 xl_hidden z-30" x-cloak="" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
+        <div class="flex items-center px-2 py-3 space-x-1"><img class="h-10" src="../../static/avatar.6de90399.png" alt=""><span class="font-bold">Looney</span></div>
+        <div class="px-4 py-2"> <a class="btn btn-block btn-primary text-sm" href="../../release-product/article.html">發布作品</a>
+          <nav>
+            <ul class="border-b border-gray-lighter">
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../static/octopus.9364b6b6.png" alt=""></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../navigator/subscription.html">我訂閱的創作者</a></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../index.html">首頁</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../navigator/recommendation.html">推薦創作者</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
+            </ul>
+            <ul class="border-b border-gray-lighter">
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">個人檔案</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
+            </ul>
+            <ul>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
+            </ul>
+          </nav>
+        </div>
+      </sidebar>
+      <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
+    </header>
+    <main class="mb-auto mt-12 xl_mt-16">
+      <div class="relative">
+        <div class="container pb-15 pt-12 xl_pb-20 xl_pt-14">
+          <div class="justify-center xl_grid xl_grid-cols-12">
+            <div class="xl_col-end-11 xl_col-span-8 xl_col-start-3 xl_grid">
+              <div class="flex flex-col gap-y-6">
+                <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
+                  <div class="grid grid-cols-12 items-center justify-center" x-data="releaseProductBaseCardData('音樂')" @set-current-tab.window="setCurrentTab" x-cloak="x-cloak">
+                    <div class="col-span-12 release-product-tabs">
+                      <div class="gap-x-1 inline-flex-center mb-8">
+                        <div class="font-bold md_text-3xl text-center text-xl">編輯作品</div>
+                      </div>
+                      <div class="border-b border-gray-lighter flex mb-8"><a class="flex-1 release-product-tab" href="../../release-product/edit/article.html">文章</a><a class="flex-1 release-product-tab" href="../../release-product/edit/image.html">圖片</a><a class="flex-1 release-product-tab" href="../../release-product/edit/video.html">影片</a><a class="active flex-1 release-product-tab" href="../../release-product/edit/music.html">音樂</a></div>
+                    </div>
+                    <div class="col-span-12">
+                      <div class="gap-y-6 grid">
+                        <div class="relative">
+                          <div class="flex flex-col gap-y-2" x-data="uploadCoverModalData({ findId: 'upload-cover', updateCoverImgContainerId: 'upload-cover-img-container', currentTab: '寬封面'})" x-cloak="x-cloak">
+                            <div class="form-field"><label class="mb-2"><span>封面</span></label>
+                              <div class="h-34 overflow-hidden relative rounded-xl w-64 xl_h-38 xl_w-73" x-show="croppedCoverImageURL" x-cloak="x-cloak"><img class="h-full object-cover w-full" :src="croppedCoverImageURL"><button class="absolute bg-gray-lightest gap-x-1 inline-flex-center left-3 px-4 py-2 rounded-4xl top-3" x-on:click="removeCoverImageFile"><img src="../../static/edit-gray-dark.c9cdf99d.svg" alt="edit-gray-dark">
+                                  <div class="text-gray-dark">更換</div>
+                                </button></div>
+                              <div class="h-34 overflow-hidden relative rounded-xl w-64 xl_h-38 xl_w-73" x-show="!croppedCoverImageURL" x-cloak="x-cloak"><input class="form-input hidden" type="file" accept="image/png, image/jpeg" name="upload-cover" id="upload-cover" x-on:change="uploadCoverInputChange"><label class="bg-gray-lightest btn flex h-full items-center justify-center rounded-xl w-full" for="upload-cover"><img src="../../static/plus.693e8099.svg" alt="plus"></label></div>
+                            </div>
+                            <div class="text-caption">尺寸建議：1200*630px</div>
+                            <div x-show="modelShow()" @set-current-tab.window="setCurrentTab">
+                              <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                                <div class="container flex items-center justify-center">
+                                  <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="cancelButtonClick">
+                                    <div class="font-medium mb-8 md_text-2xl text-center text-xl">設定圖片位置與尺寸</div>
+                                    <div class="flex flex-col gap-y-10">
+                                      <div class="flex flex-col">
+                                        <div class="col-span-12 release-product-tabs" x-data="buttonTabsData({key: 'UPLOAD_COVER', curentTab: '寬封面'})" key="UPLOAD_COVER">
+                                          <div class="border-b border-transparent flex mb-0">
+                                            <div class="flex-1 gap-x-1 inline-flex-center py-3 rounded-t-2xl" :class="tabClass('寬封面')" @click="tabClick('寬封面')" x-cloak="x-cloak"><span>寬封面</span></div>
+                                            <div class="flex-1 gap-x-1 inline-flex-center py-3 rounded-t-2xl" :class="tabClass('1:1 方形')" @click="tabClick('1:1 方形')" x-cloak="x-cloak"><span>1:1 方形</span></div>
+                                          </div>
+                                        </div>
+                                        <script>
+                                          function buttonTabsData(t = {
+                                            key: "default",
+                                            curentTab: ""
+                                          }) {
+                                            return {
+                                              key: t.key,
+                                              curentTab: t.curentTab,
+                                              tabClass(t) {
+                                                return this.curentTab === t ? "bg-black text-white" : "bg-white"
+                                              },
+                                              tabClick(t) {
+                                                this.curentTab = t, this.$dispatch("set-current-tab", t)
+                                              }
+                                            }
+                                          }
+                                        </script>
+                                        <div class="bg-gray-lightest w-full">
+                                          <div class="aspect-update-cover overflow-hidden relative w-full" id="upload-cover-img-container">
+                                            <div class="h-full w-full" :style="{transform: `scale(${zoom * 0.01})`}" x-cloak="x-cloak">
+                                              <div class="h-full w-full" :style="{backgroundImage: `url(${coverImageURL()})`, backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
+                                            </div>
+                                            <div class="update-cover-image" x-show="currentTabIsSquare()" x-cloak="x-cloak">
+                                              <div class="update-cover-image-blur"></div>
+                                              <div class="update-cover-image-square"></div>
+                                              <div class="update-cover-image-blur"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="flex items-center space-x-2"><img src="../../static/zoom-out.a60f888b.svg" alt="zoom-out"><input class="avatar-slider" type="range" min="50" max="150" x-model="zoom"><img src="../../static/zoom-in.10c72a9a.svg" alt="zoom-in"></div>
+                                      <div class="flex items-center justify-center w-full">
+                                        <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="cancelButtonClick">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button" x-on:click="checkButtonClick">確認</button></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <script>
+                            function uploadCoverModalData(e = {
+                              findId: findId,
+                              updateCoverImgContainerId: updateCoverImgContainerId,
+                              currentTab: currentTab
+                            }) {
+                              const t = ["寬封面", "1:1 方形"];
+                              return {
+                                findId: e.findId || "",
+                                updateCoverImgContainerId: e.updateCoverImgContainerId || "",
+                                currentTab: e.currentTab || "",
+                                coverImageFile: void 0,
+                                croppedCoverImageURL: void 0,
+                                zoom: 100,
+                                setCurrentTab() {
+                                  t.includes(this.$event.detail) && (this.currentTab = this.$event.detail)
+                                },
+                                modelShow() {
+                                  return "UPLOAD_COVER" === this.$store.openedModal && !!this.coverImageFile
+                                },
+                                currentTabIsSquare() {
+                                  return "1:1 方形" === this.currentTab
+                                },
+                                coverImageURL() {
+                                  if (this.coverImageFile) return URL.createObjectURL(this.coverImageFile)
+                                },
+                                uploadCoverImageFile() {
+                                  if (!this.findId) return;
+                                  const e = document.getElementById(this.findId);
+                                  if (!e) return;
+                                  const t = e.files[0];
+                                  t && (this.coverImageFile = t)
+                                },
+                                uploadCoverInputChange() {
+                                  this.uploadCoverImageFile(), this.zoom = 100, this.$store.openedModal = "UPLOAD_COVER"
+                                },
+                                async updateCroppedCoverImageFilebyDefault() {
+                                  const e = document.getElementById(this.updateCoverImgContainerId);
+                                  if (e) try {
+                                    const t = await html2canvas(e),
+                                      o = t.width,
+                                      r = t.height;
+                                    if (this.zoom < 100) {
+                                      const e = .01 * this.zoom,
+                                        a = o * e,
+                                        i = r * e,
+                                        d = o * (1 - e) * .5,
+                                        n = r * (1 - e) * .5,
+                                        m = document.createElement("canvas");
+                                      m.width = a, m.height = i;
+                                      return m.getContext("2d").drawImage(t, d, n, a, i, 0, 0, a, i), void(this.croppedCoverImageURL = m.toDataURL())
+                                    }
+                                    this.croppedCoverImageURL = t.toDataURL()
+                                  } catch {
+                                    alert("[Crop Image] Something went wrong.")
+                                  }
+                                },
+                                async updateCroppedCoverImageFilebySquare() {
+                                  const e = document.getElementById(this.updateCoverImgContainerId);
+                                  if (e) try {
+                                    const t = await html2canvas(e),
+                                      o = t.height,
+                                      r = t.width,
+                                      a = this.zoom < 100 ? .01 * this.zoom : 1,
+                                      i = o * a,
+                                      d = .5 * (r - o),
+                                      n = o * (1 - a) * .5,
+                                      m = document.createElement("canvas");
+                                    m.width = o, m.height = i;
+                                    m.getContext("2d").drawImage(t, d, n, o, i, 0, 0, o, i), this.croppedCoverImageURL = m.toDataURL()
+                                  } catch {
+                                    alert("[Crop Image] Something went wrong.")
+                                  }
+                                },
+                                updateCroppedCoverImageFile() {
+                                  this.currentTabIsSquare() ? this.updateCroppedCoverImageFilebySquare() : this.updateCroppedCoverImageFilebyDefault()
+                                },
+                                removeCoverImageFileButKeepCroppedCoverImageURL() {
+                                  if (!this.findId) return;
+                                  const e = document.getElementById(this.findId);
+                                  e && (e.value = "", this.coverImageFile = void 0)
+                                },
+                                removeCoverImageFile() {
+                                  this.removeCoverImageFileButKeepCroppedCoverImageURL(), this.croppedCoverImageURL = void 0
+                                },
+                                checkButtonClick() {
+                                  this.updateCroppedCoverImageFile(), this.removeCoverImageFileButKeepCroppedCoverImageURL(), this.$store.openedModal = null
+                                },
+                                cancelButtonClick() {
+                                  this.removeCoverImageFile(), this.$store.openedModal = null
+                                }
+                              }
+                            }
+                          </script>
+                        </div>
+                        <div class="flex flex-col gap-y-2 release-product-title">
+                          <div class="form-field"><label class="mb-2"><span>標題</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入標題" name="title"></div>
+                        </div>
+                        <div class="relative" x-show="[&quot;影片&quot;, &quot;音樂&quot;].includes(currentTab)" x-cloak="x-cloak">
+                          <div class="flex flex-col gap-y-2 release-product-url">
+                            <div class="form-field"><label class="mb-2"><span>URL</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入連結" name="link"></div>
+                            <div class="text-caption">支援網站：youtube、videmo、SoundCloud</div>
+                          </div>
+                        </div>
+                        <div class="relative" x-show="currentTab==&quot;圖片&quot;" x-cloak="x-cloak">
+                          <div class="flex flex-col gap-y-2" x-data="releaseProductImageUploadData()">
+                            <div class="form-field"><label class="mb-2"><span>圖片</span><span class="mt-1 text-danger">*</span></label></div>
+                            <div class="-mx-2 flex flex-wrap xl_gap-8">
+                              <div class="w-full xl_w-auto">
+                                <div class="aspect-square p-2 w-half xl_w-30">
+                                  <div class="bg-primary-lighter flex h-full image-upload items-center justify-center relative w-full xl_h-30 xl_w-30"><img src="../../static/plus.693e8099.svg" alt="plus"><label class="absolute cursor-pointer inset-0" for="release-product-image-upload"></label><input class="form-input hidden" type="file" multiple name="release-product-image-upload" id="release-product-image-upload" x-on:change="uploadImages"></div>
+                                </div>
+                              </div>
+                              <flex class="flex-col p-2 relative w-half xl_w-30">
+                                <div class="aspect-square bg-primary-lighter xl_w-30"><img class="h-full w-full" x-show="getImageUrl(0)" :src="getImageUrl(0)" x-cloak="x-cloak"></div><button class="absolute bg-gray-darker h-6 right-0 rounded-full top-0 w-6 xl_-right-4" type="button" x-show="getImageUrl(0)" x-on:click="removeImage(0)">
+                                  <div class="flex items-center justify-center"><img src="../../static/white-close.58cff5b2.svg" alt="white-close"></div>
+                                </button>
+                                <div class="bg-primary flex gap-2 h-3 items-center justify-center w-full xl_w-30">
+                                  <div class="bg-white h-1 rounded-full w-1"></div>
+                                  <div class="bg-white h-1 rounded-full w-1"></div>
+                                  <div class="bg-white h-1 rounded-full w-1"></div>
+                                </div>
+                              </flex>
+                              <flex class="flex-col p-2 relative w-half xl_w-30">
+                                <div class="aspect-square bg-primary-lighter xl_w-30"><img class="h-full w-full" x-show="getImageUrl(1)" :src="getImageUrl(1)" x-cloak="x-cloak"></div><button class="absolute bg-gray-darker h-6 right-0 rounded-full top-0 w-6 xl_-right-4" type="button" x-show="getImageUrl(1)" x-on:click="removeImage(1)">
+                                  <div class="flex items-center justify-center"><img src="../../static/white-close.58cff5b2.svg" alt="white-close"></div>
+                                </button>
+                                <div class="bg-primary flex gap-2 h-3 items-center justify-center w-full xl_w-30">
+                                  <div class="bg-white h-1 rounded-full w-1"></div>
+                                  <div class="bg-white h-1 rounded-full w-1"></div>
+                                  <div class="bg-white h-1 rounded-full w-1"></div>
+                                </div>
+                              </flex>
+                            </div>
+                            <p class="helper">單張圖片須小於 20MB</p>
+                          </div>
+                          <script>
+                            function releaseProductImageUploadData() {
+                              const e = "release-product-image-upload";
+                              return {
+                                images: [],
+                                getImageUrl(e) {
+                                  const t = this.images[e];
+                                  if (t) return URL.createObjectURL(t)
+                                },
+                                uploadImages() {
+                                  const t = document.getElementById(e);
+                                  if (!t) return;
+                                  const s = [...t.files].slice(0, 2);
+                                  if (1 != this.images.length) this.images = s;
+                                  else {
+                                    if (!s[0]) return;
+                                    this.images = [...this.images, s[0]]
+                                  }
+                                },
+                                removeImage(t) {
+                                  if (t > 1 || t < 0) return;
+                                  if (t >= this.images.length) return;
+                                  const s = document.getElementById(e);
+                                  if (!s) return;
+                                  const i = new DataTransfer;
+                                  if (2 == this.images.length) {
+                                    const e = 0 === t ? 1 : 0;
+                                    return i.items.add(this.images[e]), s.files = i.files, void(this.images = [this.images[e]])
+                                  }
+                                  s.value = "", this.images = []
+                                }
+                              }
+                            }
+                          </script>
+                        </div>
+                        <div class="relative">
+                          <div class="form-field"><label class="mb-2"><span>內文</span><span class="mt-1 text-danger">*</span></label><textarea class="form-input" placeholder="請輸入內文" name="content"></textarea></div><button class="-left-6 absolute h-4 hover_bg-gray-lighter hoverable rounded-full top-10 w-4 xl_-left-9 xl_h-7 xl_top-11 xl_w-7" type="button"><img src="../../static/primary-plus-btn.900c8335.svg" alt=""></button>
+                        </div>
+                        <div class="relative">
+                          <div class="flex flex-col gap-y-2" x-data="attachmentUploadData()">
+                            <div class="form-field"><label class="mb-2"><span>附件</span><span class="mt-1 text-danger">*</span></label><input class="form-input hidden" type="file" name="attachment" id="attachment" x-on:change="uploadAttachment">
+                              <div class="flex flex-col gap-x-4 gap-y-2 mt-2 xl_flex-row"><label class="btn w-fit" for="attachment"><img class="h-5 w-5" src="../../static/paper-clip.e8b873ed.svg" alt="">
+                                  <div class="text-body-sm">上傳附件</div>
+                                </label>
+                                <div class="bg-gray-lighter btn-no-hover relative w-fit" x-show="attachmentFile" x-cloak="x-cloak"><img class="h-5 w-5" src="../../static/paper-clip.e8b873ed.svg" alt="">
+                                  <div class="text-body-sm" x-text="getAttachmentFileName()" x-cloak="x-cloak"></div><button class="-right-3 -top-3 absolute bg-gray-darker flex h-6 items-center justify-center rounded-full w-6 xl_h-7 xl_w-7" type="button" x-on:click="removeAttachment"><img src="../../static/white-close.58cff5b2.svg" alt="white-close"></button>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="helper">檔案需小於100MB</p>
+                          </div>
+                          <script>
+                            function attachmentUploadData() {
+                              const t = "attachment";
+                              return {
+                                attachmentFile: void 0,
+                                getAttachmentFileName() {
+                                  return this.attachmentFile?.name || ""
+                                },
+                                uploadAttachment() {
+                                  const e = document.getElementById(t);
+                                  if (!e) return;
+                                  const n = e.files[0];
+                                  n && (this.attachmentFile = n)
+                                },
+                                removeAttachment() {
+                                  const e = document.getElementById(t);
+                                  e && (e.value = "", this.attachmentFile = void 0)
+                                }
+                              }
+                            }
+                          </script>
+                        </div>
+                        <div class="flex flex-col gap-2" x-data="{hashtag: ''}">
+                          <div class="flex gap-y-2 items-end justify-between">
+                            <div class="form-field"><label class="mb-2"><span>主題標籤</span><span class="mt-1 text-danger">*</span></label></div>
+                            <div class="text-caption text-gray-light" x-text="`${hashtag.length}/6`" x-cloak="x-cloak"></div>
+                          </div><input class="form-input" type="text" placeholder="請輸入標籤名稱" name="name" maxlength="6" x-model="hashtag">
+                          <div class="flex flex-wrap items-center">
+                            <div class="mr-2 text-caption text-gray">常用：</div><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='聖誕快樂'">#聖誕快樂</button><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='常用標籤'">#常用標籤</button><button class="border border-gray-lighter hover_border-gray hover_text-gray mr-2 my-1 px-1 py-0-5 rounded-sm text-caption text-center text-gray-light" type="button" @click="hashtag='聖誕快樂'">#聖誕快樂</button>
+                          </div>
+                        </div>
+                        <div class="flex flex-col gap-2 relative" x-data="{open: false, selectedOption: '' }">
+                          <div class="form-field"><label class="mb-2"><span>參與企劃</span></label>
+                            <div class="relative"><button class="bg-gray-lightest flex h-12 hover_border-primary p-3 rounded-lg w-full" type="button" @click="open = !open">
+                                <div class="flex flex-1 h-full items-center relative">
+                                  <div class="text-body-sm text-gray-light" x-show="!selectedOption" x-text="'下拉選擇或輸入關鍵字'" x-cloak="x-cloak"></div>
+                                </div><img class="h-6 my-auto w-6" src="../../static/arrow-down.ebccd611.svg" alt="arrow-down">
+                              </button>
+                              <div class="absolute bottom-2 left-3"><button class="border border-primary hover_bg-primary-light pl-3 pr-8 py-1 rounded-sm text-body-sm text-primary" x-show="selectedOption" x-text="selectedOption" x-cloak="x-cloak" @click="selectedOption = ''"></button><img class="absolute bottom-2 h-4 right-3 w-4" src="../../static/primary-close.6d6ac633.svg" alt="close"></div>
+                            </div>
+                            <p class="helper">只能從您有參與的企劃中選擇作品有參與的企劃</p>
+                          </div>
+                          <div class="absolute bg-white border border-gray-lighter inset-x-0 py-3 rounded-lg top-22 z-10" x-show="open" x-cloak="x-cloak">
+                            <div class="flex flex-col"><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT61 台大場'; open=false">CWT61 台大場</button><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT62 台北場'; open=false">CWT62 台北場</button><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT-T28 台中場'; open=false">CWT-T28 台中場</button></div>
+                          </div>
+                        </div>
+                        <div class="release-product-set-op"><label class="form-check"><input class="hidden" type="checkbox" name="setTop" value="設置為置頂作品">
+                            <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
+                            <div>設置為置頂作品</div>
+                          </label></div>
+                      </div>
+                    </div>
+                  </div>
+                  <script>
+                    function releaseProductBaseCardData(e) {
+                      const t = ["文章", "圖片", "影片", "音樂"];
+                      return {
+                        currentTab: e,
+                        setCurrentTab() {
+                          t.includes(this.$event.detail) && (this.currentTab = this.$event.detail)
+                        }
+                      }
+                    }
+                  </script>
+                </div>
+                <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
+                  <div class="form-field"><label class="mb-2"><span>年齡限制</span><span class="mt-1 text-danger">*</span></label>
+                    <div class="flex flex-col space-y-3 xl_flex-row xl_space-x-12 xl_space-y-0"><label class="form-check"><input class="hidden" type="radio" name="ageLimit" value="全年齡">
+                        <div class="form-check-input">
+                          <div class="dot"></div>
+                        </div>
+                        <div class="shrink-0">全年齡</div>
+                      </label><label class="form-check"><input class="hidden" type="radio" name="ageLimit" value="R-18">
+                        <div class="form-check-input">
+                          <div class="dot"></div>
+                        </div>
+                        <div class="shrink-0">R-18</div>
+                      </label></div>
+                  </div>
+                </div>
+                <div class="relative" x-data="{publicSettings: null}">
+                  <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
+                    <div class="form-field"><label class="mb-2"><span>公開設定</span><span class="mt-1 text-danger">*</span></label>
+                      <div class="flex flex-col space-y-3 xl_flex-row xl_space-x-12 xl_space-y-0"><label class="form-check"><input class="hidden" type="radio" name="publicSettings" value="對所有人公開" x-model="publicSettings">
+                          <div class="form-check-input">
+                            <div class="dot"></div>
+                          </div>
+                          <div class="shrink-0">對所有人公開</div>
+                        </label><label class="form-check"><input class="hidden" type="radio" name="publicSettings" value="只對贊助者公開" x-model="publicSettings">
+                          <div class="form-check-input">
+                            <div class="dot"></div>
+                          </div>
+                          <div class="shrink-0">只對贊助者公開</div>
+                        </label><label class="form-check"><input class="hidden" type="radio" name="publicSettings" value="僅限作者本人觀看" x-model="publicSettings">
+                          <div class="form-check-input">
+                            <div class="dot"></div>
+                          </div>
+                          <div class="shrink-0">僅限作者本人觀看</div>
+                        </label></div>
+                    </div>
+                    <div id="optinal-infos" x-show="publicSettings == '只對贊助者公開'" x-cloak="x-cloak">
+                      <div class="flex flex-col gap-4">
+                        <div class="form-field"><label class="mb-2"><span>選擇有瀏覽權限的會員等級</span><span class="mt-1 text-danger">*</span></label></div>
+                        <div class="base-plan gap-2 grid">
+                          <div class="flex gap-2">
+                            <div class="text-body-sm text-gray-darker">標準方案</div>
+                            <div class="text-body-sm text-gray-light">(單選)</div>
+                          </div>
+                          <div class="flex flex-col gap-2 relative" x-data="{open: false, selectedOption: '' }">
+                            <div class="form-field"><label class="mb-2"><span></span></label>
+                              <div class="relative"><button class="bg-gray-lightest flex h-12 hover_border-primary p-3 rounded-lg w-full" type="button" @click="open = !open">
+                                  <div class="flex flex-1 h-full items-center relative">
+                                    <div class="text-body-sm text-gray-light" x-show="!selectedOption" x-text="'下拉選擇或輸入關鍵字'" x-cloak="x-cloak"></div>
+                                  </div><img class="h-6 my-auto w-6" src="../../static/arrow-down.ebccd611.svg" alt="arrow-down">
+                                </button>
+                                <div class="absolute bottom-2 left-3"><button class="border border-primary hover_bg-primary-light pl-3 pr-8 py-1 rounded-sm text-body-sm text-primary" x-show="selectedOption" x-text="selectedOption" x-cloak="x-cloak" @click="selectedOption = ''"></button><img class="absolute bottom-2 h-4 right-3 w-4" src="../../static/primary-close.6d6ac633.svg" alt="close"></div>
+                              </div>
+                              <p class="helper">高於此方案的贊助者可閱覽</p>
+                            </div>
+                            <div class="absolute bg-white border border-gray-lighter inset-x-0 py-3 rounded-lg top-16 z-10" x-show="open" x-cloak="x-cloak">
+                              <div class="flex flex-col"><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT61 台大場'; open=false">CWT61 台大場</button><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT62 台北場'; open=false">CWT62 台北場</button><button class="hover_bg-gray-lightest px-4 py-2 text-body-sm text-left w-full" type="button" @click="selectedOption='CWT-T28 台中場'; open=false">CWT-T28 台中場</button></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="additional-plan gap-2 grid">
+                          <div class="flex gap-2">
+                            <div class="text-body-sm text-gray-darker">進階方案</div>
+                            <div class="text-body-sm text-gray-light">(複選)</div>
+                          </div>
+                          <div class="form-field"><label class="mb-2"><span></span></label>
+                            <div class="cursor-pointer flex form-input items-center relative" x-data="{open: false, selected: []}" @click="open = !open" @click.outside="open = false">
+                              <div class="flex-1 selected">
+                                <ul class="flex"><template x-for="item in selected">
+                                    <li class="border border-primary mr-4 px-3 py-1 rounded text-primary" @click.stop="selected=selected.filter((value)=&gt;value!==item)">
+                                      <div class="flex items-center space-x-2"><span x-text="item"></span><i class="fa fa-xmark"></i></div>
+                                    </li>
+                                  </template></ul>
+                              </div><i class="fa fa-caret-down"></i>
+                              <div class="absolute bg-white border border-gray-lighter left-0 py-3 right-0 rounded-xl top-full translate-y-2 z-10" x-show="open" x-cloak="x-cloak">
+                                <ul>
+                                  <li class="hover_bg-primary-light hoverable px-6 py-1"><label class="form-check"><input class="hidden" type="checkbox" name="additional-plan" value="CWT61 台大場" x-model="selected">
+                                      <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
+                                      <div>CWT61 台大場</div>
+                                    </label></li>
+                                  <li class="hover_bg-primary-light hoverable px-6 py-1"><label class="form-check"><input class="hidden" type="checkbox" name="additional-plan" value="CWT62 台大場" x-model="selected">
+                                      <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
+                                      <div>CWT62 台大場</div>
+                                    </label></li>
+                                  <li class="hover_bg-primary-light hoverable px-6 py-1"><label class="form-check"><input class="hidden" type="checkbox" name="additional-plan" value="CWT60 台大場" x-model="selected">
+                                      <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
+                                      <div>CWT60 台大場</div>
+                                    </label></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="announce-text gap-2 grid">
+                          <div class="flex gap-2">
+                            <div class="text-body-sm text-gray-darker">預告文字</div>
+                            <div class="text-body-sm text-gray-light">(無觀看權限的使用者會看到的文字)</div>
+                          </div><textarea class="form-input" name="announce-text"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
+                  <div class="gap-4 grid grid-cols-12">
+                    <div class="col-span-12 xl_col-span-6">
+                      <div class="form-field"><label class="mb-2"><span>發布時間</span><span class="mt-1 text-danger">*</span></label>
+                        <div class="flex flex-col space-y-3 xl_flex-row xl_space-x-12 xl_space-y-0"><label class="form-check"><input class="hidden" type="radio" name="publicTime" value="立即發布">
+                            <div class="form-check-input">
+                              <div class="dot"></div>
+                            </div>
+                            <div class="shrink-0">立即發布</div>
+                          </label><label class="form-check"><input class="hidden" type="radio" name="publicTime" value="預定發布時間">
+                            <div class="form-check-input">
+                              <div class="dot"></div>
+                            </div>
+                            <div class="shrink-0">預定發布時間</div>
+                          </label></div>
+                      </div>
+                    </div>
+                    <div class="col-span-12 gap-4 grid grid-cols-12 xl_col-span-6">
+                      <div class="col-span-12 xl_col-span-6">
+                        <div class="form-field"><label class="mb-2"><span></span></label>
+                          <div class="flex form-input items-center"><input class="bg-primary-lighter w-full" id="date-picker"><i class="fa fa-caret-down flex-1"></i></div>
+                        </div>
+                        <script>
+                          flatpickr("#date-picker", {
+                            disableMobile: !0,
+                            dateFormat: "Y 年 m 月 d 日"
+                          });
+                        </script>
+                      </div>
+                      <div class="col-span-12 xl_col-span-6">
+                        <div class="form-field"><label class="mb-2"><span></span></label>
+                          <div class="flex form-input items-center"><input class="bg-primary-lighter w-full" id="time-picker"><i class="fa fa-caret-down flex-1"></i></div>
+                        </div>
+                        <script>
+                          flatpickr("#time-picker", {
+                            disableMobile: !0,
+                            noCalendar: !0,
+                            enableTime: !0,
+                            dateFormat: "h:i K"
+                          });
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="relative" x-data="{updateAt: '2022 年 5 月 16 日 16:00'}">
+                  <div class="text-caption text-center text-gray-light" x-text="`自動儲存，上次修改時間：${updateAt}`"></div>
+                </div>
+              </div>
+              <div class="flex flex-col-reverse gap-y-8 justify-center pt-8 xl_flex-row xl_gap-x-12 xl_pt-12"><a class="btn btn-block btn-outline-danger btn-white text-sm xl_h-14 xl_w-50">刪除作品</a><a class="btn btn-block btn-outline-primary btn-white text-sm xl_h-14 xl_w-50">取消</a><a class="btn btn-primary text-sm xl_h-14 xl_w-50">更新作品</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-white">
+      <div class="container py-12 text-sm">
+        <div class="flex flex-col items-center xl_flex-row xl_justify-between">
+          <nav class="mb-10 space-y-6 xl_mb-0"><img class="h-5 mx-auto xl_h-7 xl_m-0" src="../../static/logo.b0a7d86a.svg" alt="">
+            <ul class="gap-x-8 gap-y-3 grid grid-cols-3 xl_grid-cols-5">
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">常見問題</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">聯繫我們</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">使用條款</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">隱私政策</a></li>
+              <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
+            </ul>
+          </nav>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

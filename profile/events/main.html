@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -121,14 +122,14 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -161,7 +162,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -176,11 +177,11 @@
         <div class="container">
           <div class="xl_grid xl_grid-cols-12">
             <div class="space-y-8 xl_col-end-10 xl_col-start-3">
-              <div class="bg-white overflow-hidden rounded-2xl">
+              <div class="bg-white overflow-hidden rounded-2xl" x-data="{isFollowed: undefined}">
                 <div class="xl_flex xl_p-6 xl_pb-4 xl_space-x-8">
                   <div class="relative xl_flex-1"><img class="w-full" src="../../static/event-cover.df207d96.png" alt="">
-                    <div class="absolute bg-warning h-6 left-0 rounded-tl-xl rounded-tr-xl top-6 w-14 xl_h-7 xl_rounded xl_top-5 xl_w-16">
-                      <div class="align-middle font-medium inline-block left-2 relative text-base text-gray-darker top-0-5 xl_-translate-x-half xl_left-half xl_text-subtitle-sm xl_top-0">進行中</div>
+                    <div class="absolute bg-warning h-6 inline-flex-center left-0 rounded-br rounded-tr text-gray-darker top-6 w-15 xl_h-7 xl_top-5 xl_w-16">
+                      <div class="align-middle font-medium inline-block relative text-base xl_text-subtitle-sm">進行中</div>
                     </div>
                   </div>
                   <div class="bg-white p-4 xl_flex xl_flex-1 xl_flex-col xl_justify-between xl_p-0">
@@ -191,11 +192,15 @@
                         <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
                       </ul>
                     </div>
-                    <div class="flex space-x-4"><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-25"><svg class="fill-current" width="18" height="17">
+                    <div class="flex space-x-4"><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-27" @click="isFollowed = !isFollowed"><svg class="fill-current" width="18" height="17">
                           <path d="m16.734 5.896-4.959-.72L9.558.682a.628.628 0 0 0-1.121 0L6.22 5.176l-4.959.72a.624.624 0 0 0-.345 1.067l3.587 3.498-.847 4.94a.624.624 0 0 0 .906.658l4.436-2.332 4.435 2.332a.624.624 0 0 0 .906-.658l-.847-4.94 3.588-3.498a.624.624 0 0 0-.346-1.067Z" />
-                        </svg><span>關注</span></button><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-25"><svg class="fill-current" width="20" height="20">
+                        </svg>
+                        <div class="text-subtitle-sm" x-text="isFollowed ? &quot;已關注&quot; :&quot;關注&quot; "> </div>
+                      </button><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-27"><svg class="fill-current" width="20" height="20">
                           <path d="M12.917 5v8.75a3.332 3.332 0 1 1-6.667 0V5a2.084 2.084 0 0 1 4.167 0v7.916a.836.836 0 0 1-.834.833.836.836 0 0 1-.833-.833V4.999H7.5v7.917a2.084 2.084 0 0 0 4.167 0V4.999A3.332 3.332 0 1 0 5 5v8.75a4.58 4.58 0 0 0 4.583 4.584 4.58 4.58 0 0 0 4.584-4.584V5h-1.25Z" />
-                        </svg><span>分享 </span></button></div>
+                        </svg>
+                        <div class="text-subtitle-sm">分享 </div>
+                      </button></div>
                   </div>
                 </div>
                 <div class="px-4 xl_px-6">
@@ -241,20 +246,20 @@
                 </div>
                 <div class="py-6">
                   <div class="font-medium text-lg text-primary">化妝師 3</div>
-                  <div class="bg-primary-lighter flex-center mb-4 py-2 space-x-2"><img class="h-14 xl_h-27" src="../../static/search.f379972e.png" alt="">
+                  <div class="bg-primary-lighter flex-center mb-4 py-2 space-x-2"><img class="h-14 xl_h-27" src="../../static/search.167dd89c.png" alt="">
                     <p class="text-body-sm text-gray">我們正在尋找創作夥伴，歡迎優秀的你加入團隊！</p>
                   </div><button class="btn btn-block btn-primary xl_w-30" disabled>停止招募</button>
                 </div>
                 <div class="py-6">
                   <div class="font-medium text-lg text-primary">服裝造型師 3</div>
-                  <div class="bg-primary-lighter flex-center mb-4 py-2 space-x-2"><img class="h-14 xl_h-27" src="../../static/search.f379972e.png" alt="">
+                  <div class="bg-primary-lighter flex-center mb-4 py-2 space-x-2"><img class="h-14 xl_h-27" src="../../static/search.167dd89c.png" alt="">
                     <p class="text-body-sm text-gray">我們正在尋找創作夥伴，歡迎優秀的你加入團隊！</p>
                   </div><button class="btn btn-block btn-primary xl_w-30" disabled>停止招募</button>
                 </div>
               </div>
               <div class="gap-8 grid xl_gap-x-6 xl_grid-cols-2">
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -275,7 +280,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -296,7 +301,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -317,7 +322,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -338,7 +343,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -359,7 +364,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -397,9 +402,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

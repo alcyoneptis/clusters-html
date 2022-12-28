@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -121,14 +122,14 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -161,7 +162,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -175,7 +176,7 @@
       <div class="container flex flex-col items-center justify-center md_pb-23 md_pt-12 pb-18 pt-8" x-data="{}">
         <div class="bg-white md_p-12 p-4 rounded-xl w-full">
           <div class="font-bold mb-8 md_text-3xl text-center text-xl">企劃管理</div>
-          <div class="flex flex-col mb-8 md_flex-row md_items-center md_justify-between w-full">
+          <div class="flex flex-col gap-y-8 mb-8 md_flex-row md_items-center md_justify-between w-full">
             <div class="md_order-1 order-2">
               <div class="md_flex md_items-center md_space-x-8 md_space-y-0 space-y-8">
                 <div class="bg-primary-lighter flex h-10 items-center md_w-45 pl-3 rounded-md space-x-2 text-sm w-full"><img class="h-3 w-3" src="../../static/search.65aae8c4.svg" alt=""><input class="bg-primary-lighter md_w-30" type="text" placeholder="搜尋關鍵字"></div>
@@ -203,7 +204,7 @@
                 </div>
               </div>
             </div>
-            <div class="mb-8 md_mb-0 md_order-2 order-1"><button class="btn btn-primary px-7 py-2">發布企劃</button></div>
+            <div class="md_mb-0 md_order-2 order-1"><button class="btn btn-primary px-7 py-2">發布企劃</button></div>
           </div>
           <section class="overflow-x-scroll">
             <div class="table-fields">
@@ -232,11 +233,11 @@
                 </div>
               </div>
               <div class="field min-w-42">
-                <div class="event-control-items"><button class="event-control-item">選夥伴</button><button class="event-control-item">編輯</button><button class="event-control-item">刪除</button></div>
+                <div class="event-control-items"><button class="event-control-item">選夥伴</button><button class="event-control-item">編輯</button><button class="event-control-item" @click="$store.openedModal = 'EVENT_MANAGEMENT_DELETE_EVENT'">刪除</button></div>
               </div>
             </div>
             <div class="admin-table-row text-sm">
-              <div class="field w-20">E248343</div>
+              <div class="field w-20">E248343-2</div>
               <div class="field w-51">企劃名稱企劃名稱企劃名稱...</div>
               <div class="field w-24">2022-05-11</div>
               <div class="field w-18">參與</div>
@@ -252,11 +253,11 @@
                 </div>
               </div>
               <div class="field min-w-42">
-                <div class="event-control-items"><button class="event-control-item">編輯</button><button class="event-control-item">退出</button></div>
+                <div class="event-control-items"><button class="event-control-item">編輯</button><button class="event-control-item" @click="$store.openedModal = 'EVENT_MANAGEMENT_QUIT_EVENT'">退出</button></div>
               </div>
             </div>
             <div class="admin-table-row text-sm">
-              <div class="field w-20">E248343</div>
+              <div class="field w-20">E248343-3</div>
               <div class="field w-51">企劃名稱企劃名稱企劃名稱...</div>
               <div class="field w-24">2022-05-11</div>
               <div class="field w-18">報名</div>
@@ -272,11 +273,11 @@
                 </div>
               </div>
               <div class="field min-w-42">
-                <div class="event-control-items"><button class="event-control-item">編輯</button><button class="event-control-item">取消報名</button></div>
+                <div class="event-control-items"><button class="event-control-item">編輯</button><button class="event-control-item" @click="$store.openedModal = 'EVENT_MANAGEMENT_CANCEL_REGISTRATION'">取消報名</button></div>
               </div>
             </div>
             <div class="admin-table-row text-sm">
-              <div class="field w-20">E248343</div>
+              <div class="field w-20">E248343-4</div>
               <div class="field w-51">企劃名稱企劃名稱企劃名稱...</div>
               <div class="field w-24">2022-05-11</div>
               <div class="field w-18">關注</div>
@@ -296,7 +297,7 @@
               </div>
             </div>
             <div class="admin-table-row text-sm">
-              <div class="field w-20">E248343</div>
+              <div class="field w-20">E248343-5</div>
               <div class="field w-51">企劃名稱企劃名稱企劃名稱...</div>
               <div class="field w-24">2022-05-11</div>
               <div class="field w-18">主辦</div>
@@ -312,11 +313,11 @@
                 </div>
               </div>
               <div class="field min-w-42">
-                <div class="event-control-items"><button class="event-control-item">選夥伴</button><button class="event-control-item">編輯</button><button class="event-control-item">刪除</button></div>
+                <div class="event-control-items"><button class="event-control-item">選夥伴</button><button class="event-control-item">編輯</button><button class="event-control-item" @click="$store.openedModal = 'EVENT_MANAGEMENT_DELETE_EVENT'">刪除</button></div>
               </div>
             </div>
             <div class="admin-table-row text-sm">
-              <div class="field w-20">E248343</div>
+              <div class="field w-20">E248343-6</div>
               <div class="field w-51">企劃名稱企劃名稱企劃名稱...</div>
               <div class="field w-24">2022-05-11</div>
               <div class="field w-18">主辦</div>
@@ -332,10 +333,43 @@
                 </div>
               </div>
               <div class="field min-w-42">
-                <div class="event-control-items"><button class="event-control-item">選夥伴</button><button class="event-control-item">編輯</button><button class="event-control-item">刪除</button></div>
+                <div class="event-control-items"><button class="event-control-item">選夥伴</button><button class="event-control-item">編輯</button><button class="event-control-item" @click="$store.openedModal = 'EVENT_MANAGEMENT_DELETE_EVENT'">刪除</button></div>
               </div>
             </div>
           </section>
+        </div>
+        <div class="relative" x-show="$store.openedModal === 'EVENT_MANAGEMENT_DELETE_EVENT'" x-cloak="x-cloak">
+          <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+            <div class="container flex h-full items-center justify-center w-full">
+              <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                <div class="font-medium mb-8 md_text-2xl text-center text-xl">刪除企劃</div>
+                <div class="text-body-sm text-center text-gray-darker">確定要刪除企劃嗎？</div>
+                <div class="flex gap-x-4 pt-8 xl_gap-x-6 xl_pt-6"><button class="btn btn-block flex-1 text-sm xl_h-14">取消</button><button class="btn btn-block btn-danger flex-1 text-sm xl_h-14">確認</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative" x-show="$store.openedModal === 'EVENT_MANAGEMENT_QUIT_EVENT'" x-cloak="x-cloak">
+          <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+            <div class="container flex h-full items-center justify-center w-full">
+              <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                <div class="font-medium mb-8 md_text-2xl text-center text-xl">退出企劃</div>
+                <div class="text-body-sm text-center text-gray-darker">確定要退出企劃嗎？</div>
+                <div class="flex gap-x-4 pt-8 xl_gap-x-6 xl_pt-6"><button class="btn btn-block flex-1 text-sm xl_h-14">取消</button><button class="btn btn-block btn-danger flex-1 text-sm xl_h-14">確認</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative" x-show="$store.openedModal === 'EVENT_MANAGEMENT_CANCEL_REGISTRATION'" x-cloak="x-cloak">
+          <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+            <div class="container flex h-full items-center justify-center w-full">
+              <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                <div class="font-medium mb-8 md_text-2xl text-center text-xl">取消報名</div>
+                <div class="text-body-sm text-center text-gray-darker">確定要取消報名嗎？</div>
+                <div class="flex gap-x-4 pt-8 xl_gap-x-6 xl_pt-6"><button class="btn btn-block flex-1 text-sm xl_h-14">取消</button><button class="btn btn-block btn-danger flex-1 text-sm xl_h-14">確認</button></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -351,9 +385,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>

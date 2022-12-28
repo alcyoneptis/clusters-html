@@ -13,13 +13,14 @@
   <link rel="icon" sizes="32x32" href="./favicon_32x32.ico">
   <link rel="icon" sizes="360x360" href="./favicon_360x360.png">
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <link rel="stylesheet" href="../../assets/app.2a82286b.css">
+  <link rel="stylesheet" href="../../assets/app.b6cb5704.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="../../assets/app.4dad784d.js"></script>
+  <script src="../../assets/app.9bc02328.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -114,7 +115,7 @@
                     <nav><a class="btn btn-block btn-primary text-sm" href="../../release-product/article.html">發布作品</a>
                       <nav>
                         <ul class="border-b border-gray-lighter">
-                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../static/octopus.901ea634.png" alt=""></li>
+                          <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../static/octopus.9364b6b6.png" alt=""></li>
                         </ul>
                         <ul class="border-b border-gray-lighter">
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../navigator/subscription.html">我訂閱的創作者</a></li>
@@ -125,7 +126,7 @@
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                         </ul>
                         <ul class="border-b border-gray-lighter">
-                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">帳號設定</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">個人檔案</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management-creator.html">訂單管理</a></li>
@@ -148,7 +149,7 @@
         <div class="px-4 py-2"> <a class="btn btn-block btn-primary text-sm" href="../../release-product/article.html">發布作品</a>
           <nav>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../static/octopus.901ea634.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">個人主頁</a><img class="h-8 w-8" src="../../static/octopus.9364b6b6.png" alt=""></li>
             </ul>
             <ul class="border-b border-gray-lighter">
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../navigator/subscription.html">我訂閱的創作者</a></li>
@@ -159,7 +160,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">帳號設定</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">個人檔案</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
@@ -198,7 +199,7 @@
                 dateFormat: "Y 年 m 月 d 日"
               });
             </script>
-            <div x-data="{ personalWebsites: 0 }">
+            <div x-data="{ personalWebsites: [] }">
               <div class="font-medium mb-2">社群連結<span class="text-danger">*</span></div>
               <div class="mb-8 space-y-4">
                 <div class="flex items-center space-x-4">
@@ -224,21 +225,15 @@
                   <div class="grow">
                     <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input" type="text" placeholder="請輸入 instagram 連結" name="instagram"></div>
                   </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                  <div class="w-6"><img src="../../static/web.07ccf2e4.svg" alt=""></div>
-                  <div class="grow">
-                    <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input" type="text" placeholder="請輸入個人網站連結" name="web"></div>
-                  </div>
-                </div><template x-for="n in personalWebsites" key="n">
-                  <div class="flex items-center space-x-4">
+                </div><template x-for="personalWebsite in personalWebsites" :key="`creator-me-personal-website-${personalWebsite.id}`">
+                  <div class="flex items-center relative space-x-4" :id="personalWebsite.id">
                     <div class="w-6"><img src="../../static/web.07ccf2e4.svg" alt=""></div>
                     <div class="grow">
                       <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input" type="text" placeholder="請輸入個人網站連結" name="website"></div>
-                    </div>
+                    </div><button class="absolute inset-y-0 my-auto right-2" @click="personalWebsites = personalWebsites.filter(e=&gt;e.id !== personalWebsite.id)"><img src="../../static/close-btn.87393ab7.svg" alt="close-btn"></button>
                   </div>
                 </template>
-              </div><button class="flex items-center space-x-2" @click="personalWebsites++"><img src="../../static/plus.693e8099.svg" alt=""><span>新增連結</span></button>
+              </div><button class="flex items-center space-x-2" @click="personalWebsites.push({id: uuidv4()})"><img src="../../static/plus.693e8099.svg" alt=""><span>新增連結</span></button>
             </div>
           </div>
         </div>
@@ -261,7 +256,7 @@
                   </div>
                   <div class="flex items-center mb-10 space-x-2"><img src="../../static/zoom-out.a60f888b.svg" alt=""><input class="avatar-slider" type="range" min="50" max="150" x-model="zoom"><img src="../../static/zoom-in.10c72a9a.svg" alt=""></div>
                   <div class="flex items-center justify-center w-full">
-                    <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">申請認證</button></div>
+                    <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">確認</button></div>
                   </div>
                 </div>
               </div>
@@ -286,9 +281,8 @@
               <li class="hover_text-black hoverable mr-8 text-gray"><a :href="">關於我們</a></li>
             </ul>
           </nav>
-          <div class="flex flex-col items-end space-y-6 xl_space-y-4">
-            <div class="flex items-center space-x-2"><span class="text-base">Power by </span><img class="h-9" src="../../static/fontech.2736f7e4.svg" alt=""></div>
-            <p>Copyright © 2022 Clusters Inc.</p>
+          <div class="flex flex-col items-center space-y-6 xl_items-end xl_space-y-4"><span class="text-subtitle-sm">合作夥伴 Fontech </span>
+            <p class="text-body-sm">Copyright © 2022 Clusters</p>
           </div>
         </div>
       </div>
