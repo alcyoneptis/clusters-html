@@ -122,7 +122,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/order/order-management.html">訂單管理</a></li>
@@ -173,7 +173,18 @@
       <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
     </header>
     <main class="mb-auto mt-12 xl_mt-16">
-      <div><img src="../static/home-banner.0a1f9bf4.png" alt=""></div>
+      <div class="relative slider-banner">
+        <div class="swiper-wrapper"> <img class="swiper-slide" src="../static/home-banner.0a1f9bf4.png" alt="home-banner"><img class="swiper-slide" src="../static/home-banner.0a1f9bf4.png" alt="home-banner"><img class="swiper-slide" src="../static/home-banner.0a1f9bf4.png" alt="home-banner"></div>
+        <div class="-m-2 swiper-pagination xl_m-0"></div>
+      </div>
+      <script>
+        new Swiper(".slider-banner", {
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: !0
+          }
+        });
+      </script>
       <div class="bg-white">
         <div class="container flex-center relative xl_pt-8">
           <ul class="page-tabs">

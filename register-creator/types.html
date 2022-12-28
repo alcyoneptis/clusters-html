@@ -122,7 +122,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/order/order-management.html">訂單管理</a></li>
@@ -204,7 +204,53 @@
                 </div>
                 <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
                   <div class="gap-y-12 grid justify-center">
-                    <div class="h1 text-center text-gray-darker">請選擇您的創作領域</div>
+                    <div class="gap-x-1 inline-flex-center">
+                      <div class="h1 text-center text-gray-darker">請選擇您的創作領域</div>
+                      <div class="tooltip" x-data="tooltipData({text:`請選擇最您最擅長或是最有興趣的創作領域，一次只能選擇一種唷！
+別擔心！登錄成為創作者後，還是可以申請增加新的創作領域。`, tooltipKey:'TOOLTIP-REGISTER-CREATOR-TYPES'})" key="REGISTER-CREATOR-TYPES"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../static/question.9467dc6e.svg" alt="question"></button>
+                        <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../static/question.9467dc6e.svg" alt="question"></div>
+                        <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                          <div class="xl_hidden">
+                            <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                              <div class="container flex items-center justify-center">
+                                <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                                  <div class="pr-6">
+                                    <div class="text-caption text-gray-darker">請選擇最您最擅長或是最有興趣的創作領域，一次只能選擇一種唷！ 別擔心！登錄成為創作者後，還是可以申請增加新的創作領域。</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="absolute hidden left-0 top-0 xl_block z-40">
+                            <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                              <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <script>
+                        function tooltipData(t = {
+                          text: text,
+                          tooltipKey: tooltipKey
+                        }) {
+                          const o = whitespacePreWrapText(t.text),
+                            e = t.tooltipKey;
+                          return {
+                            text: o,
+                            tooltipKey: e,
+                            isShowModal() {
+                              return this.$store.openedModal === e
+                            },
+                            setShowModalWithTooltipKey() {
+                              this.$store.openedModal = e
+                            },
+                            setHiddenModal() {
+                              this.$store.openedModal = void 0
+                            }
+                          }
+                        }
+                      </script>
+                    </div>
                     <div class="gap-4 grid grid-cols-2">
                       <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="插畫" x-model="creative-field">
                           <div class="form-check-input rounded-full">
@@ -212,15 +258,15 @@
                           </div>
                           <div>插畫</div>
                         </label>
-                        <div class="ml-6 mt-2 text-caption text-gray">手繪或電繪的插畫作品</div>
+                        <div class="ml-6 mt-2 text-caption text-gray">手繪或電繪類型的插畫作品請選擇此分類。</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="Live 2D" x-model="creative-field">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="數位建模" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
-                          <div>Live 2D</div>
+                          <div>數位建模</div>
                         </label>
-                        <div class="ml-6 mt-2 text-caption text-gray">使用 Live2D 的創作</div>
+                        <div class="ml-6 mt-2 text-caption text-gray">包含：Live2D、3D建模…等，使用Live2D、數位模型創作的作品請選擇此分類。</div>
                       </div>
                       <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="漫畫" x-model="creative-field">
                           <div class="form-check-input rounded-full">
@@ -228,23 +274,23 @@
                           </div>
                           <div>漫畫</div>
                         </label>
-                        <div class="ml-6 mt-2 text-caption text-gray">手繪或電繪的漫畫作品</div>
+                        <div class="ml-6 mt-2 text-caption text-gray">手繪或電繪類型的漫畫作品請選擇此分類。</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="實物製作" x-model="creative-field">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="獨立遊戲" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
-                          <div>實物製作</div>
+                          <div>獨立遊戲</div>
                         </label>
-                        <div class="ml-6 mt-2 text-caption text-gray">實體物品，包含飾品、服装、周邊、人型、模型...適用於個人手作、小型工作室、客製廠商</div>
+                        <div class="ml-6 mt-2 text-caption text-gray">製作遊戲類型的作品請選擇此分類。</div>
                       </div>
-                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="Cosplay" x-model="creative-field">
+                      <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="COSPLAY" x-model="creative-field">
                           <div class="form-check-input rounded-full">
                             <div class="dot"></div>
                           </div>
-                          <div>Cosplay</div>
+                          <div>COSPLAY</div>
                         </label>
-                        <div class="ml-6 mt-2 text-caption text-gray">真人照片創作，包含：COSPLAY、模特、攝影...</div>
+                        <div class="ml-6 mt-2 text-caption text-gray">包含：COSPLAY、模特、攝影…等真人照片類型的作品請選擇此分類。</div>
                       </div>
                       <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="其它" x-model="creative-field">
                           <div class="form-check-input rounded-full">
@@ -252,7 +298,7 @@
                           </div>
                           <div>其它</div>
                         </label>
-                        <div class="ml-6 mt-2 text-caption text-gray">包含：平面設計、影片剪輯、文字創作、3D、遊戲製作...</div>
+                        <div class="ml-6 mt-2 text-caption text-gray">包含：平面設計、文字創作、模型手作…等其他類型的作品請選擇此分類我們未來會增加更多領域讓大家選擇，讓各種創作者都能發光發熱！</div>
                       </div>
                       <div class="creative-field"><label class="form-check"><input class="hidden" type="checkbox" name="creative-field" value="聲音創作" x-model="creative-field">
                           <div class="form-check-input rounded-full">
@@ -260,7 +306,7 @@
                           </div>
                           <div>聲音創作</div>
                         </label>
-                        <div class="ml-6 mt-2 text-caption text-gray">聲音創作，包含：歌手、聲優、Vtuber、Vocaloid...</div>
+                        <div class="ml-6 mt-2 text-caption text-gray">包含：歌手、聲優、Vtuber、Vocaloid…等，聲音、影片類型的作品請選擇此分類。</div>
                       </div>
                     </div>
                   </div>

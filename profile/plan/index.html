@@ -122,7 +122,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
@@ -222,6 +222,52 @@
               <div class="flex items-center space-x-3">
                 <h2 class="h1">標準方案</h2>
                 <div class="bg-black flex-center px-3 py-1 rounded-full text-sm text-white w-10">12</div>
+                <div class="tooltip" x-data="tooltipData({text:`訂閱後即擁有當月的方案文章閱覽權！
+您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案
+請注意您一次只能訂閱其中一種標準方案。
+成功訂閱後，下個月起將自動扣款續訂(可取消)。`, tooltipKey:'TOOLTIP-BASIC-PROFILE'})" key="BASIC-PROFILE"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../../static/question.9467dc6e.svg" alt="question"></button>
+                  <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../../static/question.9467dc6e.svg" alt="question"></div>
+                  <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                    <div class="xl_hidden">
+                      <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                        <div class="container flex items-center justify-center">
+                          <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                            <div class="pr-6">
+                              <div class="text-caption text-gray-darker">訂閱後即擁有當月的方案文章閱覽權！ 您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案 請注意您一次只能訂閱其中一種標準方案。 成功訂閱後，下個月起將自動扣款續訂(可取消)。</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="absolute hidden left-0 top-0 xl_block z-40">
+                      <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                        <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function tooltipData(t = {
+                    text: text,
+                    tooltipKey: tooltipKey
+                  }) {
+                    const o = whitespacePreWrapText(t.text),
+                      e = t.tooltipKey;
+                    return {
+                      text: o,
+                      tooltipKey: e,
+                      isShowModal() {
+                        return this.$store.openedModal === e
+                      },
+                      setShowModalWithTooltipKey() {
+                        this.$store.openedModal = e
+                      },
+                      setHiddenModal() {
+                        this.$store.openedModal = void 0
+                      }
+                    }
+                  }
+                </script>
               </div>
             </div>
             <div class="gap-8 grid mb-8 xl_gap-x-6 xl_gap-y-12 xl_grid-cols-3 xl_mb-12">
@@ -311,6 +357,52 @@
               <div class="flex items-center space-x-3">
                 <h2 class="h1">進階方案</h2>
                 <div class="bg-black flex-center px-3 py-1 rounded-full text-sm text-white w-10">8</div>
+                <div class="tooltip" x-data="tooltipData({text:`訂閱後即擁有當月的方案文章閱覽權！
+您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案
+無論是否有訂閱標準方案，您都可以自由選擇訂閱單或多個不同的進階方案。
+成功訂閱後，下個月起將自動扣款續訂(可取消)。`, tooltipKey:'TOOLTIP-ADVANCED-PROFILE'})" key="ADVANCED-PROFILE"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../../static/question.9467dc6e.svg" alt="question"></button>
+                  <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../../static/question.9467dc6e.svg" alt="question"></div>
+                  <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                    <div class="xl_hidden">
+                      <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                        <div class="container flex items-center justify-center">
+                          <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                            <div class="pr-6">
+                              <div class="text-caption text-gray-darker">訂閱後即擁有當月的方案文章閱覽權！ 您可以依照由不同的創作內容、方案金額，來決定想要訂閱的方案 無論是否有訂閱標準方案，您都可以自由選擇訂閱單或多個不同的進階方案。 成功訂閱後，下個月起將自動扣款續訂(可取消)。</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="absolute hidden left-0 top-0 xl_block z-40">
+                      <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                        <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function tooltipData(t = {
+                    text: text,
+                    tooltipKey: tooltipKey
+                  }) {
+                    const o = whitespacePreWrapText(t.text),
+                      e = t.tooltipKey;
+                    return {
+                      text: o,
+                      tooltipKey: e,
+                      isShowModal() {
+                        return this.$store.openedModal === e
+                      },
+                      setShowModalWithTooltipKey() {
+                        this.$store.openedModal = e
+                      },
+                      setHiddenModal() {
+                        this.$store.openedModal = void 0
+                      }
+                    }
+                  }
+                </script>
               </div>
             </div>
             <div class="gap-8 grid mb-8 xl_gap-x-6 xl_gap-y-12 xl_grid-cols-3 xl_mb-12">

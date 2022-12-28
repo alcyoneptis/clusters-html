@@ -126,7 +126,7 @@
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                         </ul>
                         <ul class="border-b border-gray-lighter">
-                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">帳號設定</a></li>
+                          <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">個人檔案</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                           <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management-creator.html">訂單管理</a></li>
@@ -160,7 +160,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">帳號設定</a></li>
+              <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/creator-me.html">個人檔案</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
@@ -199,7 +199,7 @@
                 dateFormat: "Y 年 m 月 d 日"
               });
             </script>
-            <div x-data="{ personalWebsites: 0 }">
+            <div x-data="{ personalWebsites: [] }">
               <div class="font-medium mb-2">社群連結<span class="text-danger">*</span></div>
               <div class="mb-8 space-y-4">
                 <div class="flex items-center space-x-4">
@@ -225,21 +225,15 @@
                   <div class="grow">
                     <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input" type="text" placeholder="請輸入 instagram 連結" name="instagram"></div>
                   </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                  <div class="w-6"><img src="../../static/web.07ccf2e4.svg" alt=""></div>
-                  <div class="grow">
-                    <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input" type="text" placeholder="請輸入個人網站連結" name="web"></div>
-                  </div>
-                </div><template x-for="n in personalWebsites" key="n">
-                  <div class="flex items-center space-x-4">
+                </div><template x-for="personalWebsite in personalWebsites" :key="`creator-me-personal-website-${personalWebsite.id}`">
+                  <div class="flex items-center relative space-x-4" :id="personalWebsite.id">
                     <div class="w-6"><img src="../../static/web.07ccf2e4.svg" alt=""></div>
                     <div class="grow">
                       <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input" type="text" placeholder="請輸入個人網站連結" name="website"></div>
-                    </div>
+                    </div><button class="absolute inset-y-0 my-auto right-2" @click="personalWebsites = personalWebsites.filter(e=&gt;e.id !== personalWebsite.id)"><img src="../../static/close-btn.87393ab7.svg" alt="close-btn"></button>
                   </div>
                 </template>
-              </div><button class="flex items-center space-x-2" @click="personalWebsites++"><img src="../../static/plus.693e8099.svg" alt=""><span>新增連結</span></button>
+              </div><button class="flex items-center space-x-2" @click="personalWebsites.push({id: uuidv4()})"><img src="../../static/plus.693e8099.svg" alt=""><span>新增連結</span></button>
             </div>
           </div>
         </div>
@@ -262,7 +256,7 @@
                   </div>
                   <div class="flex items-center mb-10 space-x-2"><img src="../../static/zoom-out.a60f888b.svg" alt=""><input class="avatar-slider" type="range" min="50" max="150" x-model="zoom"><img src="../../static/zoom-in.10c72a9a.svg" alt=""></div>
                   <div class="flex items-center justify-center w-full">
-                    <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">申請認證</button></div>
+                    <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">確認</button></div>
                   </div>
                 </div>
               </div>

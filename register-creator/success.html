@@ -122,7 +122,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/order/order-management.html">訂單管理</a></li>
@@ -179,9 +179,10 @@
             <div class="xl_col-end-11 xl_col-span-8 xl_col-start-3 xl_grid">
               <div class="flex flex-col gap-8 xl_gap-12">
                 <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
-                  <div class="bg-white gap-y-8 grid justify-center px-3 py-6 success-card xl_py-12">
+                  <div class="bg-white gap-y-8 grid justify-center px-3 py-6 success-card xl_py-12" x-data="{}">
                     <div class="h1 text-center text-gray-darker">申請成功！</div><img class="h-45 m-auto w-45" src="../static/creation.0e72761d.png" alt="">
-                    <div class="text-center text-subtitle whitespace-pre-line">您已成為 Cluser 創作者 一起在創作的宇宙中悠遊、相遇、製造更多火花吧！</div>
+                    <div class="text-center text-subtitle" x-html="whitespacePreWrapText(`您已成為 Cluser 創作者
+一起在創作的宇宙中悠遊、相遇、製造更多火花吧！`)" x-cloak="x-cloak"></div>
                   </div>
                 </div>
                 <div class="flex flex-col-reverse gap-y-8 justify-center xl_flex-row xl_gap-x-12"> <a class="btn btn-block btn-primary m-auto text-sm xl_h-14 xl_w-80" href="../profile/index.html">個人主頁</a></div>

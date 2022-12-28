@@ -122,7 +122,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/order/order-management.html">訂單管理</a></li>
@@ -177,11 +177,11 @@
         <div class="container">
           <div class="xl_grid xl_grid-cols-12">
             <div class="space-y-8 xl_col-end-10 xl_col-start-3">
-              <div class="bg-white overflow-hidden rounded-2xl">
+              <div class="bg-white overflow-hidden rounded-2xl" x-data="{isFollowed: undefined}">
                 <div class="xl_flex xl_p-6 xl_pb-4 xl_space-x-8">
                   <div class="relative xl_flex-1"><img class="w-full" src="../../static/event-cover.df207d96.png" alt="">
-                    <div class="absolute bg-warning h-6 left-0 rounded-tl-xl rounded-tr-xl top-6 w-14 xl_h-7 xl_rounded xl_top-5 xl_w-16">
-                      <div class="align-middle font-medium inline-block left-2 relative text-base text-gray-darker top-0-5 xl_-translate-x-half xl_left-half xl_text-subtitle-sm xl_top-0">進行中</div>
+                    <div class="absolute bg-warning h-6 inline-flex-center left-0 rounded-br rounded-tr text-gray-darker top-6 w-15 xl_h-7 xl_top-5 xl_w-16">
+                      <div class="align-middle font-medium inline-block relative text-base xl_text-subtitle-sm">進行中</div>
                     </div>
                   </div>
                   <div class="bg-white p-4 xl_flex xl_flex-1 xl_flex-col xl_justify-between xl_p-0">
@@ -192,11 +192,15 @@
                         <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
                       </ul>
                     </div>
-                    <div class="flex space-x-4"><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-25"><svg class="fill-current" width="20" height="20" fill="none">
+                    <div class="flex space-x-4"><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-27"><svg class="fill-current" width="20" height="20" fill="none">
                           <path d="m16.165 6.116-2.283-2.283a1.667 1.667 0 0 0-2.217-.059l-7.5 7.5c-.27.272-.437.628-.475 1.009l-.358 3.475a.833.833 0 0 0 .833.908h.075l3.475-.317c.38-.038.737-.205 1.008-.475l7.5-7.5a1.6 1.6 0 0 0-.058-2.258ZM13.332 8.9l-2.234-2.233L12.723 5l2.275 2.275L13.332 8.9Z" />
-                        </svg><span>編輯</span></button><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-25"><svg class="fill-current" width="20" height="20">
+                        </svg>
+                        <div class="text-subtitle-sm">編輯</div>
+                      </button><button class="btn btn-outline-primary flex items-center space-x-2 w-30 xl_w-27"><svg class="fill-current" width="20" height="20">
                           <path d="M12.917 5v8.75a3.332 3.332 0 1 1-6.667 0V5a2.084 2.084 0 0 1 4.167 0v7.916a.836.836 0 0 1-.834.833.836.836 0 0 1-.833-.833V4.999H7.5v7.917a2.084 2.084 0 0 0 4.167 0V4.999A3.332 3.332 0 1 0 5 5v8.75a4.58 4.58 0 0 0 4.583 4.584 4.58 4.58 0 0 0 4.584-4.584V5h-1.25Z" />
-                        </svg><span>分享 </span></button></div>
+                        </svg>
+                        <div class="text-subtitle-sm">分享 </div>
+                      </button></div>
                   </div>
                 </div>
                 <div class="px-4 xl_px-6">
@@ -255,7 +259,7 @@
               </div>
               <div class="gap-8 grid xl_gap-x-6 xl_grid-cols-2">
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -276,7 +280,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -297,7 +301,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -318,7 +322,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -339,7 +343,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>
@@ -360,7 +364,7 @@
                   }
                 </script>
                 <div class="bg-white creator-work-card cursor-pointer rounded-xl" onclick="goToWork(true)">
-                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""><a class="float-tag" href="../../profile/events/main.html">參加的企劃名稱</a></div>
+                  <div class="cover"><img src="../../static/creator-work-cover.789a2416.png" alt=""></div>
                   <div class="p-6" onclick="goToWork(true)">
                     <div class="flex font-medium justify-between text-gray-light text-xs"><time class="mb-3">2022-05-10</time>
                       <div class="flex items-center space-x-1"><img src="../../static/view.1aed1622.svg" alt=""><span>223</span></div>

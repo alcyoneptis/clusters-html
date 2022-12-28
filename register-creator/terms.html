@@ -122,7 +122,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">關於 Clusters</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">帳號設定</a></li>
+                        <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/profile/me.html">個人檔案</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/subscription/subscription-management.html">訂閱管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/event/event-management.html">企劃管理</a></li>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../admin/order/order-management.html">訂單管理</a></li>
@@ -203,8 +203,66 @@
                   </ul>
                 </div>
                 <div class="bg-white flex flex-col gap-y-6 justify-center px-5 py-4 rounded-xl xl_p-12">
-                  <div class="h1 text-center text-gray-darker">創作者條款</div>
-                  <div class="text-body-sm text-gray text-left whitespace-pre-wrap">Clusters 期望打造一個獨立創作者或是創作者之間都能安心創作的平台，同時也都能在平台上獲得期望的成效，為此Clusters需要制定《創作者規範》來確保創作者們能在進行社群運作的同時符合應遵守的法律規範。違反《創作者規範》的內容將受到隱藏或逕行刪除等發布限制並可能導致創作者遭到暫時或永久性的帳號凍結。 1. 垃圾內容和欺騙的行為 2. 未正確於系統中設定的18禁內容 3. 違反兒童保護相關法律的內容 4. 可能導致用戶不安的內容 i.宣傳品、出版品、廣播、電視、網際網路或其他媒體，不得報導或記載下列事項： ii.教導自殺方法或教唆、誘使、煽惑民眾自殺之訊息。 iii.詳細描述自殺個案之自殺方法及原因。 iv.誘導自殺之文字、聲音、圖片或影像資料。 v.毒性物質或其他致命性自殺工具之銷售情報。 vi.其他經中央主管機關認定足以助長自殺之情形。 5. 暴力、危險或可能影響社會安全之內容 6. 違反著作權的內容</div>
+                  <div class="gap-x-1 inline-flex-center">
+                    <div class="h1 text-center text-gray-darker">創作者條款</div>
+                    <div class="tooltip" x-data="tooltipData({text:`為了打造一個讓大家安心創作的平台，請好好閱讀創作者條款後勾選同意唷！`, tooltipKey:'TOOLTIP-REGISTER-CREATOR-TERMS'})" key="REGISTER-CREATOR-TERMS"><button class="h-7 w-7 xl_hidden" type="button" @click="setShowModalWithTooltipKey"><img src="../static/question.9467dc6e.svg" alt="question"></button>
+                      <div class="h-7 hidden w-7 xl_block" @mouseover="setShowModalWithTooltipKey" @mouseout="setHiddenModal"><img src="../static/question.9467dc6e.svg" alt="question"></div>
+                      <div class="relative" x-show="isShowModal" x-cloak="x-cloak">
+                        <div class="xl_hidden">
+                          <div class="bg-black bg-opacity-50 fixed inset-0 overflow-y-scroll pt-10 z-50">
+                            <div class="container flex items-center justify-center">
+                              <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
+                                <div class="pr-6">
+                                  <div class="text-caption text-gray-darker">為了打造一個讓大家安心創作的平台，請好好閱讀創作者條款後勾選同意唷！</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="absolute hidden left-0 top-0 xl_block z-40">
+                          <div class="bg-gray-lighter break-words max-w-96 px-4 py-2 w-screen">
+                            <div class="text-caption text-gray-darker" x-html="text" x-cloak="x-cloak"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                      function tooltipData(t = {
+                        text: text,
+                        tooltipKey: tooltipKey
+                      }) {
+                        const o = whitespacePreWrapText(t.text),
+                          e = t.tooltipKey;
+                        return {
+                          text: o,
+                          tooltipKey: e,
+                          isShowModal() {
+                            return this.$store.openedModal === e
+                          },
+                          setShowModalWithTooltipKey() {
+                            this.$store.openedModal = e
+                          },
+                          setHiddenModal() {
+                            this.$store.openedModal = void 0
+                          }
+                        }
+                      }
+                    </script>
+                  </div>
+                  <div class="text-body-sm text-gray text-left" x-html="whitespacePreWrapText(`Clusters 期望打造一個獨立創作者或是創作者之間都能安心創作的平台，同時也都能在平台上獲得期望的成效，為此Clusters需要制定《創作者規範》來確保創作者們能在進行社群運作的同時符合應遵守的法律規範。違反《創作者規範》的內容將受到隱藏或逕行刪除等發布限制並可能導致創作者遭到暫時或永久性的帳號凍結。
+
+1. 垃圾內容和欺騙的行為
+2. 未正確於系統中設定的18禁內容
+3. 違反兒童保護相關法律的內容
+4. 可能導致用戶不安的內容
+    i.宣傳品、出版品、廣播、電視、網際網路或其他媒體，不得報導或記載下列事項：
+    ii.教導自殺方法或教唆、誘使、煽惑民眾自殺之訊息。
+    iii.詳細描述自殺個案之自殺方法及原因。
+    iv.誘導自殺之文字、聲音、圖片或影像資料。
+    v.毒性物質或其他致命性自殺工具之銷售情報。
+    vi.其他經中央主管機關認定足以助長自殺之情形。
+5. 暴力、危險或可能影響社會安全之內容
+6. 違反著作權的內容`)" x-cloak=""></div>
                   <div class="grid justify-center"><label class="form-check"><input class="hidden" type="checkbox" name="term-checkbox" value="我同意創作者條款" x-model="checked">
                       <div class="form-check-input"><i class="fa fa-check text-xs"></i></div>
                       <div>我同意創作者條款</div>
