@@ -128,7 +128,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -161,7 +161,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="../../admin/payment/index.html">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.ee5307e1.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="../../register-creator/terms.html">成為創作者</a><img class="h-8 w-8" src="../../static/creation.0e72761d.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -219,7 +219,7 @@
                         <div class="flex items-start space-x-4"><template x-for="(procedure, index) in procedures" x-bind:key="procedure.stage">
                             <div class="flex items-center relative space-x-4">
                               <div class="flex flex-col items-center md_w-24 w-12">
-                                <div class="bg-primary-light border-2 border-primary-lighter flex h-11 items-center justify-center mb-1 md_h-16 md_mb-2 md_w-16 rounded-full w-11"><img class="md_w-11 w-8" src="../../static/octopus.901ea634.png" alt="octopus" x-show="procedure.stage === stage"><img src="../../static/check.70bbf206.svg" x-show="procedure.stage !== stage &amp;&amp; index === 0"></div>
+                                <div class="bg-primary-light border-2 border-primary-lighter flex h-11 items-center justify-center mb-1 md_h-16 md_mb-2 md_w-16 rounded-full w-11"><img class="md_w-11 w-8" src="../../static/octopus.9364b6b6.png" alt="octopus" x-show="procedure.stage === stage"><img src="../../static/check.70bbf206.svg" x-show="procedure.stage !== stage &amp;&amp; index === 0"></div>
                                 <div class="md_text-sm text-xs" x-text="procedure.label" :class="procedure.stage === stage ? 'text-primary':'text-gray'"></div>
                               </div>
                               <div class="-translate-y-4 bg-gray-lighter h-1 md_-translate-y-2 md_w-18 rounded-full w-4" x-show="index !== 2"></div>
@@ -239,7 +239,7 @@
                       </div>
                     </div>
                   </template><template x-if="isProcedureCompleted">
-                    <div class="flex flex-col items-center space-y-8"><img class="w-45" src="../../static/creation.ee5307e1.png" alt="">
+                    <div class="flex flex-col items-center space-y-8"><img class="w-45" src="../../static/creation.0e72761d.png" alt="">
                       <div class="text-lg">已成功更改 Email</div><button class="btn btn-primary md_px-45 px-30" type="button" @click="$store.openedModal = null; isProcedureCompleted = false; stage = 'NEW_EMAIL_INPUT'">確認</button>
                     </div>
                   </template>
