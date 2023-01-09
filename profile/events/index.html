@@ -206,15 +206,17 @@
             </div>
           </div>
         </div>
-        <div class="container flex justify-between py-8 xl_pb-10">
-          <ul class="filter-tabs flex flex-nowrap overflow-x-scroll space-x-6">
-            <li class="bg-primary cursor-pointer font-bold rounded-lg shrink-0 text-lg text-white"><a class="block px-11 py-3" href="../../profile/plan/index.html">所有企劃 20</a></li>
-            <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">主辦 10</a></li>
-            <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">參與 6</a></li>
-            <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">報名 6</a></li>
-            <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">關注 4</a></li>
-          </ul>
-          <div class="hidden space-x-4 xl_flex">
+        <div class="container flex flex-col gap-y-10 justify-between py-8 xl_flex-row xl_pb-10">
+          <div class="flex">
+            <ul class="filter-tabs flex flex-nowrap overflow-x-scroll space-x-6">
+              <li class="bg-primary cursor-pointer font-bold rounded-lg shrink-0 text-lg text-white"><a class="block px-11 py-3" href="../../profile/plan/index.html">所有企劃 20</a></li>
+              <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">主辦 10</a></li>
+              <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">參與 6</a></li>
+              <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">報名 6</a></li>
+              <li class="bg-white border border-gray-lighter cursor-pointer rounded-lg shrink-0 text-gray text-lg"><a class="block px-11 py-3" href="">關注 4</a></li>
+            </ul><button class="ml-1 xl_hidden" @click="menuOpened = true"><img src="../../static/more.61f075be.svg" alt=""></button>
+          </div>
+          <div class="flex space-x-4">
             <div class="relative" x-data="{status: '全部狀態'}">
               <div class="relative" x-data="{open: false}"><button class="bg-white flex items-center px-2 py-3 rounded-lg space-x-4 text-sm" @click="open = !open">
                   <div class="flex items-center space-x-2"><img class="h-3 w-3" src="../../static/filter.d899073e.svg" alt=""><span x-text="status"></span></div><img src="../../static/arrow-down.ebccd611.svg" alt="">
@@ -262,7 +264,7 @@
                 </div>
               </div>
             </div>
-          </div><button class="ml-1 xl_hidden" @click="menuOpened = true"><img src="../../static/more.61f075be.svg" alt=""></button>
+          </div>
         </div>
         <div class="container pb-14 xl_pb-20">
           <section class="mb-14 xl_mb-20">
