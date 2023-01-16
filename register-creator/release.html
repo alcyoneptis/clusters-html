@@ -454,7 +454,7 @@
                                   <div class="bg-primary-lighter flex h-full image-upload items-center justify-center relative w-full xl_h-30 xl_w-30"><img src="../static/plus.693e8099.svg" alt="plus"><label class="absolute cursor-pointer inset-0" for="release-product-image-upload"></label><input class="form-input hidden" type="file" multiple name="release-product-image-upload" id="release-product-image-upload" x-on:change="uploadImages"></div>
                                 </div>
                               </div>
-                              <flex class="flex-col p-2 relative w-half xl_w-30">
+                              <flex class="flex-col p-2 relative w-half xl_w-30" x-show="getImageUrl(0)">
                                 <div class="aspect-square bg-primary-lighter xl_w-30"><img class="h-full w-full" x-show="getImageUrl(0)" :src="getImageUrl(0)" x-cloak="x-cloak"></div><button class="absolute bg-gray-darker h-6 right-0 rounded-full top-0 w-6 xl_-right-4" type="button" x-show="getImageUrl(0)" x-on:click="removeImage(0)">
                                   <div class="flex items-center justify-center"><img src="../static/white-close.58cff5b2.svg" alt="white-close"></div>
                                 </button>
@@ -464,7 +464,7 @@
                                   <div class="bg-white h-1 rounded-full w-1"></div>
                                 </div>
                               </flex>
-                              <flex class="flex-col p-2 relative w-half xl_w-30">
+                              <flex class="flex-col p-2 relative w-half xl_w-30" x-show="getImageUrl(1)">
                                 <div class="aspect-square bg-primary-lighter xl_w-30"><img class="h-full w-full" x-show="getImageUrl(1)" :src="getImageUrl(1)" x-cloak="x-cloak"></div><button class="absolute bg-gray-darker h-6 right-0 rounded-full top-0 w-6 xl_-right-4" type="button" x-show="getImageUrl(1)" x-on:click="removeImage(1)">
                                   <div class="flex items-center justify-center"><img src="../static/white-close.58cff5b2.svg" alt="white-close"></div>
                                 </button>
