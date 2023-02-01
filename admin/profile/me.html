@@ -239,7 +239,7 @@
                   avatarImage.onload = function(ev) {
                     var canvas = document.getElementById("upload-canvas");
                     var context = canvas.getContext("2d");
-                    context.drawImage(avatarImage, 0, 0);
+                    context.drawImage(avatarImage, 0, 0, 280, 280);
 
                     document.getElementsByClassName("avatar-input")[0].classList.add("hidden");
                     const imageWrapper = document.querySelector('[wrapper-name="avatar-input"]');
