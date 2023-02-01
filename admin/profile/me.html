@@ -209,14 +209,16 @@
                 <div class="bg-white md_p-8 md_w-160 px-4 py-6 relative rounded-xl w-full"><img class="absolute cursor-pointer md_right-8 md_top-8 right-4 top-6" src="../../static/close.6e7f3b4b.svg" alt="close" @click="$store.openedModal = null">
                   <div class="font-medium mb-8 md_text-2xl mx-6 text-center text-xl">上傳個人頭像</div>
                   <div class="flex justify-center mb-10">
-                    <div class="avatar-upload bg-gray-lightest flex h-70 items-center justify-center relative rounded-full w-70"><img src="../../static/plus.693e8099.svg" alt="plus">
+                    <div class="avatar-input bg-gray-lightest flex h-70 items-center justify-center relative rounded-full w-70"><img src="../../static/plus.693e8099.svg" alt="plus">
                       <div class="absolute opacity-0 top-20">
-                        <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input hidden" type="file" name="avatar-upload" id="avatar-upload"><label class="btn w-fit" for="avatar-upload">Upload</label></div>
+                        <div class="form-field"><label class="mb-2"><span></span></label><input class="form-input hidden" type="file" id="avatar-input"><label class="btn w-fit" for="avatar-input">Upload</label></div>
                       </div>
                     </div>
-                    <div class="bg-gray h-70 hidden overflow-hidden rounded-full w-70" wrapper-name="avatar-upload"><img src="../../static/next-work.9e275f28.png" img-name="avatar-upload" :style="{ transform: `scale(${zoom/100})`}"></div>
+                    <div class="bg-gray h-70 hidden overflow-hidden rounded-full w-70" wrapper-name="avatar-input">
+                      <canvas width="280" height="280" id="upload-canvas"></canvas>
+                    </div>
                   </div>
-                  <div class="flex items-center mb-10 space-x-2"><img src="../../static/zoom-out.a60f888b.svg" alt=""><input class="avatar-slider" type="range" min="50" max="150" x-model="zoom"><img src="../../static/zoom-in.10c72a9a.svg" alt=""></div>
+                  <div class="flex items-center mb-10 space-x-2"><img src="../../static/zoom-out.a60f888b.svg" alt=""><input class="avatar-slider" type="range" min="0.1" max="2.0" value="1.0"><img src="../../static/zoom-in.10c72a9a.svg" alt=""></div>
                   <div class="flex items-center justify-center w-full">
                     <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full"><button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button><button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">確認</button></div>
                   </div>
@@ -225,8 +227,30 @@
             </div>
           </div>
           <script>
-            const avatarUpload = document.querySelector('[name="avatar-upload"]');
-            avatarUpload.addEventListener("change", uploadImage);
+            let imgInput = document.getElementById("avatar-input");
+            imgInput.addEventListener("change", function (e) {
+              if (e.target.files) {
+                let imageFile = e.target.files[0];
+                var reader = new FileReader();
+                reader.readAsDataURL(imageFile);
+                reader.onloadend = function (e) {
+                  var avatarImage = new Image();
+                  avatarImage.src = e.target.result;
+                  avatarImage.onload = function(ev) {
+                    var canvas = document.getElementById("upload-canvas");
+                    var context = canvas.getContext("2d");
+                    context.drawImage(avatarImage, 0, 0);
+
+                    document.getElementsByClassName("avatar-input")[0].classList.add("hidden");
+                    const imageWrapper = document.querySelector('[wrapper-name="avatar-input"]');
+                    imageWrapper.classList.add("block");
+                    imageWrapper.classList.remove("hidden");
+                    canvas.classList.add("block");
+                    canvas.classList.remove("hidden");
+                  }
+                }
+              }
+            });
           </script>
         </div>
       </div>
