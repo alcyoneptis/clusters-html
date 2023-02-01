@@ -260,6 +260,9 @@
                     var context = canvas.getContext("2d");
                     context.drawImage(avatarImage, 0, 0, 280, 280);
 
+                    avatarScale = 1.0;
+                    avatarSlider.value = avatarScale;
+
                     document.getElementsByClassName("avatar-input")[0].classList.add("hidden");
                     const imageWrapper = document.querySelector('[wrapper-name="avatar-input"]');
                     imageWrapper.classList.add("block");
