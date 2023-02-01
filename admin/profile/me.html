@@ -242,13 +242,24 @@
 
               avatarScale -= 0.1;
               avatarSlider.value = avatarScale;
+              drawAvatarImage();
             });
             document.getElementById("avatar-slider-zoomin").addEventListener("click", function (e) {
               if (avatarScale === 2.0) return;
 
               avatarScale += 0.1;
               avatarSlider.value = avatarScale;
+              drawAvatarImage();
             });
+
+            function drawAvatarImage() {
+              context.clearRect(0, 0, 280, 280);
+              var width  = avatarImage.width  * avatarScale,
+                  height = avatarImage.height * avatarScale;
+              var cx = -width /2 + 140,
+                  cy = -height/2 + 140;
+              context.drawImage(avatarImage, cx, cy, width, height);
+            }
 
             let imgInput = document.getElementById("avatar-input");
             imgInput.addEventListener("change", function (e) {
@@ -259,10 +270,9 @@
                 reader.onloadend = function (e) {
                   avatarImage.src = e.target.result;
                   avatarImage.onload = function(ev) {
-                    context.drawImage(avatarImage, 0, 0, 280, 280);
-
                     avatarScale = 1.0;
                     avatarSlider.value = avatarScale;
+                    drawAvatarImage();
 
                     document.getElementsByClassName("avatar-input")[0].classList.add("hidden");
                     const imageWrapper = document.querySelector('[wrapper-name="avatar-input"]');
