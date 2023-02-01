@@ -179,7 +179,7 @@
           <div class="border-b border-gray-lighter flex items-center mb-8"><a class="active flex-1 profile-tab" href="../../admin/profile/me.html">基本資料</a><a class="flex-1 profile-tab" href="../../admin/profile/me-account.html">帳號、密碼</a></div>
           <div class="space-y-8">
             <div class="relative">
-              <div class="font-medium mb-2">個人頭像 <span class="text-danger">* </span></div><button @click="$store.openedModal = 'AVATAR_MODAL'"><img src="../../static/upload.f01c5b9c.svg" alt=""></button>
+              <div class="font-medium mb-2">個人頭像 <span class="text-danger">* </span></div><button @click="$store.openedModal = 'AVATAR_MODAL'"><img src="../../static/upload.f01c5b9c.svg" alt="" id="preview-avatar"></button>
             </div>
             <div class="form-field"><label class="mb-2"><span>暱稱</span><span class="mt-1 text-danger">*</span></label><input class="form-input" type="text" placeholder="請輸入暱稱" name="nickName"></div>
             <div class="form-field"><label class="mb-2"><span>瀏覽設定</span><span class="mt-1 text-danger">*</span></label>
@@ -226,7 +226,7 @@
                   <div class="flex items-center justify-center w-full">
                     <div class="flex flex-col flex-col-reverse items-center md_flex-row md_space-x-12 md_space-y-0 md_w-fit w-full">
                       <button class="btn btn-outline-primary btn-profile md_w-47" type="button" @click="$store.openedModal = null">取消</button>
-                      <button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button">確認</button>
+                      <button class="btn btn-admin-submit btn-primary btn-profile md_w-47" type="button" id="crop-image">確認</button>
                     </div>
                   </div>
                 </div>
@@ -264,10 +264,11 @@
               context.drawImage(avatarImage, cx, cy, width, height);
             }
 
-            let imgInput = document.getElementById("avatar-input");
+            let imgInput = document.getElementById("avatar-input"), imgType;
             imgInput.addEventListener("change", function (e) {
               if (e.target.files) {
                 let imageFile = e.target.files[0];
+                imgType = imageFile.type;
                 var reader = new FileReader();
                 reader.readAsDataURL(imageFile);
                 reader.onloadend = function (e) {
@@ -286,6 +287,11 @@
                   }
                 }
               }
+            });
+
+            document.getElementById("crop-image").addEventListener("click", function (e) {
+              var previewAvatar = document.getElementById("preview-avatar");
+              previewAvatar.src = canvas.toDataURL(imgType);
             });
           </script>
         </div>
