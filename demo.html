@@ -129,7 +129,7 @@
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
                       </ul>
                       <ul class="border-b border-gray-lighter">
-                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="./static/clustee/clustee_01.png" alt=""></li>
+                        <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="./static/clustee/clustee_logo.png" alt=""></li>
                       </ul>
                       <ul>
                         <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -162,7 +162,7 @@
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">金流管理</a></li>
             </ul>
             <ul class="border-b border-gray-lighter">
-              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="./static/clustee/clustee_01.png" alt=""></li>
+              <li class="flex hover_text-black hoverable items-center justify-between py-3 text-gray text-sm"><a href="">成為創作者</a><img class="h-8 w-8" src="./static/clustee/clustee_logo.png" alt=""></li>
             </ul>
             <ul>
               <li class="hover_text-black hoverable py-3 text-gray text-sm"><a href="">登出</a></li>
@@ -172,7 +172,7 @@
       </sidebar>
       <div class="bg-black bg-opacity-50 fixed inset-0 xl_hidden z-20" @click="open = false" x-show="open" x-transition.opacity.duration.300ms="" x-cloak=""></div>
     </header>
-    <main class="mb-auto mt-12 xl_mt-16" style="height: 2000px;">
+    <main class="mb-auto mt-12 xl_mt-16" style="height: 2000px;" x-data="{ active: '插畫' }">
       <div><img src="./static/demo-index/demo-index-banner.png" alt=""></div>
       <div class="bg-white flex-center xl_pt-8">
         <ul class="page-tabs">
@@ -182,7 +182,7 @@
         </ul>
       </div>
       <div class="container pb-12 pt-9">
-        <div class="overflow-x-scroll" x-data="{ active: '插畫' }">
+        <div class="overflow-x-scroll">
           <ul class="categories">
             <li class="shrink-0"><button class="category" style="background-image: url(./static/chiyami/chiyami_banner01.jpg);" type="button" :class="{ active: active === '插畫' }" @click="active = '插畫'">
                 <div class="title">插畫</div>
@@ -193,7 +193,7 @@
             <li class="shrink-0"><button class="category" style="background-image: url(./static/momizi/momizi_plan_cosplay_bg.png);" type="button" :class="{ active: active === 'Cosplay' }" @click="active = 'Cosplay'">
                 <div class="title">Cosplay</div>
               </button></li>
-            <li class="shrink-0"><button class="category" style="background-image: url(./static/clustee/clustee_08.png);" type="button" :class="{ active: active === '聲音創作' }" @click="active = '聲音創作'">
+            <li class="shrink-0"><button class="category" style="background-image: url(./static/proximasector/proximasector_banner01.jpg);" type="button" :class="{ active: active === '聲音創作' }" @click="active = '聲音創作'">
                 <div class="title">聲音創作</div>
               </button></li>
             <li class="shrink-0"><button class="category" style="background-image: url(./static/yujira/yujira_plan_Live2D_bg.jpg);" type="button" :class="{ active: active === '數位建模' }" @click="active = '數位建模'">
@@ -220,7 +220,7 @@
                   </svg></button></div>
               <div class="swiper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" x-show="active === '插畫'">
                     <div class="swiper-slide">
                       <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_chiyami.html')">
                         <div class="relative"><img src="./static/chiyami/chiyami_banner01.jpg" alt=""></div>
@@ -236,7 +236,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" x-show="active === '插畫'">
                     <div class="swiper-slide">
                       <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_haoni.html')">
                         <div class="relative"><img src="./static/haoni/haoni_devil_1200x630.jpg" alt=""></div>
@@ -251,7 +251,27 @@
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" x-show="active === '插畫'">
+                    <div class="swiper-slide">
+                      <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_ejami.html')">
+                        <div class="relative"><img src="./static/ejami/ejami_banner01.jpg" alt=""></div>
+                        <div class="p-4">
+                          <div class="font-bold line-clamp-1 mb-2 text-subtitle-lg">日常向繪畫244-隔壁的E子太太</div>
+                          <p class="line-clamp-2 mb-3 text-body-sm text-gray">看起來很重的樣子啊</p>
+                          <ul class="flex space-x-2">
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#原創</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#E子太太</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#人妻</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#真理褲</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#南半球</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#獸娘</a></li>
+                          </ul>
+                          <div class="flex items-center justify-between mt-3"><a class="flex items-center space-x-px" href="./profile/creator/ejami.html"><img class="h-7 w-7" src="./static/ejami/ejami_avatar.png" alt=""><span class="text-sm">EJAMI</span></a><time class="text-gray-lighter text-sm">2022-05-10</time></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" x-show="active === '漫畫'">
                     <div class="swiper-slide">
                       <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_melay-2.html')">
                         <div class="relative"><img src="./static/melay/melay_plan_comic_content.jpg" alt=""></div>
@@ -269,22 +289,126 @@
                       </div>
                     </div>
                   </div>
+                  <div class="swiper-slide" x-show="active === 'Cosplay'">
+                    <div class="swiper-slide">
+                      <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_momizi.html')">
+                        <div class="relative"><img src="./static/momizi/momizi_banner01.jpg" alt=""></div>
+                        <div class="p-4">
+                          <div class="font-bold line-clamp-1 mb-2 text-subtitle-lg">感謝你的注意！這是我的第一篇文章❤️</div>
+                          <p class="line-clamp-2 mb-3 text-body-sm text-gray">大家好我是紅葉 今天開始使用Clusters了！...</p>
+                          <ul class="flex space-x-2">
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/momizi.html">#學員偶像</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/momizi.html">#LoveLive</a></li>
+                          </ul>
+                          <div class="flex items-center justify-between mt-3"><a class="flex items-center space-x-px" href="./profile/creator/momizi.html"><img class="h-7 w-7" src="./static/momizi/momizi_avatar.png" alt=""><span class="text-sm">紅葉</span></a><time class="text-gray-lighter text-sm">2022-05-10</time></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" x-show="active === 'Cosplay'">
+                    <div class="swiper-slide">
+                      <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_sayaka.html')">
+                        <div class="relative"><img src="./static/sayaka/sayaka_banner01.jpg" alt=""></div>
+                        <div class="p-4">
+                          <div class="font-bold line-clamp-1 mb-2 text-subtitle-lg">初次投稿🐎里見光鑽cosplay</div>
+                          <p class="line-clamp-2 mb-3 text-body-sm text-gray">大家好，我是社團『無口遮攔』的SAYAKA 沙啞卡 主要以COSPLAY與漫畫為中心創作，目前於漫畫雜誌COMIC阿吽刊載中...</p>
+                          <ul class="flex space-x-2">
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/sayaka.html">#里見光鑽</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/sayaka.html">#ウマ娘</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/sayaka.html">#cosplay</a></li>
+                          </ul>
+                          <div class="flex items-center justify-between mt-3"><a class="flex items-center space-x-px" href="./profile/creator/sayaka.html"><img class="h-7 w-7" src="./static/sayaka/sayaka_avatar.png" alt=""><span class="text-sm">SAYAKA 沙啞卡</span></a><time class="text-gray-lighter text-sm">2022-05-10</time></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" x-show="active === '聲音創作'">
+                    <div class="swiper-slide">
+                      <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_proximasector.html')">
+                        <div class="relative"><img src="./static/proximasector/proximasector_banner01.jpg" alt=""></div>
+                        <div class="p-4">
+                          <div class="font-bold line-clamp-1 mb-2 text-subtitle-lg">比鄰音聲劇-學園的記憶</div>
+                          <p class="line-clamp-2 mb-3 text-body-sm text-gray">為您隆重獻上───. 比鄰星域的「另一種可能性」。 魔法、怪談、學園，由九位少年少女們交織而成的奇幻故事。</p>
+                          <ul class="flex space-x-2">
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/proximasector.html">#比鄰星域</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/proximasector.html">#Vtuber</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/proximasector.html">#台V</a></li>
+                          </ul>
+                          <div class="flex items-center justify-between mt-3"><a class="flex items-center space-x-px" href="./profile/creator/proximasector.html"><img class="h-7 w-7" src="./static/proximasector/proximasector_avatar.png" alt=""><span class="text-sm">比鄰星域 Proxima Sector</span></a><time class="text-gray-lighter text-sm">2022-05-10</time></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" x-show="active === '數位建模'">
+                    <div class="swiper-slide">
+                      <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_yujira.html')">
+                        <div class="relative"><img src="./static/yujira/yujira_banner01.jpg" alt=""></div>
+                        <div class="p-4">
+                          <div class="font-bold line-clamp-1 mb-2 text-subtitle-lg">用朋友的哀鳳測試Live2D模型！</div>
+                          <p class="line-clamp-2 mb-3 text-body-sm text-gray">我那時真的滿認真剪影片耶現在有點墮落了（乾啊...</p>
+                          <ul class="flex space-x-2">
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/yujira.html">#Live2D</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/yujira.html">#Vtuber Studio</a></li>
+                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/yujira.html">#原創</a></li>
+                          </ul>
+                          <div class="flex items-center justify-between mt-3"><a class="flex items-center space-x-px" href="./profile/creator/yujira.html"><img class="h-7 w-7" src="./static/yujira/yujira_avatar.jpg" alt=""><span class="text-sm">比鄰星域 Proxima Sector</span></a><time class="text-gray-lighter text-sm">2022-05-10</time></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="event-swiper-section" x-show="active === 'Cosplay'">
+        <div class="container relative">
+          <div class="mb-14 xl_mb-20">
+            <h2 class="font-medium h1 mb-6 text-center">推薦企劃</h2>
+            <div class="relative">
+              <div class="hidden xl_block"><button class="-translate-x-4 -translate-y-half absolute bg-gray-dark bg-opacity-65 flex-center h-12 hover_bg-gray-dark hoverable left-0 prev rounded-full top-half w-12 z-20"><svg width="15" height="25" fill="none">
+                    <path d="m.585 14.181 11.053 10.36a1.688 1.688 0 0 0 2.311-2.461l-9.74-9.127 9.736-9.131a1.688 1.688 0 0 0-2.312-2.46L.58 11.72c-.337.314-.53.76-.53 1.229 0 .468.193.918.535 1.232Z" fill="#fff" />
+                  </svg></button><button class="-translate-y-half absolute bg-gray-dark bg-opacity-65 flex-center h-12 hover_bg-gray-dark hoverable next right-0 rounded-full top-half translate-x-4 w-12 z-20"><svg width="15" height="25" fill="none">
+                    <path d="M13.947 14.181 2.894 24.541a1.688 1.688 0 0 1-2.31-2.461l9.74-9.127L.588 3.822a1.688 1.688 0 0 1 2.31-2.46L13.953 11.72c.337.314.53.76.53 1.229 0 .468-.193.918-.535 1.232Z" fill="#fff" />
+                  </svg></button></div>
+              <div class="swiper">
+                <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <div class="swiper-slide">
-                      <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md work-card" onclick="goTo('./profile/work/article_ejami.html')">
-                        <div class="relative"><img src="./static/ejami/ejami_banner01.jpg" alt=""></div>
-                        <div class="p-4">
-                          <div class="font-bold line-clamp-1 mb-2 text-subtitle-lg">日常向繪畫244-隔壁的E子太太</div>
-                          <p class="line-clamp-2 mb-3 text-body-sm text-gray">看起來很重的樣子啊</p>
-                          <ul class="flex space-x-2">
-                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#原創</a></li>
-                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#E子太太</a></li>
-                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#人妻</a></li>
-                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#真理褲</a></li>
-                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#南半球</a></li>
-                            <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="./profile/creator/ejami.html">#獸娘</a></li>
-                          </ul>
-                          <div class="flex items-center justify-between mt-3"><a class="flex items-center space-x-px" href="./profile/creator/ejami.html"><img class="h-7 w-7" src="./static/ejami/ejami_avatar.png" alt=""><span class="text-sm">EJAMI</span></a><time class="text-gray-lighter text-sm">2022-05-10</time></div>
+                      <div class="relative">
+                        <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="goTo('/profile/events/main_momizi.html')">
+                          <div class="p-4">
+                            <div class="font-medium h2 mb-3">桜坂しずく生日攝影會</div>
+                            <p class="text-sm">💧HAPPY BIRTHDAY 桜坂しずく💧</p>
+                          </div><img class="w-full" src="../../static/momizi/events/events_post_banner.jpg" alt="">
+                          <div class="px-3 py-4">
+                            <div class="flex items-center justify-between mb-3"><a class="flex items-center space-x-1" href="./profile/creator/momizi.html"><img class="h-7 w-7" src="./static/momizi/momizi_avatar.png" alt=""><span class="text-lg">紅葉</span></a>
+                              <div class="bg-warning border-warning btn py-1 text-sm">招募中</div>
+                            </div>
+                            <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
+                              <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2023-03-27</span></div>
+                              <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                                <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>88人關注此企劃</span></div>
+                                <div class="flex justify-start">
+                                  <div class="flex items-center">
+                                    <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/momizi/momizi_avatar.png" alt=""><img class="h-7 translate-x-half w-7" src="./static/sayaka/sayaka_avatar.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/momizi/events/default-avatar.png" alt=""></div><span class="ml-1">參加</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <ul class="flex mb-3 space-x-2">
+                                <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">Cosplay</li>
+                              </ul>
+                              <ul class="flex space-x-2">
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#LoveLive</a></li>
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#ラブライブ</a></li>
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#虹ヶ咲学園スクールアイドル同好会</a></li>
+                              </ul>
+                              <div class="btn btn-block btn-primary mt-6">進行中</div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
