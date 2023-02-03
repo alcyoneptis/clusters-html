@@ -208,7 +208,7 @@
           </ul>
         </div>
       </div>
-      <section class="work-swiper-section">
+      <section class="work-swiper-section" x-show="active === '插畫'|active === '漫畫'|active === 'Cosplay'|active === '聲音創作'|active === '數位建模'">
         <div class="container relative">
           <div class="mb-14 xl_mb-20">
             <h2 class="font-medium h1 mb-6 text-center">推薦作品</h2>
@@ -362,7 +362,7 @@
           </div>
         </div>
       </section>
-      <section class="event-swiper-section" x-show="active === 'Cosplay'">
+      <section class="event-swiper-section" x-show="active != '獨立遊戲'">
         <div class="container relative">
           <div class="mb-14 xl_mb-20">
             <h2 class="font-medium h1 mb-6 text-center">推薦企劃</h2>
@@ -374,14 +374,14 @@
                   </svg></button></div>
               <div class="swiper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" x-show="active === 'Cosplay'">
                     <div class="swiper-slide">
                       <div class="relative">
                         <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="goTo('/profile/events/main_momizi.html')">
                           <div class="p-4">
                             <div class="font-medium h2 mb-3">桜坂しずく生日攝影會</div>
                             <p class="text-sm">💧HAPPY BIRTHDAY 桜坂しずく💧</p>
-                          </div><img class="w-full" src="../../static/momizi/events/events_post_banner.jpg" alt="">
+                          </div><img class="w-full" src="./static/momizi/events/events_post_banner.jpg" alt="">
                           <div class="px-3 py-4">
                             <div class="flex items-center justify-between mb-3"><a class="flex items-center space-x-1" href="./profile/creator/momizi.html"><img class="h-7 w-7" src="./static/momizi/momizi_avatar.png" alt=""><span class="text-lg">紅葉</span></a>
                               <div class="bg-warning border-warning btn py-1 text-sm">招募中</div>
@@ -405,6 +405,88 @@
                                 <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#LoveLive</a></li>
                                 <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#ラブライブ</a></li>
                                 <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#虹ヶ咲学園スクールアイドル同好会</a></li>
+                              </ul>
+                              <div class="btn btn-block btn-primary mt-6">進行中</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" x-show="active === '插畫'|active === '漫畫'">
+                    <div class="swiper-slide">
+                      <div class="relative">
+                        <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="goTo('/profile/events/main_not-along.html')">
+                          <div class="p-4">
+                            <div class="font-medium h2 mb-3">Not alone</div>
+                            <p class="text-sm">（待補）</p>
+                          </div><img class="w-full" src="./static/not-along/events/events_post_banner.png" alt="">
+                          <div class="px-3 py-4">
+                            <div class="flex items-center justify-between mb-3"><a class="flex items-center space-x-1" href="./profile/creator/melay.html"><img class="h-7 w-7" src="./static/melay/melay_avatar.png" alt=""><span class="text-lg">米雷</span></a>
+                              <div class="bg-warning border-warning btn py-1 text-sm" style="display: none;">招募中</div>
+                            </div>
+                            <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
+                              <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>2019-12-14</span></div>
+                              <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                                <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>128人關注此企劃</span></div>
+                                <div class="flex justify-start">
+                                  <div class="flex items-center">
+                                    <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="" alt="" style="display: none;"><img class="h-7 translate-x-half w-7" src="./static/not-along/events/user_avatar_melay.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/not-along/events/user_avatar_ushio.png" alt=""></div><span class="ml-1">參加</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <ul class="flex mb-3 space-x-2">
+                                <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                                <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">漫畫</li>
+                              </ul>
+                              <ul class="flex space-x-2">
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#林克</a></li>
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#曠野之息</a></li>
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#薩爾達傳說</a></li>
+                              </ul>
+                              <div class="btn btn-block btn-primary mt-6">進行中</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" x-show="active === '插畫'|active === '聲音創作'|active === '數位建模'|active === '其他'">
+                    <div class="swiper-slide">
+                      <div class="relative">
+                        <div class="bg-white cursor-pointer overflow-hidden rounded-xl shadow-md" onclick="goTo('/profile/events/main_shelleybb.html')">
+                          <div class="p-4">
+                            <div class="font-medium h2 mb-3">👻幽靈石綾&貓又BB🐈</div>
+                            <p class="text-sm">雙人勢vtuber...</p>
+                          </div><img class="w-full" src="./static/shelleybb/events/events_post_banner.png" alt="">
+                          <div class="px-3 py-4">
+                            <div class="flex items-center justify-between mb-3"><a class="flex items-center space-x-1" href=""><img class="h-7 w-7" src="./static/shelleybb/events/user_avatar_vtuber_shelleybblive.png" alt=""><span class="text-lg">👻石綾&BB🐈</span></a>
+                              <div class="bg-warning border-warning btn py-1 text-sm" style="display: none;">招募中</div>
+                            </div>
+                            <div class="border-b border-b-gray-lighter mb-3 pb-3 space-y-3">
+                              <div class="flex items-center space-x-1"><img src="./static/calendar.53c25641.svg" alt=""><span>無限制</span></div>
+                              <div class="-space-x-7 flex flex-col items-start justify-between space-y-3 xl_flex-row xl_items-center xl_space-x-0 xl_space-y-0">
+                                <div class="-space-y flex items-center space-x-1"><img src="./static/star.3e315fe9.svg" alt=""><span>777人關注此企劃</span></div>
+                                <div class="flex justify-start">
+                                  <div class="flex items-center">
+                                    <div class="flex items-center"><img class="h-7 translate-x-full w-7" src="./static/shelleybb/events/user_avatar_vtuber_shelleybblive.png" alt="""><img class="h-7 translate-x-half w-7" src="./static/shelleybb/events/user_avatar_illust_saya.png" alt=""><img class="h-7 rounded-full w-7 z-10" src="./static/shelleybb/events/user_avatar_live2d_ujira.png" alt=""></div><span class="ml-1">參加</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <ul class="flex mb-3 space-x-2">
+                                <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">插畫</li>
+                                <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">聲音創作</li>
+                                <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">數位建模</li>
+                                <li class="bg-info-light px-3 py-1 rounded-sm text-primary text-xs">其他</li>
+                              </ul>
+                              <ul class="flex space-x-2">
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#Vtuber</a></li>
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#台V</a></li>
+                                <li><a class="bg-white border border-gray-lighter hover_border-gray hover_text-gray hoverable px-1 rounded-sm text-gray-lighter text-xs" href="">#Live2D</a></li>
                               </ul>
                               <div class="btn btn-block btn-primary mt-6">進行中</div>
                             </div>
